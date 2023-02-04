@@ -8,25 +8,28 @@ public class RoundManager : Singleton<RoundManager>
     [HideInInspector] public int stageNum { get; private set; } = 0;
     [HideInInspector] public int roundNum { get; private set; } = 0;
     [HideInInspector] public float timer { get; private set; }
+    [HideInInspector] public float unsafeProbability { get; private set; }
 
     PersonData client;
     PersonData candidate1;
     PersonData candidate2;
     private PersonData candidateChosen;
-    
-    float unsafeProbability = 0f;
-
 
     [SerializeField] UnityEvent OnRoundChange;
 
     void Awake()
     {
         timer = GameSettings.START_TIME_LENGTHS[stageNum];
+        unsafeProbability = GameSettings.UNSAFE_STARTING_PROBABILITY[stageNum];
     }
 
     void Update()
     {
         timer -= Time.deltaTime;
+        if (timer <= 0f)
+        {
+            GameManager.Instance.ChangeState(GameState.GameOver);
+        }
     }
 
     public void IncrementRound()
@@ -44,18 +47,21 @@ public class RoundManager : Singleton<RoundManager>
     public void EndRound()
     {
         // Marry(candidateChosen, client);
+        unsafeProbability += GameSettings.UNSAFE_PROBABILITY_INCREMENTS[stageNum];
     }
 
     public void OnCorrectMarry()
     {
         timer += GameSettings.CORRECT_TIME_INCREMENT;
         timer = Mathf.Clamp(timer, 0f, GameSettings.MAX_TIME_LENGTHS[stageNum]);
+        GameManager.Instance.ChangeState(GameState.Correct);
     }
 
     public void OnInorrectMarry()
     {
         timer += GameSettings.INCORRECT_TIME_INCREMENT;
         timer = Mathf.Clamp(timer, 0f, GameSettings.MAX_TIME_LENGTHS[stageNum]);
+        GameManager.Instance.ChangeState(GameState.Wrong);
     }
 
     public void SetCandidates()

@@ -22,4 +22,24 @@ public static class GameSettings
 
     public static float CORRECT_TIME_INCREMENT = 5f;
     public static float INCORRECT_TIME_INCREMENT = -10f;
+
+    public static SerializableDictionary<int, float> GAME_ROUND_LENGTHS = new SerializableDictionary<int, float>
+    {
+        { 0, 5 },
+        { 1, 10 },
+        { 2, 15 },
+    };
+    
+    public static SerializableDictionary<int, float> UNSAFE_STARTING_PROBABILITY = new SerializableDictionary<int, float>
+    {
+        { 0, -0.5f },
+        { 1, 0.0f },
+        { 2, 0.2f },
+    };
+    public static SerializableDictionary<int, float> UNSAFE_PROBABILITY_INCREMENTS = new SerializableDictionary<int, float>
+    {
+        { 0, 0.5f },
+        { 1, 0.15f },
+        { 2, 0.1f },
+    };
 }
