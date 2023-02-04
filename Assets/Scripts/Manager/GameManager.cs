@@ -32,7 +32,8 @@ public class GameManager : Singleton<GameManager>
     }
     void Start()
     {
-        ChangeState(GameState.Starting);
+        ChangeState(GameState.Menu);
+        EventManager.Invoke("UnityStart");
     }
 
     public void ChangeState(GameState newState)
@@ -46,7 +47,9 @@ public class GameManager : Singleton<GameManager>
         OnStateChanged();
         switch (newState)
         {
-            case GameState.Starting:
+            case GameState.Menu:
+                break;
+            case GameState.InGame:
                 break;
             case GameState.PlayerTurn:
 
@@ -71,7 +74,8 @@ public class GameManager : Singleton<GameManager>
 public enum GameState
 {
     NotStarted, //When you start the unity and but not press the start button
-    Starting, //When the button start
+    Menu, //When you are in the menu
+    InGame, //When you are in the game
     PlayerTurn,  // Waiting for player to make decision
     Correct, //Turn when you make correct choices
     Wrong, //Turn when you make wrong choices
