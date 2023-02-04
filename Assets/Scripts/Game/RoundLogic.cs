@@ -35,16 +35,16 @@ public class RoundLogic : MonoBehaviour
 
     public void SetCandidates()
     {
-        candidate1 = GetRandomSafePerson();
+        // candidate1 = GetRandomSafePerson();
 
         float rand = Random.Range(0f, 1f);
         if (rand < unsafeProbability)
         {
-            candidate2 = GetRandomUnsafePerson();
+            // candidate2 = GetRandomUnsafePerson();
         }
         else
         {
-            candidate2 = GetRandomSafePerson();
+            // candidate2 = GetRandomSafePerson();
         }
 
         bool swap = Random.Range(0, 2) == 1;
