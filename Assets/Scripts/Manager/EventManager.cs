@@ -73,7 +73,7 @@ public class EventManager : Singleton<EventManager>
     {
         if (Instance == null)
         {
-            Debug.LogWarning("EventManager does not init");
+            //Debug.LogWarning("EventManager does not init");
             return;
         }
         if (!Instance.enabled)
