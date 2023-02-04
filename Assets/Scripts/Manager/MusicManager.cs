@@ -25,6 +25,7 @@ public class MusicManager : Singleton<GameManager>
 
     public void PlayMusic(int index)
     {
+        StopMusic();
         if(index >= musicClips.Count)
             return;
         audioSource.clip = musicClips[index];
