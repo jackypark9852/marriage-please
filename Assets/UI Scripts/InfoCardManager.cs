@@ -48,21 +48,26 @@ public class InfoCardManager : MonoBehaviour, I_InfoCard
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            MoveTo(Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 10), 2);
-        }
+        // if (Input.GetKey(KeyCode.Mouse0))
+        // {
+        //     MoveTo(Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 10), 2);
+        // }
 
-        if (Input.GetKey(KeyCode.P))
-        {
-            ChangePicture(testSprite);
-            ChangeName("Andy Song");
-        }
+        // if (Input.GetKey(KeyCode.P))
+        // {
+        //     ChangePicture(testSprite);
+        //     ChangeName("Andy Song");
+        // }
     }
 
     void OnMouseEnter()
     {
         transform.DOShakeScale(1, 0.05f);
+
+    }
+
+    void OnMouseDown()
+    {
         infoCardClicked.Invoke(personData);
     }
 
@@ -76,7 +81,7 @@ public class InfoCardManager : MonoBehaviour, I_InfoCard
     void OnMouseExit()
     {
         //The mouse is no longer hovering over the GameObject so output this message each frame
-        Debug.Log("Mouse is no longer on GameObject.");
+        // Debug.Log("Mouse is no longer on GameObject.");
     }
 
     // custome functions

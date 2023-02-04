@@ -12,7 +12,8 @@ public class RoundManager : Singleton<RoundManager>
     [HideInInspector] public float unsafeProbability { get; private set; }
 
     [Header("Script References")]
-    [SerializeField] private List<InfoCardManager> infoCardManagers;
+    [SerializeField] private InfoCardManager infoCardManager1;
+    [SerializeField] private InfoCardManager infoCardManager2;
     [Header("Data")]
     [SerializeField] List<StageData> stageDatas;
     [Header("Events")]
@@ -20,6 +21,8 @@ public class RoundManager : Singleton<RoundManager>
     public UnityEvent stageChanged;
     public UnityEvent wrongCandidateChosen;
     public UnityEvent correctCandidateChosen;
+    [Header("Debug")]
+    [SerializeField] private TMPro.TextMeshProUGUI debugClientText;
 
     PersonData client;
     PersonData candidate1;
@@ -38,10 +41,8 @@ public class RoundManager : Singleton<RoundManager>
         StartStage();
         wrongCandidateChosen.AddListener(OnInorrectMarry);
         correctCandidateChosen.AddListener(OnCorrectMarry);
-        foreach (InfoCardManager infoCardManager in infoCardManagers)
-        {
-            infoCardManager.infoCardClicked.AddListener(OnInfoCardClicked);
-        }
+        infoCardManager1.infoCardClicked.AddListener(OnInfoCardClicked);
+        infoCardManager2.infoCardClicked.AddListener(OnInfoCardClicked);
     }
 
     void Update()
@@ -72,13 +73,16 @@ public class RoundManager : Singleton<RoundManager>
     {
         roundNum++;
         roundChanged.Invoke();
+        StartRound();
     }
 
     public void StartRound()
     {
         familyLogic.FamilyData = stageDatas[stageNum].familyData;
         client = familyLogic.GetClient();
+        debugClientText.text = client.name; // TODO: Remove this
         SetCandidates();
+        SetInfoCardDatas();
     }
 
     public void EndRound()
@@ -91,6 +95,7 @@ public class RoundManager : Singleton<RoundManager>
             stageNum++;
             EndStage();
         }
+        // TODO: Move infocards out of sight and update them
     }
 
     public void OnCorrectMarry()
@@ -143,5 +148,10 @@ public class RoundManager : Singleton<RoundManager>
         {
             wrongCandidateChosen.Invoke();
         }
+    }
+    private void SetInfoCardDatas()
+    {
+        infoCardManager1.PersonData = candidate1;
+        infoCardManager2.PersonData = candidate2;
     }
 }
