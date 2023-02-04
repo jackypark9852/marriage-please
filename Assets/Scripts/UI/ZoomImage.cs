@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class ZoomImage : MonoBehaviour
 {
-    public float zoomSpeed = 0.05f;
-    public float minZoom = 0.1f;
+    public float zoomSpeed = 0.7f;
+    public float minZoom = 0.2f;
     public float maxZoom = 10f;
 
     private Image image;
@@ -22,7 +22,8 @@ public class ZoomImage : MonoBehaviour
 
         if (scroll != 0f)
         {
-            float zoom = image.rectTransform.localScale.x - scroll * zoomSpeed;
+            float localScale = image.rectTransform.localScale.x;
+            float zoom = localScale- scroll * zoomSpeed * localScale;
             zoom = Mathf.Clamp(zoom, minZoom, maxZoom);
             image.rectTransform.localScale = new Vector3(zoom, zoom, 1f);
         }
