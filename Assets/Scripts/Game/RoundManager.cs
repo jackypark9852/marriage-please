@@ -134,6 +134,7 @@ public class RoundManager : Singleton<RoundManager>
     {
         candidateChosen = personData;
         MarriageInfo marriageInfo = familyLogic.Marry(personData, client);
+        Debug.Log("Marrying " + personData.Name + " and " + client.Name + " is " + marriageInfo.isMarriageAllowed);
         if (marriageInfo.isMarriageAllowed)
         {
             correctCandidateChosen.Invoke();
