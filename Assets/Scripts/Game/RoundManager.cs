@@ -11,15 +11,21 @@ public class RoundManager : Singleton<RoundManager>
     [HideInInspector] public float timer { get; private set; }
     [HideInInspector] public float unsafeProbability { get; private set; }
 
+    [Header("Script References")]
+    [SerializeField] private List<InfoCardManager> infoCardManagers;
+    [Header("Data")]
+    [SerializeField] List<StageData> stageDatas;
+    [Header("Events")]
+    public UnityEvent roundChanged;
+    public UnityEvent stageChanged;
+    public UnityEvent wrongCandidateChosen;
+    public UnityEvent correctCandidateChosen;
+
     PersonData client;
     PersonData candidate1;
     PersonData candidate2;
     private PersonData candidateChosen;
-
-    [SerializeField] UnityEvent OnRoundChange;
-
     FamilyLogic familyLogic;
-    [SerializeField] List<StageData> stageDatas;
     StageData currentStageData;
 
     void Awake()
@@ -30,6 +36,12 @@ public class RoundManager : Singleton<RoundManager>
     void Start()
     {
         StartStage();
+        wrongCandidateChosen.AddListener(OnInorrectMarry);
+        correctCandidateChosen.AddListener(OnCorrectMarry);
+        foreach (InfoCardManager infoCardManager in infoCardManagers)
+        {
+            infoCardManager.infoCardClicked.AddListener(OnInfoCardClicked);
+        }
     }
 
     void Update()
@@ -53,22 +65,22 @@ public class RoundManager : Singleton<RoundManager>
 
     public void EndStage()
     {
-        
+
     }
 
     public void IncrementRound()
     {
         roundNum++;
-        OnRoundChange.Invoke();
+        roundChanged.Invoke();
     }
-    
+
     public void StartRound()
     {
         familyLogic.FamilyData = stageDatas[stageNum].familyData;
         client = familyLogic.GetClient();
         SetCandidates();
     }
-    
+
     public void EndRound()
     {
         familyLogic.Marry(candidateChosen, client);
@@ -115,6 +127,20 @@ public class RoundManager : Singleton<RoundManager>
             PersonData temp = candidate1;
             candidate1 = candidate2;
             candidate2 = temp;
+        }
+    }
+
+    public void OnInfoCardClicked(PersonData personData)
+    {
+        candidateChosen = personData;
+        MarriageInfo marriageInfo = familyLogic.Marry(personData, client);
+        if (marriageInfo.isMarriageAllowed)
+        {
+            correctCandidateChosen.Invoke();
+        }
+        else
+        {
+            wrongCandidateChosen.Invoke();
         }
     }
 }

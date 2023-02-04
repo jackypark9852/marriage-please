@@ -14,7 +14,7 @@ public class InfoCardManager : MonoBehaviour, I_InfoCard
     public TextMeshPro nameField;
     public GameObject heartObj;
     [Header("Events: ")]
-    public UnityEvent onInfoCardClicked;
+    public UnityEvent<PersonData> infoCardClicked;
     [Header("Data")]
     [SerializeField] private PersonData personData;
     public PersonData PersonData
@@ -63,7 +63,7 @@ public class InfoCardManager : MonoBehaviour, I_InfoCard
     void OnMouseEnter()
     {
         transform.DOShakeScale(1, 0.05f);
-        onInfoCardClicked.Invoke();
+        infoCardClicked.Invoke(personData);
     }
 
     void OnMouseOver()
