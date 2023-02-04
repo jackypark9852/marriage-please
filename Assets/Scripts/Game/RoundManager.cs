@@ -93,11 +93,11 @@ public class RoundManager : Singleton<RoundManager>
         float rand = Random.Range(0f, 1f);
         if (rand < unsafeProbability)
         {
-            candidate1 = familyLogic.GetUnsafeCandidate(client);
+            candidate1 = familyLogic.GetUnsafeCandidate(client, new List<PersonData> { candidate1 });
         }
         else
         {
-            candidate2 = familyLogic.GetSafeCandidate(client);
+            candidate2 = familyLogic.GetSafeCandidate(client, new List<PersonData> { candidate1 });
         }
 
         bool swap = Random.Range(0, 2) == 1;

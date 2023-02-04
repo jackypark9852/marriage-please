@@ -12,7 +12,9 @@ public class FamilyData : ScriptableObject
     [SerializeField] private List<PersonData> _roots;
     public List<PersonData> Members => _members;
 
-    public bool IsCloseRelative(PersonData person1, PersonData person2, int minSafeDistance = 2)
+    int minSafeDistance = GameSettings.SAFE_DISTANCE;
+
+    public bool IsCloseRelative(PersonData person1, PersonData person2)
     {
         int distance = GetDistance(person1, person2);
         if (distance == -1) // No common ancestor found, so not related

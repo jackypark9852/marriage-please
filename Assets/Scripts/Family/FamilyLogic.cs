@@ -40,33 +40,59 @@ public class FamilyLogic : MonoBehaviour
         return marriageInfo;
     }
 
-    public PersonData GetSafeCandidate(PersonData person)
+    public PersonData GetSafeCandidate(PersonData person, List<PersonData> excludes = null)
     {
-        foreach (var availablePerson in availablePeople)
+        List<PersonData> candidates = new List<PersonData>(availablePeople);
+        if (excludes != null)
         {
-            if (availablePerson == person)
+            foreach (PersonData exclude in excludes)
+            {
+                candidates.Remove(exclude);
+            }
+        }
+        if(candidates.Count == 0)
+        {
+            return null;
+        }
+        
+        foreach (var candidate in candidates)
+        {
+            if (candidate == person)
             {
                 continue;
             }
-            if (!_familyData.IsCloseRelative(person, availablePerson))
+            if (!_familyData.IsCloseRelative(person, candidate))
             {
-                return availablePerson;
+                return candidate;
             }
         }
         return null;
     }
 
-    public PersonData GetUnsafeCandidate(PersonData person)
+    public PersonData GetUnsafeCandidate(PersonData person, List<PersonData> excludes = null)
     {
-        foreach (var availablePerson in availablePeople)
+        List<PersonData> candidates = new List<PersonData>(availablePeople);
+        if (excludes != null)
         {
-            if (availablePerson == person)
+            foreach (PersonData exclude in excludes)
+            {
+                candidates.Remove(exclude);
+            }
+        }
+        if (candidates.Count == 0)
+        {
+            return null;
+        }
+
+        foreach (var candidate in candidates)
+        {
+            if (candidate == person)
             {
                 continue;
             }
-            if (_familyData.IsCloseRelative(person, availablePerson))
+            if (_familyData.IsCloseRelative(person, candidate))
             {
-                return availablePerson;
+                return candidate;
             }
         }
         return null;
