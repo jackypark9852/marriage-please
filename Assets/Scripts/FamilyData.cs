@@ -24,7 +24,7 @@ public class FamilyData : ScriptableObject
     }
 
     // Returns -1 if no common ancestor is found
-    private int GetDistance(PersonData person1, PersonData person2)
+    public int GetDistance(PersonData person1, PersonData person2)
     {
         List<PersonData> path1 = null;
         List<PersonData> path2 = null;
