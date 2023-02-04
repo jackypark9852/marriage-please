@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using DG.Tweening;
 using TMPro;
+using UnityEngine;
+using UnityEngine.Events;
 
 public class InfoCardManager : MonoBehaviour, I_InfoCard
 {
@@ -12,6 +13,20 @@ public class InfoCardManager : MonoBehaviour, I_InfoCard
     public Transform portraitSprite;
     public TextMeshPro nameField;
     public GameObject heartObj;
+    [Header("Events: ")]
+    public UnityEvent onInfoCardClicked;
+    [Header("Data")]
+    [SerializeField] private PersonData personData;
+    public PersonData PersonData
+    {
+        get { return personData; }
+        set
+        {
+            personData = value;
+            ChangePicture(personData.Sprite);
+            ChangeName(personData.name);
+        }
+    }
 
     [Header("For Test Only: ")]
     public Sprite testSprite;
@@ -27,17 +42,19 @@ public class InfoCardManager : MonoBehaviour, I_InfoCard
 
         // sequence.Append(transform.DOMoveX(2, 2));
 
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0)) {
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
             MoveTo(Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 10), 2);
         }
 
-        if (Input.GetKey(KeyCode.P)) {
+        if (Input.GetKey(KeyCode.P))
+        {
             ChangePicture(testSprite);
             ChangeName("Andy Song");
         }
@@ -46,13 +63,14 @@ public class InfoCardManager : MonoBehaviour, I_InfoCard
     void OnMouseEnter()
     {
         transform.DOShakeScale(1, 0.05f);
+        onInfoCardClicked.Invoke();
     }
 
     void OnMouseOver()
     {
         //If your mouse hovers over the GameObject with the script attached, output this message
         // Debug.Log("Mouse is over GameObject.");
-        
+
     }
 
     void OnMouseExit()
@@ -62,19 +80,23 @@ public class InfoCardManager : MonoBehaviour, I_InfoCard
     }
 
     // custome functions
-    void MoveTo(Vector3 target, float duration) {
+    void MoveTo(Vector3 target, float duration)
+    {
         transform.DOMove(target, duration);
     }
 
-    void ChangePicture(Sprite sp) {
+    void ChangePicture(Sprite sp)
+    {
         portraitSprite.GetComponent<SpriteRenderer>().sprite = sp;
     }
 
-    void ChangeName(String name) {
+    void ChangeName(String name)
+    {
         nameField.text = name;
     }
 
-    void PlayHeartAnim() {
+    void PlayHeartAnim()
+    {
         Animator anim = heartObj.GetComponent<Animator>();
         anim.Play("HeartEffect", 0, 0.25f);
     }
