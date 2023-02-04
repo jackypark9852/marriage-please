@@ -23,7 +23,7 @@ public class FamilyLogic : MonoBehaviour
     public List<PersonData> Dishonorables => dishonorables;
     private void Start()
     {
-        InitializeMembers();
+        
     }
 
     public MarriageInfo Marry(PersonData person1, PersonData person2)
@@ -44,6 +44,10 @@ public class FamilyLogic : MonoBehaviour
     {
         foreach (var availablePerson in availablePeople)
         {
+            if (availablePerson == person)
+            {
+                continue;
+            }
             if (!_familyData.IsCloseRelative(person, availablePerson))
             {
                 return availablePerson;
@@ -56,6 +60,10 @@ public class FamilyLogic : MonoBehaviour
     {
         foreach (var availablePerson in availablePeople)
         {
+            if (availablePerson == person)
+            {
+                continue;
+            }
             if (_familyData.IsCloseRelative(person, availablePerson))
             {
                 return availablePerson;
@@ -64,7 +72,7 @@ public class FamilyLogic : MonoBehaviour
         return null;
     }
 
-    public PersonData GetClient(PersonData person)
+    public PersonData GetClient()
     {
         // If there are less than 3 people left, there won't be candidates for the client
         if (availablePeople.Count < 3)
@@ -97,12 +105,6 @@ public class FamilyLogic : MonoBehaviour
             // Swap the new and old values
             a[i] = a[rnd];
             a[rnd] = temp;
-        }
-
-        // Print
-        for (int i = 0; i < a.Count; i++)
-        {
-            Debug.Log(a[i]);
         }
     }
 }
