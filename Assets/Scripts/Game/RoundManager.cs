@@ -124,14 +124,13 @@ public class RoundManager : Singleton<RoundManager>
     {
         timer += GameSettings.CORRECT_TIME_INCREMENT;
         timer = Mathf.Clamp(timer, 0f, currentStageData.maxTimeLength);
-        GameManager.Instance.ChangeState(GameState.Correct);
+
     }
 
     public void OnInorrectMarry()
     {
         timer += GameSettings.INCORRECT_TIME_INCREMENT;
         timer = Mathf.Clamp(timer, 0f, currentStageData.maxTimeLength);
-        GameManager.Instance.ChangeState(GameState.Wrong);
     }
 
     public void SetCandidates()

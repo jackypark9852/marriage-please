@@ -18,20 +18,20 @@ public class GameManager : Singleton<GameManager>
         EventManager.Instance.Init();
         EventManager.AddEvent("UnityStart", new UnityAction(()=>Debug.Log("UnityStart"))); //When you first enter into the game
         EventManager.AddEvent("ChangeState", new UnityAction(()=>Debug.Log("ChangeState")));//when you change the states'
-        EventManager.AddEvent("StartTutorial", new UnityAction(()=>SceneManager.LoadScene(sceneNameList[1]))); //When you press the start button'
+        EventManager.AddEvent("StartTutorial", new UnityAction(()=>SceneManager.LoadScene(sceneNameList[1]))); //When you press the start button
         EventManager.AddEvent("GameStart", new UnityAction(()=>SceneManager.LoadScene(sceneNameList[2]))); //When you press the start button
-        EventManager.AddEvent("CorrectChoice", new UnityAction(()=>Debug.Log("ChangeState"))); //When you make correct choices
-        EventManager.AddEvent("WrongChoice", new UnityAction(()=>Debug.Log("ChangeState"))); //When you make wrong choices
-        EventManager.AddEvent("GameOver", new UnityAction(()=>Debug.Log("ChangeState"))); //When you lose
+        EventManager.AddEvent("GameWin", new UnityAction(()=>SceneManager.LoadScene(sceneNameList[3]))); //When you press the start button
+        EventManager.AddEvent("GameLose", new UnityAction(()=>SceneManager.LoadScene(sceneNameList[4]))); //When you press the start button
+
     }
 
     void OnDisable(){
         EventManager.RemoveAllEvent("UnityStart");
         EventManager.RemoveAllEvent("ChangeState");
+        EventManager.RemoveAllEvent("StartTutorial");
         EventManager.RemoveAllEvent("GameStart");
-        EventManager.RemoveAllEvent("CorrectChoice");
-        EventManager.RemoveAllEvent("WrongChoice");
-        EventManager.RemoveAllEvent("GameOver");
+
+
     }
     void Start()
     {
@@ -60,18 +60,17 @@ public class GameManager : Singleton<GameManager>
             case GameState.Tutorial:
                 EventManager.Invoke("StartTutorial");
                 break;
-            case GameState.InGame:
+            case GameState.Round:
                 EventManager.Invoke("GameStart");
+                Debug.Log(sceneNameList[2]);
                 break;
-            case GameState.PlayerTurn:
+            
+            case GameState.Win:
+                break;
+            case GameState.Lose:
+                break;
 
-                break;
-            case GameState.Correct:
-                break;
-            case GameState.Wrong:
-                break;
-            case GameState.GameOver:
-                break;
+
         }
     }
 
@@ -88,10 +87,8 @@ public enum GameState
     NotStarted, //When you start the unity and but not press the start button
     Menu, //When you are in the menu
     Tutorial,
-    InGame, //When you are in the game
-    PlayerTurn,  // Waiting for player to make decision
-    Correct, //Turn when you make correct choices
-    Wrong, //Turn when you make wrong choices
-    GameOver, //When you lose
+    Round, //When you are in the game
+    Win,
+    Lose,
 
 }
