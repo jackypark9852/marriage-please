@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -12,12 +11,24 @@ public class GameManager : Singleton<GameManager>
     {
         get { return state; }
     }
-    void OnEnable() {
-        EventManager.AddEvent("ChangeState", null);
-        EventManager.AddEvent("GameStart", null);
-        EventManager.AddEvent("CorrectChoice", null);
-        EventManager.AddEvent("WrongChoice", null);
-        EventManager.AddEvent("GameOver", null);
+
+    void Awake(){
+        EventManager.Instance.Init();
+        EventManager.AddEvent("UnityStart", new UnityAction(()=>Debug.Log("UnityStart"))); //When you first enter into the game
+        EventManager.AddEvent("ChangeState", new UnityAction(()=>Debug.Log("ChangeState"))); //When you change the states
+        EventManager.AddEvent("GameStart", new UnityAction(()=>Debug.Log("ChangeState"))); //When you press the start button
+        EventManager.AddEvent("CorrectChoice", new UnityAction(()=>Debug.Log("ChangeState"))); //When you make correct choices
+        EventManager.AddEvent("WrongChoice", new UnityAction(()=>Debug.Log("ChangeState"))); //When you make wrong choices
+        EventManager.AddEvent("GameOver", new UnityAction(()=>Debug.Log("ChangeState"))); //When you lose
+    }
+
+    void OnDisable(){
+        EventManager.RemoveAllEvent("UnityStart");
+        EventManager.RemoveAllEvent("ChangeState");
+        EventManager.RemoveAllEvent("GameStart");
+        EventManager.RemoveAllEvent("CorrectChoice");
+        EventManager.RemoveAllEvent("WrongChoice");
+        EventManager.RemoveAllEvent("GameOver");
     }
     void Start()
     {
@@ -38,6 +49,7 @@ public class GameManager : Singleton<GameManager>
             case GameState.Starting:
                 break;
             case GameState.PlayerTurn:
+
                 break;
             case GameState.Correct:
                 break;
@@ -50,7 +62,7 @@ public class GameManager : Singleton<GameManager>
 
     private void OnStateChanged()
     {
-        //StateChanged.Invoke();
+        EventManager.Invoke("ChangeState");
         return;
     }
 
@@ -58,10 +70,11 @@ public class GameManager : Singleton<GameManager>
 
 public enum GameState
 {
-    NotStarted,
-    Starting,
-    PlayerTurn,  // Player input happens here
+    NotStarted, //When you start the unity and but not press the start button
+    Starting, //When the button start
+    PlayerTurn,  // Waiting for player to make decision
     Correct, //Turn when you make correct choices
     Wrong, //Turn when you make wrong choices
-    GameOver,
+    GameOver, //When you lose
+
 }
