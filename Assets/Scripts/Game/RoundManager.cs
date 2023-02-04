@@ -36,6 +36,10 @@ public class RoundManager : Singleton<RoundManager>
     void Awake()
     {
         familyLogic = GetComponent<FamilyLogic>();
+        EventManager.AddEvent("StageEnded", new UnityAction(() => { }));
+        EventManager.AddEvent("GameLost", new UnityAction(() => { }));
+        EventManager.AddEvent("GameWon", new UnityAction(() => { }));
+
     }
 
     void Start()
@@ -72,16 +76,12 @@ public class RoundManager : Singleton<RoundManager>
     public void EndStage()
     {
         Debug.Log("EndStage: " + stageNum);
-        stageChanged.Invoke();
+        stageChanged.Invoke(); // TODO: Remove redundant event
+        EventManager.Invoke("StageEnded");
+
         stageNum++;
         if (stageNum < stageDatas.Count)
         {
-            StartStage();
-        }
-        else
-        {
-            Debug.Log("Win");
-            // GameManager.Instance.ChangeState(GameState.GameOver);
         }
     }
 
