@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: e546d8ca088e4fd499b0d866cd90682d
+=======
+guid: ff3b98c274d40fb4699f54e6a78b2678
+>>>>>>> 3640818eed82d839208a5d33fe0a5625f86b9bbd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,21 +37,37 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD
     filterMode: 0
+=======
+    filterMode: 1
+>>>>>>> 3640818eed82d839208a5d33fe0a5625f86b9bbd
     aniso: 1
     mipBias: 0
     wrapU: 1
     wrapV: 1
+<<<<<<< HEAD
     wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
+=======
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+>>>>>>> 3640818eed82d839208a5d33fe0a5625f86b9bbd
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
   spritePixelsToUnits: 12
+=======
+  spritePixelsToUnits: 100
+>>>>>>> 3640818eed82d839208a5d33fe0a5625f86b9bbd
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +90,11 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+<<<<<<< HEAD
     textureCompression: 0
+=======
+    textureCompression: 1
+>>>>>>> 3640818eed82d839208a5d33fe0a5625f86b9bbd
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,6 +127,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
+<<<<<<< HEAD
     sprites:
     - serializedVersion: 2
       name: dialouge_box_square_0
@@ -125,6 +150,9 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+=======
+    sprites: []
+>>>>>>> 3640818eed82d839208a5d33fe0a5625f86b9bbd
     outline: []
     physicsShape: []
     bones: []
@@ -135,8 +163,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+<<<<<<< HEAD
     nameFileIdTable:
       dialouge_box_square_0: 1641547521
+=======
+    nameFileIdTable: {}
+>>>>>>> 3640818eed82d839208a5d33fe0a5625f86b9bbd
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

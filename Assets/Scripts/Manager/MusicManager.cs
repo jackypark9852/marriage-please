@@ -14,7 +14,7 @@ public class MusicManager : Singleton<GameManager>
         audioSource = GetComponent<AudioSource>();
     }
 
-    void OnEnable(){
+    void Awake(){
         EventManager.AddEvent("UnityStart", new UnityAction(()=>PlayMusic(0))); //When you first enter into the game
         EventManager.AddEvent("GameStart", new UnityAction(()=>PlayMusic(2))); //When you press the start button
         EventManager.AddEvent("CorrectChoice", new UnityAction(()=>PlayMusic(3))); //When you make correct choices
@@ -25,6 +25,7 @@ public class MusicManager : Singleton<GameManager>
 
     public void PlayMusic(int index)
     {
+        StopMusic();
         if(index >= musicClips.Count)
             return;
         audioSource.clip = musicClips[index];
