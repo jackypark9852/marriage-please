@@ -11,6 +11,7 @@ public class InfoCardManager : MonoBehaviour, I_InfoCard
     [Header("GameObjects: ")]
     public Transform portraitSprite;
     public TextMeshPro nameField;
+    public GameObject heartObj;
 
     [Header("For Test Only: ")]
     public Sprite testSprite;
@@ -71,5 +72,10 @@ public class InfoCardManager : MonoBehaviour, I_InfoCard
 
     void ChangeName(String name) {
         nameField.text = name;
+    }
+
+    void PlayHeartAnim() {
+        Animator anim = heartObj.GetComponent<Animator>();
+        anim.Play("HeartEffect", 0, 0.25f);
     }
 }
