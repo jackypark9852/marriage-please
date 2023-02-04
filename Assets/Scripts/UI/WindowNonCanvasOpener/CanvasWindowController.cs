@@ -10,13 +10,24 @@ public class CanvasWindowController : MonoBehaviour
     [SerializeField] Button closeButton;
     [SerializeField] CanvasWindowOpener canvasWindowOpener;
 
+    [SerializeField] AudioClip openSound;
+    [SerializeField] AudioClip closeSound;
+
     public virtual void OpenWindow()
     {
         windowGO.SetActive(true);
+        if (openSound != null)
+        {
+            AudioSource.PlayClipAtPoint(openSound, Camera.main.transform.position);
+        }
     }
 
     public virtual void CloseWindow()
     {
         windowGO.SetActive(false);
+        if (closeSound != null)
+        {
+            AudioSource.PlayClipAtPoint(closeSound, Camera.main.transform.position);
+        }
     }
 }

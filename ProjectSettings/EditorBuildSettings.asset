@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 68ce135742947c24a8071a1fa0b53e22
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/RoundManagerUIIntegrationTestScene.unity
     guid: 822665eb8aa485544af393d604faf3d5
   m_configObjects: {}

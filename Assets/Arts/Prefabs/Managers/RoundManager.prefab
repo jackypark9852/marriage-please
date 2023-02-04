@@ -58,17 +58,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80b4990522d91fb4abb2fbe2a5af1aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _persistent: 1
+  _persistent: 0
   infoCardManager1: {fileID: 0}
   infoCardManager2: {fileID: 0}
   stageDatas:
   - {fileID: 11400000, guid: a4d19cc02b8ae1046aa86b0c9550bfb1, type: 2}
   - {fileID: 11400000, guid: e485acbbe3984e74689b0ca4691c8597, type: 2}
   - {fileID: 11400000, guid: a53b671a0d5a6cc40b1c1749722153fd, type: 2}
-  roundChanged:
+  roundEnded:
     m_PersistentCalls:
       m_Calls: []
-  stageChanged:
+  stageEnded:
     m_PersistentCalls:
       m_Calls: []
   wrongCandidateChosen:
@@ -77,3 +77,6 @@ MonoBehaviour:
   correctCandidateChosen:
     m_PersistentCalls:
       m_Calls: []
+  debugStageText: {fileID: 0}
+  debugClientText: {fileID: 0}
+  debugRoundText: {fileID: 0}
