@@ -51,6 +51,11 @@ public class RoundManager : Singleton<RoundManager>
         StartRound();
     }
 
+    public void EndStage()
+    {
+        
+    }
+
     public void IncrementRound()
     {
         roundNum++;
@@ -62,14 +67,18 @@ public class RoundManager : Singleton<RoundManager>
         familyLogic.FamilyData = stageDatas[stageNum].familyData;
         client = familyLogic.GetClient();
         SetCandidates();
-
-        Debug.Log($"client: {client} candidate1: {candidate1} candidate2: {candidate2}");
     }
     
     public void EndRound()
     {
         familyLogic.Marry(candidateChosen, client);
         unsafeProbability += currentStageData.unsafeProbabilityIncrement;
+        IncrementRound();
+        if (roundNum >= currentStageData.gameRoundLength)
+        {
+            stageNum++;
+            EndStage();
+        }
     }
 
     public void OnCorrectMarry()
