@@ -54,6 +54,8 @@ MonoBehaviour:
   windowGO: {fileID: 2948074477747305679}
   closeButton: {fileID: 8046163725909047330}
   canvasWindowOpener: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 55d74814d4b9b084691b5c893382ef5f, type: 3}
+  closeSound: {fileID: 0}
 --- !u!1 &6063860011604809097
 GameObject:
   m_ObjectHideFlags: 0
