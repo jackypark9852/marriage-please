@@ -17,8 +17,8 @@ public class RoundManager : Singleton<RoundManager>
     [Header("Data")]
     [SerializeField] List<StageData> stageDatas;
     [Header("Events")]
-    public UnityEvent roundChanged;
-    public UnityEvent stageChanged;
+    public UnityEvent roundEnded;
+    public UnityEvent stageEnded;
     public UnityEvent wrongCandidateChosen;
     public UnityEvent correctCandidateChosen;
     [Header("Debug")]
@@ -56,7 +56,7 @@ public class RoundManager : Singleton<RoundManager>
         timer -= Time.deltaTime;
         if (timer <= 0f)
         {
-            GameManager.Instance.ChangeState(GameState.GameOver);
+            EventManager.Invoke("GameLost");
         }
     }
 
@@ -75,20 +75,20 @@ public class RoundManager : Singleton<RoundManager>
 
     public void EndStage()
     {
-        Debug.Log("EndStage: " + stageNum);
-        stageChanged.Invoke(); // TODO: Remove redundant event
+        stageEnded.Invoke(); // TODO: Remove redundant event
         EventManager.Invoke("StageEnded");
 
         stageNum++;
-        if (stageNum < stageDatas.Count)
+        if (stageNum >= stageDatas.Count)
         {
+            EventManager.Invoke("GameWon");
         }
     }
 
     public void IncrementRound()
     {
         roundNum++;
-        roundChanged.Invoke();
+        roundEnded.Invoke();
     }
 
     public void StartRound()
@@ -156,7 +156,7 @@ public class RoundManager : Singleton<RoundManager>
     {
         candidateChosen = personData;
         MarriageInfo marriageInfo = familyLogic.Marry(personData, client);
-        Debug.Log("Marrying " + personData.Name + " and " + client.Name + " is " + marriageInfo.isMarriageAllowed);
+        // Debug.Log("Marrying " + personData.Name + " and " + client.Name + " is " + marriageInfo.isMarriageAllowed);
         if (marriageInfo.isMarriageAllowed)
         {
             correctCandidateChosen.Invoke();
