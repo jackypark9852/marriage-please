@@ -38,6 +38,11 @@ public class GameManager : Singleton<GameManager>
         EventManager.Invoke("UnityStart");
     }
 
+    public static void ChangeStateIndex(int i){
+        Instance.ChangeState((GameState)i);
+        Debug.Log((GameState)i);
+    }
+
     public void ChangeState(GameState newState)
     {
         if (newState == state)
@@ -52,6 +57,7 @@ public class GameManager : Singleton<GameManager>
             case GameState.Menu:
                 break;
             case GameState.InGame:
+                EventManager.Invoke("GameStart");
                 break;
             case GameState.PlayerTurn:
 

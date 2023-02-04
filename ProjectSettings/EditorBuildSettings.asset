@@ -5,10 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/David_UI.unity
     guid: ae0b199f0af0c7344927bdac0ee84181
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene.unity
+    guid: 00bdc96c0d0bdf24cb8ae94017ecd390
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: b3fc1a24c96a4d949986b6caddd97aff
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 68ce135742947c24a8071a1fa0b53e22
+  - enabled: 1
+    path: Assets/Scenes/RoundManagerUIIntegrationTestScene.unity
+    guid: 822665eb8aa485544af393d604faf3d5
   m_configObjects: {}
