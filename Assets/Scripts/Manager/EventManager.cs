@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+[System.Serializable]
+public class EventDictionary : SerializableDictionary<string, UnityEvent>{
+
+}
 
 
 public class EventManager : Singleton<EventManager>
 {
-    private Dictionary<string, UnityEvent> eventDictionary;
+    [SerializeField]
+    private EventDictionary eventDictionary;
     public void Init()
     {
         if (eventDictionary == null)
         {
-            eventDictionary = new Dictionary<string, UnityEvent>();
+            eventDictionary = new EventDictionary();
         }
     }
     
@@ -24,9 +29,10 @@ public class EventManager : Singleton<EventManager>
 
     public static void AddEvent(string eventName, UnityAction listener){
         if(Instance == null){
-            //Debug.LogWarning("EventManager does not init");
+            Debug.LogWarning("EventManager does not init");
             return;
         }
+        Debug.Log(Instance);
         UnityEvent thisEvent = null;
         if(Instance.eventDictionary.TryGetValue(eventName, out thisEvent)){
             thisEvent.AddListener(listener);
@@ -52,7 +58,21 @@ public class EventManager : Singleton<EventManager>
             thisEvent.RemoveListener(listener);
         }
     }
-
+    public static void RemoveAllEvent(string eventName){
+        if(Instance == null){
+            Debug.LogWarning("EventManager does not init");
+            return;
+        }
+        if (!Instance.enabled){
+            Debug.LogWarning("EventManager disabled");
+            return;
+        }
+        UnityEvent thisEvent = null;
+        if(Instance.eventDictionary.TryGetValue(eventName, out thisEvent)){
+            thisEvent.RemoveAllListeners();
+        }
+    }
+    
     public static void Invoke(string eventName){
         UnityEvent thisEvent = null;
         if(Instance.eventDictionary.TryGetValue(eventName, out thisEvent)){
