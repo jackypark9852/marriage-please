@@ -14,7 +14,7 @@ public class ChangeDialoguePosition : MonoBehaviour
         dialoguePosition.position = new Vector2(x, dialoguePosition.position.y);
     }
     public static void ChangePositionY(float y){
-        dialoguePosition.position = new Vector2(y, dialoguePosition.position.y);
+        dialoguePosition.position = new Vector2(dialoguePosition.position.x, y);
     }
     public static void ChangePosition(Vector2 position){
         dialoguePosition.position = position;
