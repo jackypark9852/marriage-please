@@ -849,10 +849,6 @@ PrefabInstance:
       value: Managers
       objectReference: {fileID: 0}
     - target: {fileID: 1950384478659190569, guid: f07ffbc6603071b40a87093b9c80938d, type: 3}
-      propertyPath: _persistent
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1950384478659190569, guid: f07ffbc6603071b40a87093b9c80938d, type: 3}
       propertyPath: debugRoundText
       value: 
       objectReference: {fileID: 1906050448}
