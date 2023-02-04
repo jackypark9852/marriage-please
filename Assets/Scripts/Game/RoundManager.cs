@@ -58,6 +58,7 @@ public class RoundManager : Singleton<RoundManager>
 
     public void StartStage()
     {
+        roundNum = 0;
         debugStageText.text = "Stage: " + stageNum; // TODO: Remove this
         currentStageData = stageDatas[stageNum];
         familyLogic.FamilyData = stageDatas[stageNum].familyData;
@@ -70,6 +71,7 @@ public class RoundManager : Singleton<RoundManager>
 
     public void EndStage()
     {
+        Debug.Log("EndStage: " + stageNum);
         stageChanged.Invoke();
         stageNum++;
         if (stageNum < stageDatas.Count)
@@ -78,7 +80,8 @@ public class RoundManager : Singleton<RoundManager>
         }
         else
         {
-            GameManager.Instance.ChangeState(GameState.GameOver);
+            Debug.Log("Win");
+            // GameManager.Instance.ChangeState(GameState.GameOver);
         }
     }
 
@@ -86,7 +89,6 @@ public class RoundManager : Singleton<RoundManager>
     {
         roundNum++;
         roundChanged.Invoke();
-        StartRound();
     }
 
     public void StartRound()
@@ -105,8 +107,11 @@ public class RoundManager : Singleton<RoundManager>
         IncrementRound();
         if (roundNum >= currentStageData.gameRoundLength)
         {
-            stageNum++;
             EndStage();
+        }
+        else
+        {
+            StartRound();
         }
         // TODO: Move infocards out of sight and update them
     }

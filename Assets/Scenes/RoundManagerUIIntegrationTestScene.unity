@@ -1269,5 +1269,21 @@ PrefabInstance:
       propertyPath: infoCardManager2
       value: 
       objectReference: {fileID: 1405579404}
+    - target: {fileID: 1950384478659190569, guid: f07ffbc6603071b40a87093b9c80938d, type: 3}
+      propertyPath: stageDatas.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950384478659190569, guid: f07ffbc6603071b40a87093b9c80938d, type: 3}
+      propertyPath: stageDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c62f7ce0bead97e498dc9017e382db51, type: 2}
+    - target: {fileID: 1950384478659190569, guid: f07ffbc6603071b40a87093b9c80938d, type: 3}
+      propertyPath: stageDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7eac1d3c08e71534bbf2a621679ca36a, type: 2}
+    - target: {fileID: 1950384478659190569, guid: f07ffbc6603071b40a87093b9c80938d, type: 3}
+      propertyPath: stageDatas.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 83a337eb47f2dbb49a3517cba2044564, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f07ffbc6603071b40a87093b9c80938d, type: 3}
