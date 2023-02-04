@@ -8,13 +8,9 @@ public class RoundLogic : MonoBehaviour
     private PersonData candidate1;
     private PersonData candidate2;
 
-    List<PersonData> availablePersons = new List<PersonData>();
     float unsafeProbability = 0f;
 
     private PersonData candidateChosen;
-
-    // List<PersonData> safePersons = new List<PersonData>();
-    // List<PersonData> unsafePersons = new List<PersonData>();    
 
     void Start()
     {
@@ -30,13 +26,11 @@ public class RoundLogic : MonoBehaviour
     public void StartRound()
     {
         SetCandidates();
-        // Art, SFX, UI effects
     }
 
     public void EndRound()
     {
-        SetMarriage();
-        // Art, SFX, UI effects
+        // Marry(candidateChosen, client);
     }
 
     public void SetCandidates()
@@ -62,23 +56,17 @@ public class RoundLogic : MonoBehaviour
         }
     }
 
+    /*
     public PersonData GetRandomSafePerson()
     {
-        throw new System.NotImplementedException();
+        // List<PersonData> safePersons = GetSafePerson();
+        return safePersons[Random.Range(0, safePersons.Count)];
     }
 
     public PersonData GetRandomUnsafePerson()
     {
-        throw new System.NotImplementedException();
+        // List<PersonData> unsafePersons = GetUnsafePerson();
+        return unsafePersons[Random.Range(0, unsafePersons.Count)];
     }
-
-    public void SetMarriage()
-    {
-        if (candidateChosen == null)
-        {
-            Debug.LogError("No candidate chosen");
-            return;
-        }
-        throw new System.NotImplementedException();
-    }
+    */
 }
