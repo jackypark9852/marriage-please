@@ -19,7 +19,7 @@ public class GameManager : Singleton<GameManager>
         EventManager.AddEvent("UnityStart", new UnityAction(()=>Debug.Log("UnityStart"))); //When you first enter into the game
         EventManager.AddEvent("ChangeState", new UnityAction(()=>Debug.Log("ChangeState")));//when you change the states'
         EventManager.AddEvent("StartTutorial", new UnityAction(()=>SceneManager.LoadScene(sceneNameList[1]))); //When you press the start button
-        EventManager.AddEvent("GameStart", new UnityAction(()=>SceneManager.LoadScene(sceneNameList[2]))); //When you press the start button
+        EventManager.AddEvent("RoundStart", new UnityAction(()=>SceneManager.LoadScene(sceneNameList[2]))); //When you press the start button
         EventManager.AddEvent("GameWin", new UnityAction(()=>SceneManager.LoadScene(sceneNameList[3]))); //When you press the start button
         EventManager.AddEvent("GameLose", new UnityAction(()=>SceneManager.LoadScene(sceneNameList[4]))); //When you press the start button
 
@@ -29,7 +29,9 @@ public class GameManager : Singleton<GameManager>
         EventManager.RemoveAllEvent("UnityStart");
         EventManager.RemoveAllEvent("ChangeState");
         EventManager.RemoveAllEvent("StartTutorial");
-        EventManager.RemoveAllEvent("GameStart");
+        EventManager.RemoveAllEvent("RoundStart");
+        EventManager.RemoveAllEvent("GameWin");
+        EventManager.RemoveAllEvent("GameLose");
 
 
     }
@@ -61,7 +63,7 @@ public class GameManager : Singleton<GameManager>
                 EventManager.Invoke("StartTutorial");
                 break;
             case GameState.Round:
-                EventManager.Invoke("GameStart");
+                EventManager.Invoke("RoundStart");
                 Debug.Log(sceneNameList[2]);
                 break;
             
