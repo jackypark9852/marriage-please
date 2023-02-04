@@ -46,6 +46,28 @@ public class GameManager : Singleton<GameManager>
         Debug.Log((GameState)i);
     }
 
+    public static void ChangeStateString(string str){
+        switch(str){
+            case "Menu":
+                Instance.ChangeState(GameState.Menu);
+                break;
+            case "Tutorial":
+                Instance.ChangeState(GameState.Tutorial);
+                break;
+            case "Round":
+                Instance.ChangeState(GameState.Round);
+                break;
+            case "Win":
+                Instance.ChangeState(GameState.Win);
+                break;
+            case "Lose":
+                Instance.ChangeState(GameState.Lose);
+                break;
+        }
+    }
+
+
+
     public void ChangeState(GameState newState)
     {
         if (newState == state)
