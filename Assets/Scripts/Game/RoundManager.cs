@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(FamilyLogic))]
 public class RoundManager : Singleton<RoundManager>
 {
     [HideInInspector] public int stageNum { get; private set; } = 0;
@@ -17,10 +18,18 @@ public class RoundManager : Singleton<RoundManager>
 
     [SerializeField] UnityEvent OnRoundChange;
 
+    FamilyLogic familyLogic;
+    [SerializeField] List<StageData> stageDatas;
+    StageData currentStageData;
+
     void Awake()
     {
-        timer = GameSettings.START_TIME_LENGTHS[stageNum];
-        unsafeProbability = GameSettings.UNSAFE_STARTING_PROBABILITY[stageNum];
+        familyLogic = GetComponent<FamilyLogic>();
+    }
+
+    void Start()
+    {
+        StartStage();
     }
 
     void Update()
@@ -32,50 +41,63 @@ public class RoundManager : Singleton<RoundManager>
         }
     }
 
+    public void StartStage()
+    {
+        currentStageData = stageDatas[stageNum];
+        familyLogic.FamilyData = currentStageData.familyData;
+        timer = currentStageData.startTimeLength;
+        unsafeProbability = currentStageData.unsafeStartingProbability;
+
+        StartRound();
+    }
+
     public void IncrementRound()
     {
         roundNum++;
         OnRoundChange.Invoke();
     }
     
-
     public void StartRound()
     {
+        familyLogic.FamilyData = stageDatas[stageNum].familyData;
+        client = familyLogic.GetClient();
         SetCandidates();
-    }
 
+        Debug.Log($"client: {client} candidate1: {candidate1} candidate2: {candidate2}");
+    }
+    
     public void EndRound()
     {
-        // Marry(candidateChosen, client);
-        unsafeProbability += GameSettings.UNSAFE_PROBABILITY_INCREMENTS[stageNum];
+        familyLogic.Marry(candidateChosen, client);
+        unsafeProbability += currentStageData.unsafeProbabilityIncrement;
     }
 
     public void OnCorrectMarry()
     {
         timer += GameSettings.CORRECT_TIME_INCREMENT;
-        timer = Mathf.Clamp(timer, 0f, GameSettings.MAX_TIME_LENGTHS[stageNum]);
+        timer = Mathf.Clamp(timer, 0f, currentStageData.maxTimeLength);
         GameManager.Instance.ChangeState(GameState.Correct);
     }
 
     public void OnInorrectMarry()
     {
         timer += GameSettings.INCORRECT_TIME_INCREMENT;
-        timer = Mathf.Clamp(timer, 0f, GameSettings.MAX_TIME_LENGTHS[stageNum]);
+        timer = Mathf.Clamp(timer, 0f, currentStageData.maxTimeLength);
         GameManager.Instance.ChangeState(GameState.Wrong);
     }
 
     public void SetCandidates()
     {
-        // candidate1 = GetRandomSafePerson();
+        candidate1 = familyLogic.GetSafeCandidate(client);
 
         float rand = Random.Range(0f, 1f);
         if (rand < unsafeProbability)
         {
-            // candidate2 = GetRandomUnsafePerson();
+            candidate1 = familyLogic.GetUnsafeCandidate(client, new List<PersonData> { candidate1 });
         }
         else
         {
-            // candidate2 = GetRandomSafePerson();
+            candidate2 = familyLogic.GetSafeCandidate(client, new List<PersonData> { candidate1 });
         }
 
         bool swap = Random.Range(0, 2) == 1;
@@ -86,18 +108,4 @@ public class RoundManager : Singleton<RoundManager>
             candidate2 = temp;
         }
     }
-
-    /*
-    public PersonData GetRandomSafePerson()
-    {
-        // List<PersonData> safePersons = GetSafePerson();
-        return safePersons[Random.Range(0, safePersons.Count)];
-    }
-
-    public PersonData GetRandomUnsafePerson()
-    {
-        // List<PersonData> unsafePersons = GetUnsafePerson();
-        return unsafePersons[Random.Range(0, unsafePersons.Count)];
-    }
-    */
 }

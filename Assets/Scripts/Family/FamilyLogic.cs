@@ -23,7 +23,7 @@ public class FamilyLogic : MonoBehaviour
     public List<PersonData> Dishonorables => dishonorables;
     private void Start()
     {
-        InitializeMembers();
+        
     }
 
     public MarriageInfo Marry(PersonData person1, PersonData person2)
@@ -40,31 +40,65 @@ public class FamilyLogic : MonoBehaviour
         return marriageInfo;
     }
 
-    public PersonData GetSafeCandidate(PersonData person)
+    public PersonData GetSafeCandidate(PersonData person, List<PersonData> excludes = null)
     {
-        foreach (var availablePerson in availablePeople)
+        List<PersonData> candidates = new List<PersonData>(availablePeople);
+        if (excludes != null)
         {
-            if (!_familyData.IsCloseRelative(person, availablePerson))
+            foreach (PersonData exclude in excludes)
             {
-                return availablePerson;
+                candidates.Remove(exclude);
+            }
+        }
+        if(candidates.Count == 0)
+        {
+            return null;
+        }
+        
+        foreach (var candidate in candidates)
+        {
+            if (candidate == person)
+            {
+                continue;
+            }
+            if (!_familyData.IsCloseRelative(person, candidate))
+            {
+                return candidate;
             }
         }
         return null;
     }
 
-    public PersonData GetUnsafeCandidate(PersonData person)
+    public PersonData GetUnsafeCandidate(PersonData person, List<PersonData> excludes = null)
     {
-        foreach (var availablePerson in availablePeople)
+        List<PersonData> candidates = new List<PersonData>(availablePeople);
+        if (excludes != null)
         {
-            if (_familyData.IsCloseRelative(person, availablePerson))
+            foreach (PersonData exclude in excludes)
             {
-                return availablePerson;
+                candidates.Remove(exclude);
+            }
+        }
+        if (candidates.Count == 0)
+        {
+            return null;
+        }
+
+        foreach (var candidate in candidates)
+        {
+            if (candidate == person)
+            {
+                continue;
+            }
+            if (_familyData.IsCloseRelative(person, candidate))
+            {
+                return candidate;
             }
         }
         return null;
     }
 
-    public PersonData GetClient(PersonData person)
+    public PersonData GetClient()
     {
         // If there are less than 3 people left, there won't be candidates for the client
         if (availablePeople.Count < 3)
@@ -97,12 +131,6 @@ public class FamilyLogic : MonoBehaviour
             // Swap the new and old values
             a[i] = a[rnd];
             a[rnd] = temp;
-        }
-
-        // Print
-        for (int i = 0; i < a.Count; i++)
-        {
-            Debug.Log(a[i]);
         }
     }
 }
