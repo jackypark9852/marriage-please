@@ -33,6 +33,8 @@ public class RoundManager : Singleton<RoundManager>
     FamilyLogic familyLogic;
     StageData currentStageData;
 
+    StageState stageState = StageState.BeforeStage;
+
     void Awake()
     {
         familyLogic = GetComponent<FamilyLogic>();
@@ -62,6 +64,7 @@ public class RoundManager : Singleton<RoundManager>
 
     public void StartStage()
     {
+        stageState = StageState.StageInProgress;
         roundNum = 0;
         debugStageText.text = "Stage: " + stageNum; // TODO: Remove this
         currentStageData = stageDatas[stageNum];
@@ -75,6 +78,7 @@ public class RoundManager : Singleton<RoundManager>
 
     public void EndStage()
     {
+        stageState = StageState.AfterStage;
         stageEnded.Invoke(); // TODO: Remove redundant event
         EventManager.Invoke("StageEnded");
 
@@ -154,6 +158,10 @@ public class RoundManager : Singleton<RoundManager>
 
     public void OnInfoCardClicked(PersonData personData)
     {
+        if (stageState != StageState.StageInProgress)
+        {
+            return;
+        }
         candidateChosen = personData;
         MarriageInfo marriageInfo = familyLogic.Marry(personData, client);
         // Debug.Log("Marrying " + personData.Name + " and " + client.Name + " is " + marriageInfo.isMarriageAllowed);
@@ -172,4 +180,11 @@ public class RoundManager : Singleton<RoundManager>
         infoCardManager1.PersonData = candidate1;
         infoCardManager2.PersonData = candidate2;
     }
+}
+
+public enum StageState
+{
+    BeforeStage,
+    StageInProgress,
+    AfterStage,
 }
