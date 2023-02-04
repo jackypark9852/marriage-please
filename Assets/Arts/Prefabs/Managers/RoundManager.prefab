@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5468313833721639188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5468313833721639189}
+  - component: {fileID: 5468313833721639195}
+  - component: {fileID: 5468313833721639194}
+  m_Layer: 0
+  m_Name: RoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5468313833721639189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5468313833721639188}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5468313833721639195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5468313833721639188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48038014faf799c429406be3b60f6523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _familyData: {fileID: 11400000, guid: 0e4d70f5df982294f9fa4f45e07e0eec, type: 2}
+--- !u!114 &5468313833721639194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5468313833721639188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b4990522d91fb4abb2fbe2a5af1aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 1
+  infoCardManager1: {fileID: 0}
+  infoCardManager2: {fileID: 0}
+  stageDatas:
+  - {fileID: 11400000, guid: a4d19cc02b8ae1046aa86b0c9550bfb1, type: 2}
+  - {fileID: 11400000, guid: e485acbbe3984e74689b0ca4691c8597, type: 2}
+  - {fileID: 11400000, guid: a53b671a0d5a6cc40b1c1749722153fd, type: 2}
+  roundChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  stageChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  wrongCandidateChosen:
+    m_PersistentCalls:
+      m_Calls: []
+  correctCandidateChosen:
+    m_PersistentCalls:
+      m_Calls: []

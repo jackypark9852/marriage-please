@@ -23,7 +23,7 @@ public class FamilyLogic : MonoBehaviour
     public List<PersonData> Dishonorables => dishonorables;
     private void Start()
     {
-        
+
     }
 
     public MarriageInfo Marry(PersonData person1, PersonData person2)
@@ -50,11 +50,11 @@ public class FamilyLogic : MonoBehaviour
                 candidates.Remove(exclude);
             }
         }
-        if(candidates.Count == 0)
+        if (candidates.Count == 0)
         {
             return null;
         }
-        
+
         foreach (var candidate in candidates)
         {
             if (candidate == person)
@@ -103,15 +103,18 @@ public class FamilyLogic : MonoBehaviour
         // If there are less than 3 people left, there won't be candidates for the client
         if (availablePeople.Count < 3)
         {
+            Debug.LogWarning("Not enough people left to get a client");
             return null;
         }
+        Debug.Log("Getting client");
+        Debug.Log("Client:" + availablePeople[0].Name);
         return availablePeople[0];
     }
 
     private void InitializeMembers()
     {
         // Set availiblePeople as randomized version of _familyData.Members
-        availablePeople = _familyData.Members;
+        availablePeople = new List<PersonData>(_familyData.Members);
         Shuffle(availablePeople);
         marriages = new List<MarriageInfo>();
         dishonorables = new List<PersonData>();
