@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -11,12 +12,13 @@ public class GameManager : Singleton<GameManager>
     {
         get { return state; }
     }
+    public List<string> sceneNameList = new List<string>();
 
     void Awake(){
         EventManager.Instance.Init();
         EventManager.AddEvent("UnityStart", new UnityAction(()=>Debug.Log("UnityStart"))); //When you first enter into the game
-        EventManager.AddEvent("ChangeState", new UnityAction(()=>Debug.Log("ChangeState"))); //When you change the states
-        EventManager.AddEvent("GameStart", new UnityAction(()=>Debug.Log("ChangeState"))); //When you press the start button
+        EventManager.AddEvent("ChangeState", new UnityAction(()=>Debug.Log("ChangeState")));//when you change the states
+        EventManager.AddEvent("GameStart", new UnityAction(()=>SceneManager.LoadScene(sceneNameList[1]))); //When you press the start button
         EventManager.AddEvent("CorrectChoice", new UnityAction(()=>Debug.Log("ChangeState"))); //When you make correct choices
         EventManager.AddEvent("WrongChoice", new UnityAction(()=>Debug.Log("ChangeState"))); //When you make wrong choices
         EventManager.AddEvent("GameOver", new UnityAction(()=>Debug.Log("ChangeState"))); //When you lose
