@@ -1,27 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class RoundLogic : MonoBehaviour
+public class RoundManager : Singleton<RoundManager>
 {
-    private PersonData client;
-    private PersonData candidate1;
-    private PersonData candidate2;
+    [HideInInspector] public int stageNum { get; private set; } = 0;
+    [HideInInspector] public int roundNum { get; private set; } = 0;
+    [HideInInspector] public float timer { get; private set; }
 
+    PersonData client;
+    PersonData candidate1;
+    PersonData candidate2;
+    private PersonData candidateChosen;
+    
     float unsafeProbability = 0f;
 
-    private PersonData candidateChosen;
 
-    void Start()
+    [SerializeField] UnityEvent OnRoundChange;
+
+    void Awake()
     {
-        
+        timer = GameSettings.START_TIME_LENGTHS[stageNum];
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        timer -= Time.deltaTime;
     }
+
+    public void IncrementRound()
+    {
+        roundNum++;
+        OnRoundChange.Invoke();
+    }
+    
 
     public void StartRound()
     {
@@ -31,6 +44,18 @@ public class RoundLogic : MonoBehaviour
     public void EndRound()
     {
         // Marry(candidateChosen, client);
+    }
+
+    public void OnCorrectMarry()
+    {
+        timer += GameSettings.CORRECT_TIME_INCREMENT;
+        timer = Mathf.Clamp(timer, 0f, GameSettings.MAX_TIME_LENGTHS[stageNum]);
+    }
+
+    public void OnInorrectMarry()
+    {
+        timer += GameSettings.INCORRECT_TIME_INCREMENT;
+        timer = Mathf.Clamp(timer, 0f, GameSettings.MAX_TIME_LENGTHS[stageNum]);
     }
 
     public void SetCandidates()
