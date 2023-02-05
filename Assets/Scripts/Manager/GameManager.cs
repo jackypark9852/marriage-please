@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    public GameState state = GameState.NotStarted;
+    public GameState state = GameState.Menu;
     public GameState State
     {
         get { return state; }
@@ -108,7 +108,6 @@ public class GameManager : Singleton<GameManager>
 
 public enum GameState
 {
-    NotStarted, //When you start the unity and but not press the start button
     Menu, //When you are in the menu
     Tutorial,
     Round, //When you are in the game
