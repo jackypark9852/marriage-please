@@ -291,6 +291,7 @@ public class AnimationManager : MonoBehaviour
     // PRIVATE HELPERS
     private void ChangeInfoOnCard()
     {
+        Debug.Log("ChangeInfoOnCard");
         cardLeft.GetComponent<InfoCardManager>().UpdateCard();
         cardRight.GetComponent<InfoCardManager>().UpdateCard();
     }
