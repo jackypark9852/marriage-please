@@ -86,6 +86,14 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController, IPointer
         }
     }
 
+    public void SetProfileFrameActive(PersonData personData, bool isActive)
+    {
+        if (personDataToFrame.ContainsKey(personData))
+        {
+            personDataToFrame[personData].gameObject.SetActive(isActive);
+        }
+    }
+
     public void OnPointerDown(PointerEventData data)
     {
         if (data.button == PointerEventData.InputButton.Right)
