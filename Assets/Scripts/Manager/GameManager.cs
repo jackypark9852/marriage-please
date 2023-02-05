@@ -32,7 +32,7 @@ public class GameManager : Singleton<GameManager>
         EventManager.AddEvent("ChangeState", new UnityAction(()=>Debug.Log("ChangeState")));//when you change the states'
         haveDone = true;
     }
-    
+
      public static void ChangeState(string str){
         switch(str){
             case "Menu":
