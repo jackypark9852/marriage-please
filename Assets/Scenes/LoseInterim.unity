@@ -585,7 +585,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
-          m_StringArgument: GameLost
+          m_StringArgument: Lose
           m_BoolArgument: 0
         m_CallState: 2
   booleanParameter:
@@ -668,7 +668,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &407307750
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
