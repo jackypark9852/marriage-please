@@ -43,6 +43,7 @@ public class FamilyLogic : MonoBehaviour
     public PersonData GetSafeCandidate(PersonData person, List<PersonData> excludes = null)
     {
         List<PersonData> candidates = new List<PersonData>(availablePeople);
+        candidates.Remove(person);
         if (excludes != null)
         {
             foreach (PersonData exclude in excludes)
@@ -72,6 +73,7 @@ public class FamilyLogic : MonoBehaviour
     public PersonData GetUnsafeCandidate(PersonData person, List<PersonData> excludes = null)
     {
         List<PersonData> candidates = new List<PersonData>(availablePeople);
+        candidates.Remove(person);
         if (excludes != null)
         {
             foreach (PersonData exclude in excludes)

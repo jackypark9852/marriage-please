@@ -16,6 +16,7 @@ public class RoundManager : Singleton<RoundManager>
     [Header("Script References")]
     [SerializeField] private InfoCardManager infoCardManager1;
     [SerializeField] private InfoCardManager infoCardManager2;
+    [SerializeField] private InfoCardManager infoCardManagerClient;
 
     [SerializeField] Image familyTreeImage;
     [SerializeField] SpriteRenderer familyTreeOpenerSR;
@@ -31,6 +32,7 @@ public class RoundManager : Singleton<RoundManager>
     [SerializeField] private TMPro.TextMeshProUGUI debugClientText;
     [SerializeField] private TMPro.TextMeshProUGUI debugRoundText;
     [SerializeField] private TMPro.TextMeshProUGUI debugTimerText;
+    [SerializeField] private TMPro.TextMeshProUGUI debugChoiceResultText;
 
     PersonData client;
     PersonData candidate1;
@@ -40,6 +42,7 @@ public class RoundManager : Singleton<RoundManager>
     StageData currentStageData;
 
     StageState stageState = StageState.BeforeStage;
+
 
     void Awake()
     {
@@ -117,7 +120,8 @@ public class RoundManager : Singleton<RoundManager>
 
     public void EndRound()
     {
-        familyLogic.Marry(candidateChosen, client);
+        MarriageInfo marriageInfo = familyLogic.Marry(candidateChosen, client);
+        debugChoiceResultText.text = marriageInfo.isMarriageAllowed ? "<color=green>Correct!</color>" : "<color=red>Wrong!</color>";
         unsafeProbability += currentStageData.unsafeProbabilityIncrement;
         IncrementRound();
         if (roundNum >= currentStageData.gameRoundLength)
@@ -189,6 +193,7 @@ public class RoundManager : Singleton<RoundManager>
     {
         infoCardManager1.PersonData = candidate1;
         infoCardManager2.PersonData = candidate2;
+        infoCardManagerClient.PersonData = client;
     }
 
     private void ChangeFamilyTreeSprite(Sprite sprite)

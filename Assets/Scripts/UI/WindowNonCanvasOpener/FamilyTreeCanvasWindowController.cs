@@ -18,6 +18,8 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController
 
     [SerializeField] SpriteRenderer familyTreeOpenerSR;
 
+    [SerializeField] GameObject onMouseDownBlockerGO;
+
     public override void OpenWindow()
     {
         if (isOpened)
@@ -25,6 +27,7 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController
             return;
         }
         OpenWindowAnim();
+        onMouseDownBlockerGO.SetActive(true);
     }
 
     public override void CloseWindow()
@@ -34,6 +37,7 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController
             return;
         }
         CloseWindowAnim();
+        onMouseDownBlockerGO.SetActive(false);
     }
 
     private void OpenWindowAnim()

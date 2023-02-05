@@ -31,6 +31,8 @@ public class InfoCardManager : MonoBehaviour, I_InfoCard
     [Header("For Test Only: ")]
     public Sprite testSprite;
 
+    [SerializeField] bool isCandidate = true;
+
     // public 
 
     // Start is called before the first frame update
@@ -62,12 +64,21 @@ public class InfoCardManager : MonoBehaviour, I_InfoCard
 
     void OnMouseEnter()
     {
+        if (!isCandidate)
+        {
+            return;
+        }
         transform.DOShakeScale(1, 0.05f);
 
     }
 
     void OnMouseDown()
     {
+        if (!isCandidate)
+        {
+            return;
+        }
+        Debug.Log("clicked");
         infoCardClicked.Invoke(personData);
     }
 
