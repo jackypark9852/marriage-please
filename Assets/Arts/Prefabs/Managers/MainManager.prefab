@@ -53,6 +53,8 @@ MonoBehaviour:
   - MainMenu
   - DialogueScene
   - RoundFlow
+  - GameWonScene
+  - GameLostScene
 --- !u!114 &6713342935642252642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,6 +86,7 @@ MonoBehaviour:
   _persistent: 1
   musicClips:
   - {fileID: 8300000, guid: a5b5d01be2337214fbd38d6a0973ca48, type: 3}
+  volume: 0
 --- !u!82 &6713342935642252646
 AudioSource:
   m_ObjectHideFlags: 0

@@ -25,6 +25,7 @@ public class RoundManager : Singleton<RoundManager>
     [SerializeField] private TMPro.TextMeshProUGUI debugStageText;
     [SerializeField] private TMPro.TextMeshProUGUI debugClientText;
     [SerializeField] private TMPro.TextMeshProUGUI debugRoundText;
+    [SerializeField] private TMPro.TextMeshProUGUI debugTimerText;
 
     PersonData client;
     PersonData candidate1;
@@ -38,9 +39,8 @@ public class RoundManager : Singleton<RoundManager>
     void Awake()
     {
         familyLogic = GetComponent<FamilyLogic>();
-        EventManager.AddEvent("StageEnded", new UnityAction(() => { }));
+        EventManager.AddEvent("StagePassed", new UnityAction(() => {StartStage(); }));
         EventManager.AddEvent("GameLost", new UnityAction(() => { }));
-        EventManager.AddEvent("GameWon", new UnityAction(() => { }));
 
     }
 
@@ -56,6 +56,7 @@ public class RoundManager : Singleton<RoundManager>
     void Update()
     {
         timer -= Time.deltaTime;
+        debugTimerText.text = timer.ToString(); // TODO: Remove this
         if (timer <= 0f)
         {
             EventManager.Invoke("GameLost");
@@ -66,6 +67,7 @@ public class RoundManager : Singleton<RoundManager>
     {
         stageState = StageState.StageInProgress;
         roundNum = 0;
+        Debug.Log("Starting stage " + stageNum);
         debugStageText.text = "Stage: " + stageNum; // TODO: Remove this
         currentStageData = stageDatas[stageNum];
         familyLogic.FamilyData = stageDatas[stageNum].familyData;
@@ -80,12 +82,15 @@ public class RoundManager : Singleton<RoundManager>
     {
         stageState = StageState.AfterStage;
         stageEnded.Invoke(); // TODO: Remove redundant event
-        EventManager.Invoke("StageEnded");
+        
 
         stageNum++;
         if (stageNum >= stageDatas.Count)
         {
             EventManager.Invoke("GameWon");
+        } else {
+            Debug.Log("Stage passed");
+            EventManager.Invoke("StagePassed");
         }
     }
 

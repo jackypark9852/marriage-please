@@ -15,6 +15,6 @@ MonoBehaviour:
   familyData: {fileID: 11400000, guid: 0e4d70f5df982294f9fa4f45e07e0eec, type: 2}
   startTimeLength: 30
   maxTimeLength: 30
-  gameRoundLength: 2
+  gameRoundLength: 1
   unsafeStartingProbability: 0.2
   unsafeProbabilityIncrement: 0.1
