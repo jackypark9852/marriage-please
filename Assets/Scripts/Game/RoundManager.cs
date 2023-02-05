@@ -12,6 +12,8 @@ public class RoundManager : Singleton<RoundManager>
     [HideInInspector] public float timer { get; private set; }
     [HideInInspector] public float unsafeProbability { get; private set; }
     [HideInInspector] public Sprite familyTreeSprite { get; private set; }
+    [HideInInspector] public float correctTimeIncrement { get; private set; }
+    [HideInInspector] public float incorrectTimeIncrement { get; private set; }
 
     [Header("Script References")]
     [SerializeField] private InfoCardManager infoCardManager1;
@@ -20,6 +22,8 @@ public class RoundManager : Singleton<RoundManager>
 
     [SerializeField] Image familyTreeImage;
     [SerializeField] SpriteRenderer familyTreeOpenerSR;
+
+    [SerializeField] ProgressBar timerBar;
     [Header("Data")]
     [SerializeField] List<StageData> stageDatas;
     [Header("Events")]
@@ -64,6 +68,7 @@ public class RoundManager : Singleton<RoundManager>
     void Update()
     {
         timer -= Time.deltaTime;
+        timerBar.Val = timer / currentStageData.maxTimeLength;
         debugTimerText.text = timer.ToString(); // TODO: Remove this
         if (timer <= 0f)
         {
@@ -134,14 +139,14 @@ public class RoundManager : Singleton<RoundManager>
 
     public void OnCorrectMarry()
     {
-        timer += GameSettings.CORRECT_TIME_INCREMENT;
+        timer += correctTimeIncrement;
         timer = Mathf.Clamp(timer, 0f, currentStageData.maxTimeLength);
 
     }
 
     public void OnInorrectMarry()
     {
-        timer += GameSettings.INCORRECT_TIME_INCREMENT;
+        timer += incorrectTimeIncrement;
         timer = Mathf.Clamp(timer, 0f, currentStageData.maxTimeLength);
     }
 
