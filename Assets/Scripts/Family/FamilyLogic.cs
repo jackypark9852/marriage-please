@@ -97,17 +97,27 @@ public class FamilyLogic : MonoBehaviour
                 return candidate;
             }
         }
-        return null;
+        return GetSafeCandidate(person, excludes);
     }
 
-    public PersonData GetClient()
+    public PersonData GetClient(List<PersonData> excludes = null)
     {
         // If there are less than 3 people left, there won't be candidates for the client
-        if (availablePeople.Count < 3)
+        List<PersonData> candidates = new List<PersonData>(availablePeople);
+        if (excludes != null)
         {
-            Debug.LogWarning("Not enough people left to get a client");
+            foreach (PersonData exclude in excludes)
+            {
+                candidates.Remove(exclude);
+            }
+        }
+
+        if (candidates.Count == 0)
+        {
+            Debug.LogWarning("Client requested, but no candidates available");
             return null;
         }
+        
         Debug.Log("Getting client");
         Debug.Log("Client:" + availablePeople[0].Name);
         return availablePeople[0];
