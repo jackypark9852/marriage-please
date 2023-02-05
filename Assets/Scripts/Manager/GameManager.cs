@@ -13,22 +13,30 @@ public class GameManager : Singleton<GameManager>
         get { return state; }
     }
     public List<string> sceneNameList = new List<string>();
-
+    public static bool haveDone = false;
     protected override void Awake(){
         base.Awake();
-        EventManager.Init();
-        EventManager.AddEvent("StartMenu", new UnityAction(()=>Debug.Log("StartMenu"))); //When you first enter into the game
-        EventManager.AddEvent("ChangeState", new UnityAction(()=>Debug.Log("ChangeState")));//when you change the states'
-        EventManager.AddEvent("StartTutorial", new UnityAction(()=>Debug.Log("StartTutorial"))); //When you press the start button
-        EventManager.AddEvent("RoundStart", new UnityAction(()=>Debug.Log("RoundStart"))); //When you press the start button
-        EventManager.AddEvent("GameWon", new UnityAction(()=>Debug.Log("GameWon"))); //When you press the start button
-        EventManager.AddEvent("GameLost", new UnityAction(()=>Debug.Log("GameLost"))); //When you press the start button
+    
+       
     }
 
-     public static void ChangeScene(string str){
+    void Start(){
+        if(haveDone){
+            return;
+        }
+        EventManager.AddEvent("StartMenu", new UnityAction(()=>SceneManager.LoadScene(Instance.sceneNameList[0]))); //When you first enter into the game
+        EventManager.AddEvent("StartTutorial", new UnityAction(()=>SceneManager.LoadScene(Instance.sceneNameList[1]))); //When you press the start button
+        EventManager.AddEvent("RoundStart", new UnityAction(()=>SceneManager.LoadScene(Instance.sceneNameList[2]))); //When you press the start button
+        EventManager.AddEvent("GameWon", new UnityAction(()=>SceneManager.LoadScene(Instance.sceneNameList[3]))); //When you press the start button
+        EventManager.AddEvent("GameLost", new UnityAction(()=>SceneManager.LoadScene(Instance.sceneNameList[4]))); //When you press the start button
+        EventManager.AddEvent("ChangeState", new UnityAction(()=>Debug.Log("ChangeState")));//when you change the states'
+        haveDone = true;
+    }
+    
+     public static void ChangeState(string str){
         switch(str){
             case "Menu":
-                SceneManager.LoadScene(Instance.sceneNameList[0]);
+    
                 ChangeState(GameState.Menu);
                 break;
             case "Tutorial":
@@ -47,7 +55,6 @@ public class GameManager : Singleton<GameManager>
                 break;
             
             case "Lose":   
-                SceneManager.LoadScene(Instance.sceneNameList[4]);
                 ChangeState(GameState.Lose);
                 break;
 

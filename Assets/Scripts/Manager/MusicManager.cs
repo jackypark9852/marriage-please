@@ -30,6 +30,7 @@ public class MusicManager : Singleton<MusicManager>
     }
     public void PlayMusic(int index)
     {
+        Debug.Log("Playing music"+index);
         if(index >= musicClips.Count)
             return;
         audioSource.clip = musicClips[index];

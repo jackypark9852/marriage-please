@@ -67,7 +67,7 @@ public class RoundManager : Singleton<RoundManager>
         debugTimerText.text = timer.ToString(); // TODO: Remove this
         if (timer <= 0f)
         {
-            GameManager.ChangeScene("Lose");
+            EventManager.Invoke("GameLost");
         }
     }
 
@@ -96,7 +96,7 @@ public class RoundManager : Singleton<RoundManager>
         stageNum++;
         if (stageNum >= stageDatas.Count)
         {
-            GameManager.ChangeScene("Win");
+            EventManager.Invoke("GameWon");
         } else {
             Debug.Log("Stage passed");
             EventManager.Invoke("StagePassed");

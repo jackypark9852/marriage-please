@@ -13,14 +13,7 @@ public class EventManager : Singleton<EventManager>
 {
     [SerializeField]
     private EventDictionary eventDictionary;
-    public static void Init()
-    {
-        if (Instance.eventDictionary == null)
-        {
-            Instance.eventDictionary = new EventDictionary();
-        }
-    }
-
+    
     private void OnDisable()
     {
         foreach (var item in eventDictionary)
