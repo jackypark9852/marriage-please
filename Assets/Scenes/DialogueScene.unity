@@ -177,6 +177,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.86
       objectReference: {fileID: 0}
+    - target: {fileID: 4386322921880578851, guid: 89d1dbc0a16a18844a61b38202eda268, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3ccbee9741a4ba049b5ef1e1bbd35bd3, type: 3}
     - target: {fileID: 4386322922287786881, guid: 89d1dbc0a16a18844a61b38202eda268, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -238,6 +242,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4386322922368629987, guid: 89d1dbc0a16a18844a61b38202eda268, type: 3}
+      propertyPath: personData
+      value: 
+      objectReference: {fileID: 11400000, guid: 7daa30e114a7a0e46ade821fefa15b0e, type: 2}
+    - target: {fileID: 4386322922368629987, guid: 89d1dbc0a16a18844a61b38202eda268, type: 3}
       propertyPath: IsSafeChoice
       value: 1
       objectReference: {fileID: 0}
@@ -252,6 +260,12 @@ PrefabInstance:
     - target: {fileID: 4386322922500422372, guid: 89d1dbc0a16a18844a61b38202eda268, type: 3}
       propertyPath: m_SortingLayerID
       value: 1613634295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4386322922500422379, guid: 89d1dbc0a16a18844a61b38202eda268, type: 3}
+      propertyPath: m_text
+      value: 'Viviana Wurzel
+
+'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89d1dbc0a16a18844a61b38202eda268, type: 3}
@@ -838,7 +852,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 407307741}
   selectedCommands:
-  - {fileID: 407307747}
+  - {fileID: 407307744}
   variables: []
   description: 
   stepPause: 0
@@ -905,7 +919,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 600
+          m_FloatArgument: 500
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -973,7 +987,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 600
+          m_FloatArgument: 200
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -1743,6 +1757,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8402541544626659056, guid: ab232003ee1a325479c87a0a18c8dbd2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 437843f4b19334b48b03640aeb027d75, type: 3}
     - target: {fileID: 8402541545355194240, guid: ab232003ee1a325479c87a0a18c8dbd2, type: 3}
       propertyPath: m_Name
       value: 'computer '
@@ -1990,6 +2008,10 @@ PrefabInstance:
       value: 4.429
       objectReference: {fileID: 0}
     - target: {fileID: 5257289785045991981, guid: 1202221ecb9af924587fd1d581546178, type: 3}
+      propertyPath: personData
+      value: 
+      objectReference: {fileID: 11400000, guid: 26b0f20aa38e3194096c7d666189bc3b, type: 2}
+    - target: {fileID: 5257289785045991981, guid: 1202221ecb9af924587fd1d581546178, type: 3}
       propertyPath: IsSafeChoice
       value: 1
       objectReference: {fileID: 0}
@@ -2005,6 +2027,12 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 4bb2f07e051f654489e347d271f28995, type: 3}
+    - target: {fileID: 5257289785446351909, guid: 1202221ecb9af924587fd1d581546178, type: 3}
+      propertyPath: m_text
+      value: 'Cornard Wurzel
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 5257289786603066860, guid: 1202221ecb9af924587fd1d581546178, type: 3}
       propertyPath: m_LocalScale.x
       value: 7.2254853
@@ -2037,6 +2065,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.957
       objectReference: {fileID: 0}
+    - target: {fileID: 5257289786603066861, guid: 1202221ecb9af924587fd1d581546178, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 703d0e5b0a3467845bf817b278063a62, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1202221ecb9af924587fd1d581546178, type: 3}
 --- !u!1 &857387840
@@ -2174,7 +2206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573db46d0ca11e949a585fe161339bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardLeft: {fileID: 1206666526}
+  cardLeft: {fileID: 5257289785863171833}
   cardRight: {fileID: 745706513}
   personEffectsHolder: {fileID: 2059395149}
   personPlaceholder: {fileID: 114253658}
@@ -2197,7 +2229,7 @@ MonoBehaviour:
   randomRoateValue: 10
   cardLeaveDuration: 1
   waitTimeToDiscard: 0
-  leftCardStyle: {fileID: 1206666526}
+  leftCardStyle: {fileID: 5257289785863171833}
   rightCardStyle: {fileID: 745706513}
   cardStyles: []
 --- !u!114 &935408207
@@ -2627,22 +2659,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1206666526 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5257289785045991983, guid: 1202221ecb9af924587fd1d581546178, type: 3}
-  m_PrefabInstance: {fileID: 828189910}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1206666528 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5257289785045991981, guid: 1202221ecb9af924587fd1d581546178, type: 3}
-  m_PrefabInstance: {fileID: 828189910}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1206666526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb32816612ff9b4b8959994d62879cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1237124526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3014,6 +3030,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 47675547}
     - target: {fileID: 5468313833721639194, guid: aabc01acb5e608b4eb01c06ef324bb2c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468313833721639194, guid: aabc01acb5e608b4eb01c06ef324bb2c, type: 3}
       propertyPath: debugRoundText
       value: 
       objectReference: {fileID: 1849987528}
@@ -3036,7 +3056,7 @@ PrefabInstance:
     - target: {fileID: 5468313833721639194, guid: aabc01acb5e608b4eb01c06ef324bb2c, type: 3}
       propertyPath: infoCardManager1
       value: 
-      objectReference: {fileID: 1206666528}
+      objectReference: {fileID: 5257289785863171835}
     - target: {fileID: 5468313833721639194, guid: aabc01acb5e608b4eb01c06ef324bb2c, type: 3}
       propertyPath: infoCardManager2
       value: 
@@ -3695,6 +3715,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1162967511, guid: 65d574b9d4e6e9f4c896c2478277928a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 519245503344573888, guid: 65d574b9d4e6e9f4c896c2478277928a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3854,5 +3878,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a0bbe22c246e4c78ad8e9816cbae9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &5257289785863171833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5257289785045991983, guid: 1202221ecb9af924587fd1d581546178, type: 3}
+  m_PrefabInstance: {fileID: 828189910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5257289785863171835 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5257289785045991981, guid: 1202221ecb9af924587fd1d581546178, type: 3}
+  m_PrefabInstance: {fileID: 828189910}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5257289785863171833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb32816612ff9b4b8959994d62879cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
