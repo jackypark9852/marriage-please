@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   familyData: {fileID: 11400000, guid: 7c7654138cb489b4a8726be680478007, type: 2}
   familyTreeSprite: {fileID: 21300000, guid: 2432c005eddfd3a4188142dbebc2bb04, type: 3}
-  startTimeLength: 60
+  startTimeLength: 90
   maxTimeLength: 90
   gameRoundLength: 5
   unsafeStartingProbability: 0.3

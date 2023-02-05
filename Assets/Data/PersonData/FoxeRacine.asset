@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FoxeRacine
   m_EditorClassIdentifier: 
   _name: Foxe Racine
-  _sprite: {fileID: 21300000, guid: 89be5ec975d9b0d4bb77457ec91f997e, type: 3}
+  _sprite: {fileID: 21300000, guid: 424b41fe0b6b7e74ba2d2e0bdcb530cf, type: 3}
   _children:
   - {fileID: 11400000, guid: 7daa30e114a7a0e46ade821fefa15b0e, type: 2}
   - {fileID: 11400000, guid: 26b0f20aa38e3194096c7d666189bc3b, type: 2}
