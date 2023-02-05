@@ -62,7 +62,12 @@ public class AnimationManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(Input.GetKey(KeyCode.Q) && !playerSelected) {
+            StartRoundSequence();
+        }
+
+        if(Input.GetKey(KeyCode.E) && !playerSelected) {
             playerSelected = true;
             takeChoice(cardLeft, false);
             // cardCandidate.GetComponent<InfoCardManager>().PlayAngryEffect();
@@ -103,6 +108,7 @@ public class AnimationManager : MonoBehaviour
         // cardLeft.transform.DOMove(leftScenePos, cardEnterDuration);
 
         cardCandidate.transform.position = candidateOutPos;
+        cardCandidate.transform.rotation = Quaternion.identity;
 
         seq.Append(cardCandidate.transform.DOMove(candidateScenePos, cardEnterDuration));
 
@@ -111,6 +117,7 @@ public class AnimationManager : MonoBehaviour
     public void takeChoice(GameObject sel, bool isCorrect) {
 
         Debug.Log("taked choice");
+        playerSelected = false;
 
         bool isLeft = sel == cardLeft;
 
@@ -157,7 +164,22 @@ public class AnimationManager : MonoBehaviour
         });
 
         seq.AppendInterval(waitTimeToDiscard);
-        seq.Append(other.transform.DOMove(rightScenePos, cardLeaveDuration));
+        // seq.Append(other.transform.DOMove(rightScenePos, cardLeaveDuration));
+
+
+
+        // the person left the room
+
+        int index = Random.Range (0, peopleSprites.Length);
+        personPlaceholder.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = peopleSprites[index];
+
+        seq.Append(personPlaceholder.transform.DOMove(personEndPos, cardLeaveDuration));
+        seq.Join(personPlaceholder.transform.GetChild(0).DOPunchPosition(new Vector3(0, 1, 0), cardLeaveDuration));
+
+        // all cards fly outside the screen
+        seq.Join(selected.transform.DOMove(leftOutPos, cardLeaveDuration));
+        seq.Join(cardCandidate.transform.DOMove(leftOutPos, cardLeaveDuration));
+        
 
     }
 

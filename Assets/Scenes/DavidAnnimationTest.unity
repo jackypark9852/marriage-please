@@ -1471,6 +1471,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5257289785045991981, guid: 1202221ecb9af924587fd1d581546178, type: 3}
+      propertyPath: animatingInfoCard.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1229429774}
+    - target: {fileID: 5257289785045991981, guid: 1202221ecb9af924587fd1d581546178, type: 3}
+      propertyPath: animatingInfoCard.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5257289785045991983, guid: 1202221ecb9af924587fd1d581546178, type: 3}
       propertyPath: m_Name
       value: UI_InfoCardRight
@@ -2176,13 +2184,9 @@ PrefabInstance:
       value: 4.429
       objectReference: {fileID: 0}
     - target: {fileID: 5257289785045991981, guid: 1202221ecb9af924587fd1d581546178, type: 3}
-      propertyPath: animatingInfoCard.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5257289785045991981, guid: 1202221ecb9af924587fd1d581546178, type: 3}
       propertyPath: animatingInfoCard.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1229429772}
+      objectReference: {fileID: 1229429774}
     - target: {fileID: 5257289785045991983, guid: 1202221ecb9af924587fd1d581546178, type: 3}
       propertyPath: m_Name
       value: UI_InfoCardLeft
