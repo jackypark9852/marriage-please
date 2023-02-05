@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c6fb74845b350e408804041ca9ef099, type: 3}
+  m_Name: GrimwardWurzel
+  m_EditorClassIdentifier: 
+  _name: Grimward Wurzel
+  _sprite: {fileID: 21300000, guid: 27e0e19053bf8e34291ef325580a424f, type: 3}
+  _children:
+  - {fileID: 11400000, guid: c1067b46d759cb645a9ac2fe359524a8, type: 2}
+  - {fileID: 11400000, guid: 16ee76b901c64ef4fbd4784d873d5f2a, type: 2}
