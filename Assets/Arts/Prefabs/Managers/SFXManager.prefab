@@ -144,5 +144,9 @@ MonoBehaviour:
   sfxClips:
     m_keys:
     - Button
+    - Start
+    - Correct
     m_values:
-    - {fileID: 8300000, guid: c6562f069875b92449535f0cdaff0a28, type: 3}
+    - {fileID: 8300000, guid: 47def54f99cae4846aa309e4cacb7943, type: 3}
+    - {fileID: 8300000, guid: 8d09f23afd8c5da429a29724345a27b0, type: 3}
+    - {fileID: 8300000, guid: fb67e7506a9bb4548b6ca5222f03d05d, type: 3}
