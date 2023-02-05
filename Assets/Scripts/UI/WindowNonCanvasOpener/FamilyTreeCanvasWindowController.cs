@@ -34,6 +34,21 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController, IPointer
         familyTreeOpenerSR.material.color = closeColor;
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isOpened)
+            {
+                CloseWindow();
+            }
+            else
+            {
+                OpenWindow();
+            }
+        }
+    }
+
     public override void OpenWindow()
     {
         if (isOpened)
