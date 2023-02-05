@@ -47,9 +47,9 @@ public class RoundManager : Singleton<RoundManager>
     StageState stageState = StageState.BeforeStage;
 
 
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
+        //ase.Awake();
         familyLogic = GetComponent<FamilyLogic>();
         EventManager.AddEvent("GameLost", new UnityAction(() => { }));
     }

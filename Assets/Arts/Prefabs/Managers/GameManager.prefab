@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  fadeImage: {fileID: 0}
   sceneNameList:
   - MainMenu
   - DialogueScene
