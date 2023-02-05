@@ -89,6 +89,7 @@ public class AnimationManager : MonoBehaviour
 
     public void StartRoundSequence()
     {
+        ChangeInfoOnCard();
         // the random person walk from left to right to the scene
 
         personPlaceholder.transform.position = personOutPos;
@@ -247,7 +248,7 @@ public class AnimationManager : MonoBehaviour
 
         seq.AppendCallback(() =>
         {
-            ChangeInfoOnCard();
+
             // RandomChangeCardStyle(leftCardStyle);
             // RandomChangeCardStyle(rightCardStyle);
             StartRoundSequence();
