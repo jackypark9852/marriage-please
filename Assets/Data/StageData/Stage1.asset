@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a9cbda13cc28bc448d0f78f4b52d67e, type: 3}
   m_Name: Stage1
   m_EditorClassIdentifier: 
-  familyData: {fileID: 11400000, guid: 7c7654138cb489b4a8726be680478007, type: 2}
+  familyData: {fileID: 11400000, guid: bf0c3831e4485db46b19912c863a92ea, type: 2}
   familyTreeSprite: {fileID: 21300000, guid: 0c3feff678b6ab04bbc2700cff8bbe13, type: 3}
   startTimeLength: 90
   maxTimeLength: 90
