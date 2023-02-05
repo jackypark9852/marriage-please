@@ -27,7 +27,6 @@ public class InfoCardManager : MonoBehaviour
         set
         {
             personData = value;
-<<<<<<< HEAD
             // Debug.Log(personData);
             // if (personData != null)
             // {
@@ -35,10 +34,6 @@ public class InfoCardManager : MonoBehaviour
             // }
             // ChangePicture(personData.Sprite);
             // ChangeName(personData.name);
-=======
-            ChangePicture(personData.Sprite);
-            ChangeName(personData.Name);
->>>>>>> bd87460a199c5a378bb5b164ec28b00f02a18e38
         }
     }
 
@@ -49,15 +44,15 @@ public class InfoCardManager : MonoBehaviour
 
     // public 
 
-    // handler for changeing the sprite and name
     public void UpdateCard() {
+        // Debug.Log(personData);
         if (personData != null)
         {
             // Debug.Log($"{personData.name} | {personData.Sprite}");
             ChangePicture(personData.Sprite);
             ChangeName(personData.name);
         }
-        
+
     }
 
     // Start is called before the first frame update
