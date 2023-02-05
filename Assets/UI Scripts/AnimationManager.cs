@@ -58,6 +58,11 @@ public class AnimationManager : MonoBehaviour
     public Sprite[] cardStyles;
 
 
+    [Header("VFXs:")]
+    public string[] footstepAudios;
+    // public string[] paperflipAudios;
+
+
     // Internal Vars
     private bool playerSelected;
     private bool playerCanSelect;
@@ -68,6 +73,7 @@ public class AnimationManager : MonoBehaviour
     {
         ChangeInfoOnCard();
         StartRoundSequence();
+        // SFXManager.PlayMusic("BadMale1");
     }
 
     // Update is called once per frame
@@ -97,8 +103,15 @@ public class AnimationManager : MonoBehaviour
         personPlaceholder.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = peopleSprites[index];
 
         var seq = DOTween.Sequence();
+
+        int audioIndex = Random.Range(0, footstepAudios.Length);
+        SFXManager.PlayMusicLoop(footstepAudios[audioIndex]);
+
         seq.Append(personPlaceholder.transform.DOMove(personScenePos, personEnterDuartion));
         seq.Join(personPlaceholder.transform.GetChild(0).DOPunchPosition(new Vector3(0, 0.5f, 0), personEnterDuartion));
+        seq.AppendCallback(() => {
+            SFXManager.StopMusic(footstepAudios[audioIndex]);
+        });
 
 
         // make the cards fly into the scence
@@ -228,9 +241,18 @@ public class AnimationManager : MonoBehaviour
 
         // int index = Random.Range (0, peopleSprites.Length);
         // personPlaceholder.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = peopleSprites[index];
+
+        int index = Random.Range(0, footstepAudios.Length);
+        seq.AppendCallback(() => {
+            SFXManager.PlayMusicLoop(footstepAudios[index]);
+        });
+
         if (isCorrect)
         {
-
+            seq.PrependCallback(() => {
+                SFXManager.PlayMusic("Heartbeat");
+            });
+            
             seq.Append(personPlaceholder.transform.DOMove(personOutPos, cardLeaveDuration));
             seq.Join(personPlaceholder.transform.GetChild(0).DOPunchPosition(new Vector3(0, 0.3f, 0), cardLeaveDuration));
 
@@ -240,6 +262,10 @@ public class AnimationManager : MonoBehaviour
         }
         else
         {
+            seq.PrependCallback(() => {
+                SFXManager.PlayMusic("Humm");
+            });
+            
             seq.Append(personPlaceholder.transform.DOMove(personOutPos, cardLeaveDuration));
             seq.Join(personPlaceholder.transform.GetChild(0).DOPunchPosition(new Vector3(0, 0.3f, 0), cardLeaveDuration));
             seq.Append(selected.transform.DOMove(dropPosition, cardLeaveDuration));
@@ -248,6 +274,9 @@ public class AnimationManager : MonoBehaviour
 
         seq.AppendCallback(() =>
         {
+            SFXManager.StopMusic(footstepAudios[index]);
+
+            ChangeInfoOnCard();
 
             // RandomChangeCardStyle(leftCardStyle);
             // RandomChangeCardStyle(rightCardStyle);
