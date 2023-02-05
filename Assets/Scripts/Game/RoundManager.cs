@@ -52,7 +52,7 @@ public class RoundManager : Singleton<RoundManager>
     void Awake()
     {
         familyLogic = GetComponent<FamilyLogic>();
-        EventManager.AddEvent("StagePassed", new UnityAction(() => {StartStage(); }));
+        EventManager.AddEvent("StagePassed", new UnityAction(() => { StartStage(); }));
         EventManager.AddEvent("GameLost", new UnityAction(() => { }));
     }
 
@@ -96,13 +96,15 @@ public class RoundManager : Singleton<RoundManager>
     {
         stageState = StageState.AfterStage;
         stageEnded.Invoke(); // TODO: Remove redundant event
-        
+
 
         stageNum++;
         if (stageNum >= stageDatas.Count)
         {
             EventManager.Invoke("GameWon");
-        } else {
+        }
+        else
+        {
             Debug.Log("Stage passed");
             EventManager.Invoke("StagePassed");
         }
@@ -157,7 +159,7 @@ public class RoundManager : Singleton<RoundManager>
     {
         const int MAX_TRIES = 10;
         int tries = 0;
-        bool candidatesFound = false; 
+        bool candidatesFound = false;
         List<PersonData> triedClients = new List<PersonData>();
         while (tries < MAX_TRIES)
         {
@@ -170,7 +172,7 @@ public class RoundManager : Singleton<RoundManager>
                 return;
             }
             debugClientText.text = client.name; // TODO: Remove this
-            
+
             candidate1 = familyLogic.GetSafeCandidate(client);
             float rand = Random.Range(0f, 1f);
             if (rand < unsafeProbability)
@@ -193,17 +195,17 @@ public class RoundManager : Singleton<RoundManager>
             triedClients.Add(client);
             if (candidate1 != null && candidate2 != null)
             {
-                candidatesFound = true; 
+                candidatesFound = true;
                 break; ;
             }
         }
 
-        if(!candidatesFound)
+        if (!candidatesFound)
         {
             Debug.LogWarning("No suitable candidates found");
-            EndStage(); 
+            EndStage();
         }
-        return; 
+        return;
     }
 
     public void OnInfoCardClicked(PersonData personData)
@@ -230,7 +232,7 @@ public class RoundManager : Singleton<RoundManager>
         infoCardManager1.PersonData = candidate1;
         infoCardManager1.IsSafeChoice = familyLogic.IsCloseRelative(client, candidate1);
         infoCardManager2.PersonData = candidate2;
-        infoCardManager2.IsSafeChoice = familyLogic.IsCloseRelative(client, candidate2); 
+        infoCardManager2.IsSafeChoice = familyLogic.IsCloseRelative(client, candidate2);
         infoCardManagerClient.PersonData = client;
     }
 

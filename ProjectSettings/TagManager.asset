@@ -50,12 +50,6 @@ TagManager:
   - name: Table
     uniqueID: 99369255
     locked: 0
-  - name: CardLeft(Back)
-    uniqueID: 3100884729
-    locked: 0
-  - name: CardRight(Front)
-    uniqueID: 1613634295
-    locked: 0
   - name: CardCandidate
     uniqueID: 1247047751
     locked: 0
@@ -64,6 +58,12 @@ TagManager:
     locked: 0
   - name: Computer
     uniqueID: 3406858725
+    locked: 0
+  - name: CardLeft(Back)
+    uniqueID: 3100884729
+    locked: 0
+  - name: CardRight(Front)
+    uniqueID: 1613634295
     locked: 0
   - name: Canvas
     uniqueID: 3919292757
