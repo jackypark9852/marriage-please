@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c6fb74845b350e408804041ca9ef099, type: 3}
-  m_Name: ElaWurzel
+  m_Name: CotharWurzel
   m_EditorClassIdentifier: 
-  _name: Ela Wurzel
-  _sprite: {fileID: 21300000, guid: 4d221bb9f18183043bbaed1699292f13, type: 3}
+  _name: Cothar Wurzel
+  _sprite: {fileID: 21300000, guid: 084620609a560ba43bb30d6d8d56afc2, type: 3}
   _children:
-  - {fileID: 11400000, guid: 6d892081009d45b49aefa4cda36305f4, type: 2}
-  - {fileID: 11400000, guid: 74936c6b1c6121f44887b6ca23582ef0, type: 2}
-  - {fileID: 11400000, guid: 0fec1e35be5776040b0d44c108a8e50e, type: 2}
+  - {fileID: 11400000, guid: 973d1c4a406fe8b41988d888f646892b, type: 2}
+  - {fileID: 11400000, guid: 4ee4756befd465043986b68dbda6cec1, type: 2}

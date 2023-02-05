@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6fb74845b350e408804041ca9ef099, type: 3}
   m_Name: GerultRacine
   m_EditorClassIdentifier: 
-  _name: GerultRacine
+  _name: Gerult Racine
   _sprite: {fileID: 21300000, guid: c46a6033f9e93c543b47484dc2c72a9a, type: 3}
   _children: []
