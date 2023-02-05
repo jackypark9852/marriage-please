@@ -28,6 +28,11 @@ public class AnimationManager : MonoBehaviour
     public Vector3 dropPosition;
     public Vector3 leftScenePos;
 
+    [Header("Gameobjects: ")]
+    [SerializeField] private GameObject blockPanel;
+
+
+    [Header("Animation Settings:")]
     public Vector3 rightScenePos;
     // public Vector3 candidateOutPos;
     // public Vector3 candidateScenePos;
@@ -124,6 +129,7 @@ public class AnimationManager : MonoBehaviour
         seq.AppendCallback(() =>
         {
             playerCanSelect = true;
+            blockPanel.SetActive(false);
         });
 
     }
@@ -139,6 +145,7 @@ public class AnimationManager : MonoBehaviour
         }
 
         Debug.Log("taked choice");
+        blockPanel.SetActive(true); // Activate the block panel to prevent player from clicking again
         playerSelected = false;
         playerCanSelect = false;
 
