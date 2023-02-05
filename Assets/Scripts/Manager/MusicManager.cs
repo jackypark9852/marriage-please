@@ -36,6 +36,7 @@ public class MusicManager : Singleton<MusicManager>
         EventManager.AddEvent("StartTutorial", new UnityAction(() => Instance.PlayMusic("Round"))); //When you press the start button
         EventManager.AddEvent("RoundStart", new UnityAction(() => Instance.PlayMusic("Round"))); //When you press the start button
         EventManager.AddEvent("GameLost", new UnityAction(() => Instance.PlayMusic("GameLost"))); //When you press the start button
+        EventManager.AddEvent("GameWon", new UnityAction(() => Instance.PlayMusic("GameWon"))); //When you press the start button
         haveDone = true;
     }
     public void SetVolume(float num)
