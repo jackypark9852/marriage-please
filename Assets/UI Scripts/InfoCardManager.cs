@@ -27,11 +27,6 @@ public class InfoCardManager : MonoBehaviour
         set
         {
             personData = value;
-            if (personData != null)
-            {
-                StartCoroutine("UpdateInfo");
-            }
-            UpdateInfo();
             // Debug.Log(personData);
             // if (personData != null)
             // {
@@ -39,16 +34,6 @@ public class InfoCardManager : MonoBehaviour
             // }
             // ChangePicture(personData.Sprite);
             // ChangeName(personData.name);
-        }
-    }
-
-    private IEnumerator UpdateInfo()
-    {
-        Debug.Log("Updating Info");
-        yield return new WaitForSeconds(.5f);
-        if (personData != null)
-        {
-            UpdateCard();
         }
     }
 

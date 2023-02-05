@@ -54,20 +54,15 @@ public class RoundManager : Singleton<RoundManager>
         //ase.Awake();
         familyLogic = GetComponent<FamilyLogic>();
         EventManager.AddEvent("GameLost", new UnityAction(() => { }));
-        Debug.Log("RoundManager Awake");
-        //SetCandidates(); 
     }
 
     void Start()
     {
-        Debug.Log("RoundManager Start");
         StartStage();
         wrongCandidateChosen.AddListener(OnInorrectMarry);
         correctCandidateChosen.AddListener(OnCorrectMarry);
         infoCardManager1.infoCardClicked.AddListener(OnInfoCardClicked);
         infoCardManager2.infoCardClicked.AddListener(OnInfoCardClicked);
-        SetCandidates();
-        SetInfoCardDatas();
     }
 
     void Update()
@@ -127,7 +122,6 @@ public class RoundManager : Singleton<RoundManager>
 
     public void StartRound()
     {
-        client = familyLogic.GetClient();
         SetCandidates();
         SetInfoCardDatas();
         Debug.Log(familyTreeCanvasWindowController);
@@ -171,7 +165,6 @@ public class RoundManager : Singleton<RoundManager>
 
     public void SetCandidates()
     {
-        Debug.Log("SetCandidates");
         const int MAX_TRIES = 10;
         int tries = 0;
         bool candidatesFound = false;
@@ -244,10 +237,8 @@ public class RoundManager : Singleton<RoundManager>
     }
     private void SetInfoCardDatas()
     {
-        Debug.Log("SetInfoCardDatas"); 
         if (infoCardManager1 == null || infoCardManager2 == null || clientInfoLogic == null)
         {
-            Debug.Log("InfoCardManager1 or InfoCardManager2 or ClientInfoLogic is null");
             return;
         }
         infoCardManager1.PersonData = candidate1;
@@ -255,8 +246,6 @@ public class RoundManager : Singleton<RoundManager>
         infoCardManager2.PersonData = candidate2;
         infoCardManager2.IsSafeChoice = !familyLogic.IsCloseRelative(client, candidate2);
         clientInfoLogic.PersonData = client;
-
-        Debug.Log("SetInfoCardDatas done");
     }
 
     private void ChangeFamilyTreeSprite(Sprite sprite)
