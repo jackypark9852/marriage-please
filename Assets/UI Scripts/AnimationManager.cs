@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -44,7 +45,8 @@ public class AnimationManager : MonoBehaviour
     public float randomRoateValue;
     public float cardLeaveDuration;
 
-    
+    [Header("After Show Result:")]
+    public float waitTimeToDiscard;
 
 
     // Internal Vars
@@ -60,13 +62,16 @@ public class AnimationManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.P) && !playerSelected) {
+        if(Input.GetKey(KeyCode.Q) && !playerSelected) {
             playerSelected = true;
-            takeChoice(false, true);
+            takeChoice(cardLeft, false);
+            // cardCandidate.GetComponent<InfoCardManager>().PlayAngryEffect();
         }
     }
 
-    void StartRoundSequence() {
+    // SEQUENCES
+
+    public void StartRoundSequence() {
         // the random person walk from left to right to the scene
 
         personPlaceholder.transform.position = personOutPos;
@@ -81,10 +86,17 @@ public class AnimationManager : MonoBehaviour
         // make the cards fly into the scence
 
         cardLeft.transform.position = leftOutPos;
+        cardLeft.transform.rotation = Quaternion.identity;
         cardRight.transform.position = rightOutPos;
+        cardRight.transform.rotation = Quaternion.identity;
+
 
         seq.Append(cardLeft.transform.DOMove(leftScenePos, cardEnterDuration));
         seq.Join(cardRight.transform.DOMove(rightScenePos, cardEnterDuration));
+
+        Vector3 rot = new Vector3(0, 0, Random.Range(0, randomRoateValue));
+        seq.Join(cardLeft.transform.DORotate(rot, cardLeaveDuration));
+        seq.Join(cardRight.transform.DORotate(rot, cardLeaveDuration));
         // seq.Join(cardLeft.transform.DOShakePosition(cardEnterDuration));
 
         // make the candidate card fly from bottom to inside the scene
@@ -96,34 +108,63 @@ public class AnimationManager : MonoBehaviour
 
     }
 
-    void takeChoice(bool isLeft, bool isCorrect) {
+    public void takeChoice(GameObject sel, bool isCorrect) {
 
-        GameObject wrongCard;
-        GameObject correctCard;
-        Vector3 wrongOutPos;
-        Vector3 correctOutPos;
+        Debug.Log("taked choice");
+
+        bool isLeft = sel == cardLeft;
+
+        GameObject selected;
+        GameObject other;
+        // Vector3 wrongOutPos;
+        // Vector3 correctOutPos;
         if(isLeft) {
-            wrongCard = cardRight;
-            correctCard = cardLeft;
-            wrongOutPos = rightOutPos;
-            correctOutPos = leftOutPos;
+            other = cardRight;
+            selected = cardLeft;
+            // wrongOutPos = rightOutPos;
+            // correctOutPos = leftOutPos;
         } else {
-            wrongCard = cardLeft;
-            correctCard = cardRight;
-            wrongOutPos = leftOutPos;
-            correctOutPos = rightOutPos;
+            other = cardLeft;
+            selected = cardRight;
+            // wrongOutPos = leftOutPos;
+            // correctOutPos = rightOutPos;
         }
 
         // make the wrong card fly away from the scene
         var seq = DOTween.Sequence();
-        seq.Append(wrongCard.transform.DOMove(wrongOutPos, cardLeaveDuration));
+        seq.Append(other.transform.DOMove(rightOutPos, cardLeaveDuration));
 
-        // make the right cards to the designed postion
-        seq.Join(correctCard.transform.DOMove(resultPlaceBack, cardLeaveDuration));
+        // make the selcted cards to the designed postion
+        seq.Join(selected.transform.DOMove(resultPlaceBack, cardLeaveDuration));
         seq.Join(cardCandidate.transform.DOMove(resultPlaceFront, cardLeaveDuration));
+
+        // make some random rotation
         Vector3 rot = new Vector3(0, 0, Random.Range(0, randomRoateValue));
-        seq.Join(correctCard.transform.DORotate(rot, cardLeaveDuration));
+        seq.Join(selected.transform.DORotate(rot, cardLeaveDuration));
         seq.Join(cardCandidate.transform.DORotate(-rot, cardLeaveDuration));
 
+        // add callback at the end;
+        seq.AppendCallback(() => {
+            if (isCorrect) {
+                cardCandidate.GetComponent<InfoCardManager>().PlayHeartAnim();
+                selected.GetComponent<InfoCardManager>().PlayHeartAnim();
+            }
+            else {
+                cardCandidate.GetComponent<InfoCardManager>().PlayAngryEffect();
+                selected.GetComponent<InfoCardManager>().PlayAngryEffect();
+            }
+
+        });
+
+        seq.AppendInterval(waitTimeToDiscard);
+        seq.Append(other.transform.DOMove(rightScenePos, cardLeaveDuration));
+
     }
+
+
+
+
+    // PUBLIC INTERFACES
+    
+
 }

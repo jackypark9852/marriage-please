@@ -14,6 +14,8 @@ public class InfoCardManager : MonoBehaviour
     public Transform portraitSprite;
     public TextMeshPro nameField;
     public GameObject heartObj;
+    public GameObject AngeryObj;
+
     [Header("Events: ")]
     public UnityEvent<PersonData> infoCardClicked;
     public UnityEvent<GameObject, bool> animatingInfoCard; 
@@ -71,23 +73,25 @@ public class InfoCardManager : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if (!isCandidate)
-        {
-            return;
-        }
+        // if (!isCandidate)
+        // {
+        //     return;
+        // }
         transform.DOShakeScale(1, 0.05f);
 
     }
 
     void OnMouseDown()
     {
-        if (!isCandidate)
-        {
-            return;
-        }
+        // if (!isCandidate)
+        // {
+        //     return;
+        // }
         Debug.Log("clicked");
         infoCardClicked.Invoke(personData);
         animatingInfoCard.Invoke(gameObject, IsSafeChoice); 
+
+
     }
 
     void OnMouseOver()
@@ -104,24 +108,30 @@ public class InfoCardManager : MonoBehaviour
     }
 
     // custome functions
-    void MoveTo(Vector3 target, float duration)
+    public void MoveTo(Vector3 target, float duration)
     {
         transform.DOMove(target, duration);
     }
 
-    void ChangePicture(Sprite sp)
+    public void ChangePicture(Sprite sp)
     {
         portraitSprite.GetComponent<SpriteRenderer>().sprite = sp;
     }
 
-    void ChangeName(String name)
+    public void ChangeName(String name)
     {
         nameField.text = name;
     }
 
-    void PlayHeartAnim()
+    public void PlayHeartAnim()
     {
         Animator anim = heartObj.GetComponent<Animator>();
         anim.Play("HeartEffect", 0, 0.25f);
+    }
+
+    public void PlayAngryEffect()
+    {
+        Animator anim = AngeryObj.GetComponent<Animator>();
+        anim.Play("AngryEffect", 0, 0.25f);
     }
 }
