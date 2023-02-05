@@ -28,7 +28,7 @@ public class InfoCardManager : MonoBehaviour
         {
             personData = value;
             ChangePicture(personData.Sprite);
-            ChangeName(personData.name);
+            ChangeName(personData.Name);
         }
     }
 
