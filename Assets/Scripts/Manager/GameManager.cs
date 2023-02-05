@@ -40,41 +40,41 @@ public class GameManager : Singleton<GameManager>
         switch(str){
             case "Menu":
                 SceneManager.LoadScene(Instance.sceneNameList[0]);
-                Instance.ChangeState(GameState.Menu);
+                ChangeState(GameState.Menu);
                 break;
             case "Tutorial":
                 SceneManager.LoadScene(Instance.sceneNameList[1]);
-                Instance.ChangeState(GameState.Tutorial);
+                ChangeState(GameState.Tutorial);
                 break;
 
             case "Round":
                 SceneManager.LoadScene(Instance.sceneNameList[2]);
-                Instance.ChangeState(GameState.Round);
+                ChangeState(GameState.Round);
                 break;
             
             case "Win": 
                 SceneManager.LoadScene(Instance.sceneNameList[3]);
-                Instance.ChangeState(GameState.Win);
+                ChangeState(GameState.Win);
                 break;
             
             case "Lose":   
                 SceneManager.LoadScene(Instance.sceneNameList[4]);
-                Instance.ChangeState(GameState.Lose);
+                ChangeState(GameState.Lose);
                 break;
 
         }
     }
 
 
-    public void ChangeState(GameState newState)
+    public static void ChangeState(GameState newState)
     {
-        if (newState == state)
+        if (newState == Instance.state)
         {
             return;
         }   
         Debug.Log(newState);
-        state = newState;
-        OnStateChanged();
+        Instance.state = newState;
+        Instance.OnStateChanged();
         switch (newState)
         {
             case GameState.Menu:
