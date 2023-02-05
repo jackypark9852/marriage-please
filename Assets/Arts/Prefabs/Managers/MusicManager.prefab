@@ -51,10 +51,12 @@ MonoBehaviour:
     - Menu
     - Round
     - GameLost
+    - GameWon
     m_values:
     - {fileID: 8300000, guid: a5b5d01be2337214fbd38d6a0973ca48, type: 3}
     - {fileID: 8300000, guid: 0d46904f63d753f43979d42819e513cb, type: 3}
     - {fileID: 8300000, guid: 6a38d48f0d871b24684ed9d5df760aad, type: 3}
+    - {fileID: 8300000, guid: de47c8de91ea6664d9a01e724e2657c7, type: 3}
   fadeTime: 2
 --- !u!82 &3752003691560219338
 AudioSource:

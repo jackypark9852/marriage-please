@@ -12,4 +12,6 @@ public class StageData : ScriptableObject
     public int gameRoundLength;
     public float unsafeStartingProbability;
     public float unsafeProbabilityIncrement;
+    public float correctTimeIncrement;
+    public float incorrectTimeIncrement;
 }
