@@ -19,10 +19,10 @@ public class ClientInfoLogic : MonoBehaviour
             // Debug.Log(personData);
             if (personData != null)
             {
-                Debug.Log($"{personData.name} | {personData.Sprite}");
+                Debug.Log($"{personData.Name} | {personData.Sprite}");
             }
             ChangePicture(personData.Sprite);
-            ChangeName(personData.name);
+            ChangeName(personData.Name);
         }
     }
 

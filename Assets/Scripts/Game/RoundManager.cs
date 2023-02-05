@@ -173,7 +173,7 @@ public class RoundManager : Singleton<RoundManager>
                 EndStage();
                 return;
             }
-            debugClientText.text = client.name; // TODO: Remove this
+            debugClientText.text = client.Name; // TODO: Remove this
 
             candidate1 = familyLogic.GetSafeCandidate(client);
             float rand = Random.Range(0f, 1f);
