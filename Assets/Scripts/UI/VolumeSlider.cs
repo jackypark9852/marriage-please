@@ -18,12 +18,12 @@ public class VolumeSlider : MonoBehaviour
    }
    public static void MuteVoice(){
       if(isMute){
-         MusicManager.Instance.SetVolume(slider.value);
+         MusicManager.Instance.UnMute();
          muteButton.GetComponent<Image>().color= new Color(255, 255, 255);
          isMute = false;
       }
       else{
-         MusicManager.Instance.SetVolume(0);
+         MusicManager.Instance.Mute();
          muteButton.GetComponent<Image>().color= new Color(255, 0, 0);
          isMute = true;
       }
