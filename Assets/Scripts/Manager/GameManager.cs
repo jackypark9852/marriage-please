@@ -16,24 +16,13 @@ public class GameManager : Singleton<GameManager>
 
     protected override void Awake(){
         base.Awake();
-        EventManager.Instance.Init();
+        EventManager.Init();
         EventManager.AddEvent("StartMenu", new UnityAction(()=>Debug.Log("StartMenu"))); //When you first enter into the game
         EventManager.AddEvent("ChangeState", new UnityAction(()=>Debug.Log("ChangeState")));//when you change the states'
         EventManager.AddEvent("StartTutorial", new UnityAction(()=>Debug.Log("StartTutorial"))); //When you press the start button
         EventManager.AddEvent("RoundStart", new UnityAction(()=>Debug.Log("RoundStart"))); //When you press the start button
         EventManager.AddEvent("GameWon", new UnityAction(()=>Debug.Log("GameWon"))); //When you press the start button
         EventManager.AddEvent("GameLost", new UnityAction(()=>Debug.Log("GameLost"))); //When you press the start button
-    }
-
-    void OnDisable(){
-        EventManager.RemoveAllEvent("StartMenu");
-        EventManager.RemoveAllEvent("ChangeState");
-        EventManager.RemoveAllEvent("StartTutorial");
-        EventManager.RemoveAllEvent("RoundStart");
-        EventManager.RemoveAllEvent("GameWon");
-        EventManager.RemoveAllEvent("GameLost");
-
-
     }
 
      public static void ChangeScene(string str){
@@ -74,8 +63,7 @@ public class GameManager : Singleton<GameManager>
         }   
         Debug.Log(newState);
         Instance.state = newState;
-        Debug.Log(Instance.state);
-        Instance.OnStateChanged();
+        OnStateChanged();
         switch (newState)
         {
             case GameState.Menu:
@@ -99,7 +87,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    private void OnStateChanged()
+    private static void OnStateChanged()
     {
         EventManager.Invoke("ChangeState");
         return;
