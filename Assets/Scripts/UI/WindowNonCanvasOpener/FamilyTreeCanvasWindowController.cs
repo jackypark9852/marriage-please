@@ -16,6 +16,9 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController, IPointer
     Vector3 closeScale;
     bool isClosePosScaleSet = false;
 
+    Color openColor = new Color(1f, 1f, 1f, 1f);
+    Color closeColor = new Color(1f, 1f, 1f, 0f);
+
     [SerializeField] SpriteRenderer familyTreeOpenerSR;
 
     [SerializeField] GameObject onMouseDownBlockerGO;
@@ -27,6 +30,8 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController, IPointer
         // Quick fix
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
         gameObject.SetActive(false);
+
+        familyTreeOpenerSR.material.color = closeColor;
     }
 
     public override void OpenWindow()
@@ -67,6 +72,7 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController, IPointer
             });
         familyTreeOpenerSR.transform.DOScale(openScale, openAnimTime)
             .SetEase(Ease.OutBack);
+        familyTreeOpenerSR.material.DOColor(openColor, openAnimTime).SetEase(Ease.Linear);
 
         if (openSound != null)
         {
@@ -86,6 +92,7 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController, IPointer
             });
         familyTreeOpenerSR.transform.DOScale(closeScale, closeAnimTime)
             .SetEase(Ease.OutBack);
+        familyTreeOpenerSR.material.DOColor(closeColor, closeAnimTime).SetEase(Ease.Linear);
 
         if (closeSound != null)
         {

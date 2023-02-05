@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a9cbda13cc28bc448d0f78f4b52d67e, type: 3}
   m_Name: Stage2
   m_EditorClassIdentifier: 
-  familyData: {fileID: 11400000, guid: 7c7654138cb489b4a8726be680478007, type: 2}
+  familyData: {fileID: 11400000, guid: a0f9344bb8d29c64b9bc6c34ee990e08, type: 2}
   familyTreeSprite: {fileID: 21300000, guid: 2432c005eddfd3a4188142dbebc2bb04, type: 3}
   startTimeLength: 120
   maxTimeLength: 120
-  gameRoundLength: 10
+  gameRoundLength: 8
   unsafeStartingProbability: 1
   unsafeProbabilityIncrement: 0
-  correctTimeIncrement: 0
-  incorrectTimeIncrement: 0
+  correctTimeIncrement: 30
+  incorrectTimeIncrement: -60

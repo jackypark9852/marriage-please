@@ -95,6 +95,7 @@ public class AnimationManager : MonoBehaviour
 
     public void StartRoundSequence()
     {
+        ChangeInfoOnCard();
         // the random person walk from left to right to the scene
 
         personPlaceholder.transform.position = personOutPos;
@@ -276,6 +277,7 @@ public class AnimationManager : MonoBehaviour
             SFXManager.StopMusic(footstepAudios[index]);
 
             ChangeInfoOnCard();
+
             // RandomChangeCardStyle(leftCardStyle);
             // RandomChangeCardStyle(rightCardStyle);
             StartRoundSequence();
