@@ -7,7 +7,6 @@ using UnityEngine.UI;
 [RequireComponent(typeof(FamilyLogic))]
 public class RoundManager : Singleton<RoundManager>
 {
-    [HideInInspector] public int stageNum { get; private set; } = 0;
     [HideInInspector] public int roundNum { get; private set; } = 0;
     [HideInInspector] public float timer { get; private set; }
     [HideInInspector] public float unsafeProbability { get; private set; }
@@ -52,7 +51,6 @@ public class RoundManager : Singleton<RoundManager>
     void Awake()
     {
         familyLogic = GetComponent<FamilyLogic>();
-        EventManager.AddEvent("StagePassed", new UnityAction(() => { StartStage(); }));
         EventManager.AddEvent("GameLost", new UnityAction(() => { }));
     }
 
@@ -80,10 +78,10 @@ public class RoundManager : Singleton<RoundManager>
     {
         stageState = StageState.StageInProgress;
         roundNum = 0;
-        Debug.Log("Starting stage " + stageNum);
-        debugStageText.text = "Stage: " + stageNum; // TODO: Remove this
-        currentStageData = stageDatas[stageNum];
-        familyLogic.FamilyData = stageDatas[stageNum].familyData;
+        Debug.Log("Starting stage " + GameManager.stageNum);
+        debugStageText.text = "Stage: " + GameManager.stageNum; // TODO: Remove this
+        currentStageData = stageDatas[GameManager.stageNum];
+        familyLogic.FamilyData = stageDatas[GameManager.stageNum].familyData;
         familyLogic.FamilyData = currentStageData.familyData;
         timer = currentStageData.startTimeLength;
         unsafeProbability = currentStageData.unsafeStartingProbability;
@@ -96,17 +94,21 @@ public class RoundManager : Singleton<RoundManager>
     {
         stageState = StageState.AfterStage;
         stageEnded.Invoke(); // TODO: Remove redundant event
-
-
-        stageNum++;
-        if (stageNum >= stageDatas.Count)
-        {
-            EventManager.Invoke("GameWon");
-        }
-        else
-        {
-            Debug.Log("Stage passed");
-            EventManager.Invoke("StagePassed");
+        Debug.Log("Ending stage " + GameManager.stageNum);
+        switch (GameManager.stageNum){
+                case 0:
+                    GameManager.ChangeState(GameState.Interim1);
+                    break;
+                case 1:
+                    GameManager.ChangeState(GameState.Interim2);
+                    break;
+                case 2:
+                    GameManager.ChangeState(GameState.Win);
+                    break;
+                default:
+                    GameManager.ChangeState(GameState.Win);
+                    break;
+                
         }
     }
 

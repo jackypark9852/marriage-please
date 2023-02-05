@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndingScenes/GameWonScene.unity
     guid: c7a77edc42c51f54cb46442c3d75cfcb
+  - enabled: 1
+    path: Assets/Scenes/Interm1.unity
+    guid: 2555e486a153fa8439c3fefea0125f43
+  - enabled: 1
+    path: Assets/Scenes/Interm2.unity
+    guid: 33c0e5204fc5e254396d0e2c7905d3ac
   m_configObjects: {}
