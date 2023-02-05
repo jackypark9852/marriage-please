@@ -47,7 +47,7 @@ public class GameManager : Singleton<GameManager>
 
             case "Round":
                 SceneManager.LoadScene(Instance.sceneNameList[2]);
-                ChangeState(GameState.Round);
+                ChangeState(GameState.Round1);
                 break;
             
             case "Win": 
@@ -76,7 +76,7 @@ public class GameManager : Singleton<GameManager>
             case GameState.Tutorial:
                 EventManager.Invoke("StartTutorial");
                 break;
-            case GameState.Round:
+            case GameState.Round1:
                 EventManager.Invoke("RoundStart");
                 break;
             
@@ -103,7 +103,11 @@ public enum GameState
 {
     Menu, //When you are in the menu
     Tutorial,
-    Round, //When you are in the game
+    Round1, //When you are in the game
+    Interim1,
+    Round2,
+    Interim2,
+    Round3,
     Win,
     Lose,
 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6fb74845b350e408804041ca9ef099, type: 3}
   m_Name: EikeGyoker
   m_EditorClassIdentifier: 
-  _name: EikeGyoker
+  _name: Eike Gyoker
   _sprite: {fileID: 21300000, guid: b1083a63724be634ab0530bcf1e4f3c2, type: 3}
   _children:
   - {fileID: 11400000, guid: 571814fc167e4464fa697ed2a4da5dc0, type: 2}

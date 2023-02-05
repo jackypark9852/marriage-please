@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6fb74845b350e408804041ca9ef099, type: 3}
   m_Name: RainaWurzel
   m_EditorClassIdentifier: 
-  _name: RainaWurzel
+  _name: Raina Wurzel
   _sprite: {fileID: 21300000, guid: 68d2d944fbd4dfe4aad70714cc85d1ac, type: 3}
   _children:
   - {fileID: 11400000, guid: a2d61d4213cf6284eb31865a9fc29142, type: 2}

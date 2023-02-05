@@ -28,5 +28,13 @@ public class ZoomImage : MonoBehaviour
             image.rectTransform.localScale = new Vector3(zoom, zoom, 1f);
         }
     }
+
+
+    public void SetZoom(float zoom)
+    {
+        image.rectTransform.localScale = new Vector3(zoom, zoom, 1f);
+    }
+    
+    
 }
 
