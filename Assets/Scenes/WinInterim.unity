@@ -488,7 +488,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 42
     y: 75
-    width: 77.333336
+    width: 77.2
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -585,7 +585,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
-          m_StringArgument: Round2
+          m_StringArgument: GameWon
           m_BoolArgument: 0
         m_CallState: 2
   booleanParameter:
@@ -626,9 +626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 19
   indentLevel: 0
-  storyText: ' Here, take this more elaborate family tree.
-
-'
+  storyText: Now, I will kindly ask you to leave this island as my reign continues...
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -655,7 +653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 18
   indentLevel: 0
-  storyText: Good job! But more people are coming in.
+  storyText: 'Ah... You''ve done a wonderful job here, counselor. '
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -670,7 +668,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &407307750
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -682,7 +680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 20
   indentLevel: 0
-  storyText: Good luck!
+  storyText: And see you... in 10 years.
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}

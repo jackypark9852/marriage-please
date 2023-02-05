@@ -70,7 +70,7 @@ public class RoundManager : Singleton<RoundManager>
         debugTimerText.text = timer.ToString(); // TODO: Remove this
         if (timer <= 0f)
         {
-            EventManager.Invoke("GameLost");
+            EventManager.Invoke("LostInterim");
         }
     }
 
@@ -103,10 +103,10 @@ public class RoundManager : Singleton<RoundManager>
                     GameManager.ChangeState(GameState.Interim2);
                     break;
                 case 2:
-                    GameManager.ChangeState(GameState.Win);
+                    GameManager.ChangeState(GameState.WinInterim);
                     break;
                 default:
-                    GameManager.ChangeState(GameState.Win);
+                    GameManager.ChangeState(GameState.WinInterim);
                     break;
                 
         }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -34,6 +35,8 @@ public class GameManager : Singleton<GameManager>
         EventManager.AddEvent("ChangeState", new UnityAction(()=>Debug.Log("ChangeState")));//when you change the states'
         EventManager.AddEvent("Interm1", new UnityAction(()=>SceneManager.LoadScene(Instance.sceneNameList[5])));
         EventManager.AddEvent("Interm2", new UnityAction(()=>SceneManager.LoadScene(Instance.sceneNameList[6])));
+        EventManager.AddEvent("WinInterim", new UnityAction(()=>SceneManager.LoadScene(Instance.sceneNameList[7])));
+        EventManager.AddEvent("LoseInterim", new UnityAction(()=>SceneManager.LoadScene(Instance.sceneNameList[8])));
         haveDone = true;
         // ChangeState(GameState.Menu);  // TODO: uncomment in final build
     }
@@ -79,6 +82,12 @@ public class GameManager : Singleton<GameManager>
             case "Lose":   
                 ChangeState(GameState.Lose);
                 break;
+            case "WinInterim":
+                ChangeState(GameState.WinInterim);
+                break;
+            case "LoseInterim":
+                ChangeState(GameState.LoseInterim);
+                break;
 
         }
     }
@@ -114,7 +123,12 @@ public class GameManager : Singleton<GameManager>
             case GameState.Round3:
                 EventManager.Invoke("RoundStart");
                 break;
-            
+            case GameState.WinInterim:
+                EventManager.Invoke("WinInterim");
+                break;
+            case GameState.LoseInterim:
+                EventManager.Invoke("LoseInterim");
+                break;
             case GameState.Win:
                 EventManager.Invoke("GameWon");
                 break;
@@ -145,5 +159,7 @@ public enum GameState
     Round3,
     Win,
     Lose,
+    WinInterim,
+    LoseInterim
 
 }
