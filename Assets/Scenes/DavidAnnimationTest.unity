@@ -486,6 +486,10 @@ PrefabInstance:
       propertyPath: onMouseDownBlockerGO
       value: 
       objectReference: {fileID: 886505325}
+    - target: {fileID: 4042792389091912478, guid: 65d574b9d4e6e9f4c896c2478277928a, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8933516150473871444, guid: 65d574b9d4e6e9f4c896c2478277928a, type: 3}
       propertyPath: m_Name
       value: FamilyTree
@@ -1459,8 +1463,8 @@ MonoBehaviour:
   leftScenePos: {x: -8.02, y: -2, z: 1}
   rightScenePos: {x: -1.58, y: -2.13, z: 1}
   cardEnterDuration: 1
-  personOutPos: {x: 13.95, y: 1.98, z: 0}
-  personScenePos: {x: 4.02, y: 2.37, z: 0}
+  personOutPos: {x: 13.95, y: 2.5, z: 0}
+  personScenePos: {x: 4.02, y: 2.5, z: 0}
   personEnterDuartion: 1
   personLeaveDuartion: 1
   resultPlace: {x: 1.65, y: 2.55, z: 1}

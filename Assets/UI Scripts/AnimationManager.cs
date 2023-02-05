@@ -62,15 +62,15 @@ public class AnimationManager : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKey(KeyCode.Q) && !playerSelected) {
-            StartRoundSequence();
-        }
+        // if(Input.GetKey(KeyCode.Q) && !playerSelected) {
+        //     StartRoundSequence();
+        // }
 
-        if(Input.GetKey(KeyCode.E) && !playerSelected) {
-            playerSelected = true;
-            takeChoice(cardLeft, false);
-            // cardCandidate.GetComponent<InfoCardManager>().PlayAngryEffect();
-        }
+        // if(Input.GetKey(KeyCode.E) && !playerSelected) {
+        //     playerSelected = true;
+        //     takeChoice(cardLeft, false);
+        //     // cardCandidate.GetComponent<InfoCardManager>().PlayAngryEffect();
+        // }
     }
 
     // SEQUENCES
@@ -84,7 +84,7 @@ public class AnimationManager : MonoBehaviour
 
         var seq = DOTween.Sequence();
         seq.Append(personPlaceholder.transform.DOMove(personScenePos, personEnterDuartion));
-        seq.Join(personPlaceholder.transform.GetChild(0).DOPunchPosition(new Vector3(0, 1, 0), personEnterDuartion));
+        seq.Join(personPlaceholder.transform.GetChild(0).DOPunchPosition(new Vector3(0, 0.5f, 0), personEnterDuartion));
 
 
         // make the cards fly into the scence
@@ -207,7 +207,9 @@ public class AnimationManager : MonoBehaviour
 
         }
 
-        
+        seq.AppendCallback(() => {
+            StartRoundSequence();
+        });
 
     }
 
