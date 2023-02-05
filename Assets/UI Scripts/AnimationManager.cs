@@ -47,14 +47,21 @@ public class AnimationManager : MonoBehaviour
     [Header("After Show Result:")]
     public float waitTimeToDiscard;
 
+    [Header("InfoCard Style Sprites:")]
+    public GameObject leftCardStyle;
+    public GameObject rightCardStyle;
+    public Sprite[] cardStyles;
+
 
     // Internal Vars
     private bool playerSelected;
+    private bool playerCanSelect;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        ChangeInfoOnCard();
         StartRoundSequence();
     }
 
@@ -112,12 +119,22 @@ public class AnimationManager : MonoBehaviour
 
         // seq.Append(cardCandidate.transform.DOMove(candidateScenePos, cardEnterDuration));
 
+        // Make player can choose
+        seq.AppendCallback(() => {
+            playerCanSelect = true;
+        });
+
     }
 
     public void takeChoice(GameObject sel, bool isCorrect) {
 
+        if(!playerCanSelect) {
+            return;
+        }
+
         Debug.Log("taked choice");
         playerSelected = false;
+        playerCanSelect = false;
 
         bool isLeft = sel == cardLeft;
 
@@ -208,6 +225,9 @@ public class AnimationManager : MonoBehaviour
         }
 
         seq.AppendCallback(() => {
+            ChangeInfoOnCard();
+            RandomChangeCardStyle(leftCardStyle);
+            RandomChangeCardStyle(rightCardStyle);
             StartRoundSequence();
         });
 
@@ -216,7 +236,15 @@ public class AnimationManager : MonoBehaviour
 
 
 
-    // PUBLIC INTERFACES
-    
+    // PRIVATE HELPERS
+    private void ChangeInfoOnCard() {
+        cardLeft.GetComponent<InfoCardManager>().UpdateCard();
+        cardRight.GetComponent<InfoCardManager>().UpdateCard();
+    }
+
+    private void RandomChangeCardStyle(GameObject card) {
+        int index = Random.Range (0, cardStyles.Length);
+        card.GetComponent<SpriteRenderer>().sprite = cardStyles[index];
+    }
 
 }

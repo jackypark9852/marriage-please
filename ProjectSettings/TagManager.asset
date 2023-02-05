@@ -62,3 +62,6 @@ TagManager:
   - name: VisualEffects
     uniqueID: 2421375577
     locked: 0
+  - name: Canvas
+    uniqueID: 3919292757
+    locked: 0
