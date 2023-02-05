@@ -852,9 +852,9 @@ MonoBehaviour:
   staticEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1294617351}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ChangeScene
+        m_MethodName: ChangeState
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1511,6 +1511,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5257289785738528985, guid: 1202221ecb9af924587fd1d581546178, type: 3}
   m_PrefabInstance: {fileID: 5257289786966017522}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1294617351 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6713342935642252645, guid: 0d84a1475b075f94a8de65e86df9c225, type: 3}
+  m_PrefabInstance: {fileID: 1841536677}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 089a6a9c431fec64fb0379e7f9d59672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1529546921
 GameObject:
   m_ObjectHideFlags: 1

@@ -10,8 +10,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : Component
 	/// <summary>
 	/// The instance.
 	/// </summary>
-	private static T instance;
-
+	protected static T instance;
 	#endregion
 
 	#region Properties
@@ -54,6 +53,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : Component
 		}
 		else
 		{
+            Debug.Log("Singleton Destroying" + gameObject.name);
 			Destroy ( gameObject );
 		}
 	}
