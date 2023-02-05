@@ -123,6 +123,10 @@ public class FamilyLogic : MonoBehaviour
         return availablePeople[0];
     }
 
+    public bool IsCloseRelative(PersonData person1, PersonData person2) {
+        return _familyData.IsCloseRelative(person1, person2); 
+    }
+
     private void InitializeMembers()
     {
         // Set availiblePeople as randomized version of _familyData.Members

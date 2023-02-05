@@ -6,8 +6,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class InfoCardManager : MonoBehaviour, I_InfoCard
+public class InfoCardManager : MonoBehaviour
 {
+    public bool IsSafeChoice; 
 
     [Header("GameObjects: ")]
     public Transform portraitSprite;
@@ -15,6 +16,7 @@ public class InfoCardManager : MonoBehaviour, I_InfoCard
     public GameObject heartObj;
     [Header("Events: ")]
     public UnityEvent<PersonData> infoCardClicked;
+    public UnityEvent<GameObject, bool> animatingInfoCard; 
     [Header("Data")]
     [SerializeField] private PersonData personData;
     public PersonData PersonData
@@ -85,6 +87,7 @@ public class InfoCardManager : MonoBehaviour, I_InfoCard
         }
         Debug.Log("clicked");
         infoCardClicked.Invoke(personData);
+        animatingInfoCard.Invoke(gameObject, IsSafeChoice); 
     }
 
     void OnMouseOver()
