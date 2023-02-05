@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class GameSettings
 {
-    public static int SAFE_DISTANCE = 3;
+    public static int SAFE_DISTANCE = 4;
 }

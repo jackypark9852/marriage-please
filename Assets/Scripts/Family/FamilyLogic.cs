@@ -97,6 +97,7 @@ public class FamilyLogic : MonoBehaviour
                 return candidate;
             }
         }
+        Debug.Log("default to safe");
         return GetSafeCandidate(person, excludes);
     }
 
@@ -104,6 +105,8 @@ public class FamilyLogic : MonoBehaviour
     {
         // If there are less than 3 people left, there won't be candidates for the client
         List<PersonData> candidates = new List<PersonData>(availablePeople);
+        Shuffle(candidates);
+
         if (excludes != null)
         {
             foreach (PersonData exclude in excludes)
@@ -120,7 +123,14 @@ public class FamilyLogic : MonoBehaviour
 
         // Debug.Log("Getting client");
         // Debug.Log("Client:" + availablePeople[0].Name);
-        return availablePeople[0];
+        for (int i = 0; i < availablePeople.Count; i++)
+        {
+            if (availablePeople[i] == candidates[0])
+            {
+                return availablePeople[i];
+            }
+        }
+        return null;
     }
 
     public bool IsCloseRelative(PersonData person1, PersonData person2)

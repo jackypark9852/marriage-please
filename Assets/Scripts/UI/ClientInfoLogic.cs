@@ -28,6 +28,7 @@ public class ClientInfoLogic : MonoBehaviour
         // Debug.Log(personData);
         if (personData != null)
         {
+            Debug.Log("Updating Card: " + personData.Name);
             // Debug.Log($"{personData.name} | {personData.Sprite}");
             ChangePicture(personData.Sprite);
             ChangeName(personData.Name);
