@@ -130,6 +130,8 @@ public class AnimationManager : MonoBehaviour
 
     public void takeChoice(GameObject sel, bool isCorrect)
     {
+        Debug.Log("Take choice name: " + sel.GetComponent<InfoCardManager>().PersonData.name);
+        Debug.Log("Take choice isCorrect: " + isCorrect);
 
         if (!playerCanSelect)
         {

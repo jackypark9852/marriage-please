@@ -230,10 +230,10 @@ public class RoundManager : Singleton<RoundManager>
     private void SetInfoCardDatas()
     {
         infoCardManager1.PersonData = candidate1;
-        infoCardManager1.IsSafeChoice = familyLogic.IsCloseRelative(client, candidate1);
+        infoCardManager1.IsSafeChoice = !familyLogic.IsCloseRelative(client, candidate1);
         infoCardManager2.PersonData = candidate2;
-        infoCardManager2.IsSafeChoice = familyLogic.IsCloseRelative(client, candidate2);
-        infoCardManagerClient.PersonData = client;
+        infoCardManager2.IsSafeChoice = !familyLogic.IsCloseRelative(client, candidate2);
+        // infoCardManagerClient.PersonData = client;
     }
 
     private void ChangeFamilyTreeSprite(Sprite sprite)

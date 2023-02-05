@@ -8,7 +8,7 @@ using UnityEngine.Events;
 
 public class InfoCardManager : MonoBehaviour
 {
-    public bool IsSafeChoice; 
+    public bool IsSafeChoice;
 
     [Header("GameObjects: ")]
     public Transform portraitSprite;
@@ -18,7 +18,7 @@ public class InfoCardManager : MonoBehaviour
 
     [Header("Events: ")]
     public UnityEvent<PersonData> infoCardClicked;
-    public UnityEvent<GameObject, bool> animatingInfoCard; 
+    public UnityEvent<GameObject, bool> animatingInfoCard;
     [Header("Data")]
     [SerializeField] private PersonData personData;
     public PersonData PersonData
@@ -44,7 +44,8 @@ public class InfoCardManager : MonoBehaviour
 
     // public 
 
-    public void UpdateCard() {
+    public void UpdateCard()
+    {
         // Debug.Log(personData);
         if (personData != null)
         {
@@ -99,8 +100,12 @@ public class InfoCardManager : MonoBehaviour
         //     return;
         // }
         // Debug.Log("clicked");
+        Debug.Log("OnMouseDown: " + personData.name);
+        Debug.Log("OnMouseDown IsSafeChoice: " + IsSafeChoice);
+
+
+        animatingInfoCard.Invoke(gameObject, IsSafeChoice);
         infoCardClicked.Invoke(personData);
-        animatingInfoCard.Invoke(gameObject, IsSafeChoice); 
 
 
     }
