@@ -118,8 +118,8 @@ public class FamilyLogic : MonoBehaviour
             return null;
         }
         
-        Debug.Log("Getting client");
-        Debug.Log("Client:" + availablePeople[0].Name);
+        // Debug.Log("Getting client");
+        // Debug.Log("Client:" + availablePeople[0].Name);
         return availablePeople[0];
     }
 
