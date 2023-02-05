@@ -51,7 +51,7 @@ public class InfoCardManager : MonoBehaviour
         {
             // Debug.Log($"{personData.name} | {personData.Sprite}");
             ChangePicture(personData.Sprite);
-            ChangeName(personData.name);
+            ChangeName(personData.Name);
         }
 
     }
@@ -100,7 +100,7 @@ public class InfoCardManager : MonoBehaviour
         //     return;
         // }
         // Debug.Log("clicked");
-        Debug.Log("OnMouseDown: " + personData.name);
+        Debug.Log("OnMouseDown: " + personData.Name);
         Debug.Log("OnMouseDown IsSafeChoice: " + IsSafeChoice);
 
 

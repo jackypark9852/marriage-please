@@ -35,4 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Interm2.unity
     guid: 33c0e5204fc5e254396d0e2c7905d3ac
+  - enabled: 1
+    path: Assets/Scenes/WinInterim.unity
+    guid: 64f7e4f11a9f39748b688fd10228f522
+  - enabled: 1
+    path: Assets/Scenes/LoseInterim.unity
+    guid: b81a713e9debd7d409a41c6eb3a7addc
   m_configObjects: {}

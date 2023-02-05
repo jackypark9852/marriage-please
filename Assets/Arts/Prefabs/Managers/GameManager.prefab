@@ -53,3 +53,5 @@ MonoBehaviour:
   - GameLostScene
   - Interm1
   - Interm2
+  - WinInterim
+  - LoseInterim

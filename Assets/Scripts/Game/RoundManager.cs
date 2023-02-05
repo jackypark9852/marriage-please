@@ -70,7 +70,7 @@ public class RoundManager : Singleton<RoundManager>
         debugTimerText.text = timer.ToString(); // TODO: Remove this
         if (timer <= 0f)
         {
-            EventManager.Invoke("GameLost");
+            EventManager.Invoke("LostInterim");
         }
     }
 
@@ -103,10 +103,10 @@ public class RoundManager : Singleton<RoundManager>
                     GameManager.ChangeState(GameState.Interim2);
                     break;
                 case 2:
-                    GameManager.ChangeState(GameState.Win);
+                    GameManager.ChangeState(GameState.WinInterim);
                     break;
                 default:
-                    GameManager.ChangeState(GameState.Win);
+                    GameManager.ChangeState(GameState.WinInterim);
                     break;
                 
         }
@@ -173,7 +173,7 @@ public class RoundManager : Singleton<RoundManager>
                 EndStage();
                 return;
             }
-            debugClientText.text = client.name; // TODO: Remove this
+            debugClientText.text = client.Name; // TODO: Remove this
 
             candidate1 = familyLogic.GetSafeCandidate(client);
             float rand = Random.Range(0f, 1f);
@@ -231,6 +231,10 @@ public class RoundManager : Singleton<RoundManager>
     }
     private void SetInfoCardDatas()
     {
+        if (infoCardManager1 == null || infoCardManager2 == null || clientInfoLogic == null)
+        {
+            return;
+        }
         infoCardManager1.PersonData = candidate1;
         infoCardManager1.IsSafeChoice = !familyLogic.IsCloseRelative(client, candidate1);
         infoCardManager2.PersonData = candidate2;

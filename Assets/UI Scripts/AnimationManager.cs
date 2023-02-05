@@ -89,6 +89,7 @@ public class AnimationManager : MonoBehaviour
 
     public void StartRoundSequence()
     {
+        ChangeInfoOnCard();
         // the random person walk from left to right to the scene
 
         personPlaceholder.transform.position = personOutPos;
@@ -136,7 +137,7 @@ public class AnimationManager : MonoBehaviour
 
     public void takeChoice(GameObject sel, bool isCorrect)
     {
-        Debug.Log("Take choice name: " + sel.GetComponent<InfoCardManager>().PersonData.name);
+        Debug.Log("Take choice name: " + sel.GetComponent<InfoCardManager>().PersonData.Name);
         Debug.Log("Take choice isCorrect: " + isCorrect);
 
         if (!playerCanSelect)
@@ -247,7 +248,7 @@ public class AnimationManager : MonoBehaviour
 
         seq.AppendCallback(() =>
         {
-            ChangeInfoOnCard();
+
             // RandomChangeCardStyle(leftCardStyle);
             // RandomChangeCardStyle(rightCardStyle);
             StartRoundSequence();

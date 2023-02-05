@@ -32,6 +32,7 @@ public class ZoomImage : MonoBehaviour
 
     public void SetZoom(float zoom)
     {
+        Debug.Break();
         image.rectTransform.localScale = new Vector3(zoom, zoom, 1f);
     }
     
