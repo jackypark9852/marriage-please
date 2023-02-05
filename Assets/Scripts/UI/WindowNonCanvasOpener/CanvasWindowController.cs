@@ -6,28 +6,36 @@ using UnityEngine.UI;
 
 public class CanvasWindowController : MonoBehaviour
 {
-    [SerializeField] GameObject windowGO;
-    [SerializeField] Button closeButton;
-    [SerializeField] CanvasWindowOpener canvasWindowOpener;
+    [SerializeField] protected GameObject windowGO;
+    [SerializeField] protected Button closeButton;
+    [SerializeField] protected CanvasWindowOpener canvasWindowOpener;
 
-    [SerializeField] AudioClip openSound;
-    [SerializeField] AudioClip closeSound;
+    [SerializeField] protected AudioClip openSound;
+    [SerializeField] protected AudioClip closeSound;
+
+    protected bool isOpened = false;
 
     public virtual void OpenWindow()
     {
         windowGO.SetActive(true);
+        isOpened = true;
+        /*
         if (openSound != null)
         {
             AudioSource.PlayClipAtPoint(openSound, Camera.main.transform.position);
         }
+        */
     }
 
     public virtual void CloseWindow()
     {
         windowGO.SetActive(false);
+        isOpened = false;
+        /*
         if (closeSound != null)
         {
             AudioSource.PlayClipAtPoint(closeSound, Camera.main.transform.position);
         }
+        */
     }
 }

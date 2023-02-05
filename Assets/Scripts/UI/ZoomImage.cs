@@ -23,7 +23,7 @@ public class ZoomImage : MonoBehaviour
         if (scroll != 0f)
         {
             float localScale = image.rectTransform.localScale.x;
-            float zoom = localScale- scroll * zoomSpeed * localScale;
+            float zoom = localScale + scroll * zoomSpeed * localScale;
             zoom = Mathf.Clamp(zoom, minZoom, maxZoom);
             image.rectTransform.localScale = new Vector3(zoom, zoom, 1f);
         }

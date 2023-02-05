@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(FamilyLogic))]
 public class RoundManager : Singleton<RoundManager>
@@ -10,10 +11,14 @@ public class RoundManager : Singleton<RoundManager>
     [HideInInspector] public int roundNum { get; private set; } = 0;
     [HideInInspector] public float timer { get; private set; }
     [HideInInspector] public float unsafeProbability { get; private set; }
+    [HideInInspector] public Sprite familyTreeSprite { get; private set; }
 
     [Header("Script References")]
     [SerializeField] private InfoCardManager infoCardManager1;
     [SerializeField] private InfoCardManager infoCardManager2;
+
+    [SerializeField] Image familyTreeImage;
+    [SerializeField] SpriteRenderer familyTreeOpenerSR;
     [Header("Data")]
     [SerializeField] List<StageData> stageDatas;
     [Header("Events")]
@@ -74,6 +79,7 @@ public class RoundManager : Singleton<RoundManager>
         familyLogic.FamilyData = currentStageData.familyData;
         timer = currentStageData.startTimeLength;
         unsafeProbability = currentStageData.unsafeStartingProbability;
+        ChangeFamilyTreeSprite(currentStageData.familyTreeSprite);
 
         StartRound();
     }
@@ -183,6 +189,13 @@ public class RoundManager : Singleton<RoundManager>
     {
         infoCardManager1.PersonData = candidate1;
         infoCardManager2.PersonData = candidate2;
+    }
+
+    private void ChangeFamilyTreeSprite(Sprite sprite)
+    {
+        familyTreeSprite = sprite;
+        familyTreeImage.sprite = sprite;
+        familyTreeOpenerSR.sprite = sprite;
     }
 }
 

@@ -6,6 +6,7 @@ using UnityEngine;
 public class StageData : ScriptableObject
 {
     public FamilyData familyData;
+    public Sprite familyTreeSprite;
     public float startTimeLength;
     public float maxTimeLength;
     public int gameRoundLength;
