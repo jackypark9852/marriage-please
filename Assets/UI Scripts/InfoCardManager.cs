@@ -27,6 +27,7 @@ public class InfoCardManager : MonoBehaviour
         set
         {
             personData = value;
+<<<<<<< HEAD
             // Debug.Log(personData);
             // if (personData != null)
             // {
@@ -34,6 +35,10 @@ public class InfoCardManager : MonoBehaviour
             // }
             // ChangePicture(personData.Sprite);
             // ChangeName(personData.name);
+=======
+            ChangePicture(personData.Sprite);
+            ChangeName(personData.Name);
+>>>>>>> bd87460a199c5a378bb5b164ec28b00f02a18e38
         }
     }
 
@@ -98,7 +103,7 @@ public class InfoCardManager : MonoBehaviour
         // {
         //     return;
         // }
-        Debug.Log("clicked");
+        // Debug.Log("clicked");
         infoCardClicked.Invoke(personData);
         animatingInfoCard.Invoke(gameObject, IsSafeChoice); 
 

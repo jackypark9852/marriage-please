@@ -22,6 +22,7 @@ public class RoundManager : Singleton<RoundManager>
 
     [SerializeField] Image familyTreeImage;
     [SerializeField] SpriteRenderer familyTreeOpenerSR;
+    [SerializeField] FamilyTreeCanvasWindowController familyTreeCanvasWindowController;
 
     [SerializeField] ProgressBar timerBar;
     [Header("Data")]
@@ -118,11 +119,13 @@ public class RoundManager : Singleton<RoundManager>
     {
         SetCandidates();
         SetInfoCardDatas();
+        familyTreeCanvasWindowController.SetProfileFrameActive(client, true);
     }
 
     public void EndRound()
     {
         MarriageInfo marriageInfo = familyLogic.Marry(candidateChosen, client);
+        familyTreeCanvasWindowController.SetProfileFrameActive(client, false);
         debugChoiceResultText.text = marriageInfo.isMarriageAllowed ? "<color=green>Correct!</color>" : "<color=red>Wrong!</color>";
         unsafeProbability += currentStageData.unsafeProbabilityIncrement;
         IncrementRound();

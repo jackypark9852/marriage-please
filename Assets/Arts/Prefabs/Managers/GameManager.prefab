@@ -44,11 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089a6a9c431fec64fb0379e7f9d59672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _persistent: 1
   state: 0
   sceneNameList:
   - MainMenu
   - DialogueScene
-  - RoundFlow
+  - RoundScene
   - GameWonScene
   - GameLostScene

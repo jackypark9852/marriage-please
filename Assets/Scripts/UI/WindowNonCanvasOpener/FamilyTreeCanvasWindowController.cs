@@ -20,6 +20,8 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController, IPointer
 
     [SerializeField] GameObject onMouseDownBlockerGO;
 
+    [SerializeField] SerializableDictionary<PersonData, ProfileFrame> personDataToFrame;
+
     public override void OpenWindow()
     {
         if (isOpened)
@@ -81,6 +83,14 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController, IPointer
         if (closeSound != null)
         {
             AudioSource.PlayClipAtPoint(closeSound, Camera.main.transform.position);
+        }
+    }
+
+    public void SetProfileFrameActive(PersonData personData, bool isActive)
+    {
+        if (personDataToFrame.ContainsKey(personData))
+        {
+            personDataToFrame[personData].gameObject.SetActive(isActive);
         }
     }
 
