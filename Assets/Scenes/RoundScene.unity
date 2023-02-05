@@ -598,7 +598,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-<<<<<<< HEAD:Assets/Scenes/DavidAnnimationTest.unity
     - target: {fileID: 4042792389091912478, guid: 65d574b9d4e6e9f4c896c2478277928a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -615,7 +614,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 350
       objectReference: {fileID: 0}
-=======
     - target: {fileID: 4559092375407883079, guid: 65d574b9d4e6e9f4c896c2478277928a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -784,7 +782,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
->>>>>>> 9608b7a0423549f239b8c20dc84c965ed5380942:Assets/Scenes/RoundScene.unity
     - target: {fileID: 8933516150473871444, guid: 65d574b9d4e6e9f4c896c2478277928a, type: 3}
       propertyPath: m_Name
       value: FamilyTree
@@ -2548,7 +2545,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 519245503344573888, guid: 65d574b9d4e6e9f4c896c2478277928a, type: 3}
   m_PrefabInstance: {fileID: 58939424}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD:Assets/Scenes/DavidAnnimationTest.unity
 --- !u!1 &1828027368
 GameObject:
   m_ObjectHideFlags: 0
@@ -2580,7 +2576,6 @@ Transform:
   m_Father: {fileID: 711570601}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
 --- !u!114 &1829483663 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4042792389091912479, guid: 65d574b9d4e6e9f4c896c2478277928a, type: 3}
@@ -2592,7 +2587,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab3a8d1f73677c84cb9ded94b2d77ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
->>>>>>> 9608b7a0423549f239b8c20dc84c965ed5380942:Assets/Scenes/RoundScene.unity
 --- !u!1 &1850331890
 GameObject:
   m_ObjectHideFlags: 0
@@ -2874,7 +2868,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d84a1475b075f94a8de65e86df9c225, type: 3}
-<<<<<<< HEAD:Assets/Scenes/DavidAnnimationTest.unity
 --- !u!1 &1992261403
 GameObject:
   m_ObjectHideFlags: 0
@@ -2913,12 +2906,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
-=======
 --- !u!114 &1947418186 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6713342935642252645, guid: 0d84a1475b075f94a8de65e86df9c225, type: 3}
   m_PrefabInstance: {fileID: 1947418185}
->>>>>>> 9608b7a0423549f239b8c20dc84c965ed5380942:Assets/Scenes/RoundScene.unity
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -3144,11 +3135,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD:Assets/Scenes/DavidAnnimationTest.unity
   m_RootOrder: 18
-=======
   m_RootOrder: 16
->>>>>>> 9608b7a0423549f239b8c20dc84c965ed5380942:Assets/Scenes/RoundScene.unity
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2146596932
 Animator:
@@ -3419,11 +3407,8 @@ Transform:
   m_Children:
   - {fileID: 2732350195433967866}
   m_Father: {fileID: 0}
-<<<<<<< HEAD:Assets/Scenes/DavidAnnimationTest.unity
   m_RootOrder: 20
-=======
   m_RootOrder: 18
->>>>>>> 9608b7a0423549f239b8c20dc84c965ed5380942:Assets/Scenes/RoundScene.unity
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -3.552}
 --- !u!114 &2732350196639025925
 MonoBehaviour:
