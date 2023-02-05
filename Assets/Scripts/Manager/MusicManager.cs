@@ -8,18 +8,15 @@ public class MusicManager : Singleton<MusicManager>
 {
     public List<AudioClip> musicClips = new List<AudioClip>();
     private AudioSource audioSource;
-    public float volume = 0;
-    private void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
-
+    private float volume = 1;
     void Awake(){
-        EventManager.AddEvent("UnityStart", new UnityAction(()=>PlayMusic(0))); //When you first enter into the game
-        EventManager.AddEvent("GameStart", new UnityAction(()=>PlayMusic(2))); //When you press the start button
-        EventManager.AddEvent("CorrectChoice", new UnityAction(()=>PlayMusic(3))); //When you make correct choices
-        EventManager.AddEvent("WrongChoice", new UnityAction(()=>PlayMusic(4))); //When you make wrong choices
-        EventManager.AddEvent("GameOver", new UnityAction(()=>PlayMusic(5))); //When you lose
+        audioSource = GetComponent<AudioSource>();
+        EventManager.AddEvent("StartMenu", new UnityAction(()=>Instance.PlayMusic(0))); //When you first enter into the game
+        EventManager.AddEvent("StartTutorial", new UnityAction(()=>Instance.PlayMusic(1))); //When you press the start button
+        EventManager.AddEvent("RoundStart", new UnityAction(()=>Instance.PlayMusic(1))); //When you press the start button
+        //EventManager.AddEvent("GameWon", new UnityAction(()=>SceneManager.LoadScene(sceneNameList[3]))); //When you press the start button
+        //EventManager.AddEvent("GameLost", new UnityAction(()=>SceneManager.LoadScene(sceneNameList[4]))); //When you press the start button
+
 
     }
     public void SetVolume(float num)
@@ -27,10 +24,11 @@ public class MusicManager : Singleton<MusicManager>
         volume = num;
         audioSource.volume = volume;
     }
-
+    public float GetVolume(){
+        return volume;
+    }
     public void PlayMusic(int index)
     {
-        StopMusic();
         if(index >= musicClips.Count)
             return;
         audioSource.clip = musicClips[index];

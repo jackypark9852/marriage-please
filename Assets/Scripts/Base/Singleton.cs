@@ -38,8 +38,7 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour
                 if (_instance != null)
                     return _instance;
                 var instances = FindObjectsOfType<T>();
-                var count = instances.Length;
-                Debug.Log(count); 
+                var count = instances.Length; 
                 if (count > 0)
                 {
                     if (count == 1)
