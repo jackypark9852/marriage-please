@@ -53,9 +53,6 @@ TagManager:
   - name: CardCandidate
     uniqueID: 1247047751
     locked: 0
-  - name: VisualEffects
-    uniqueID: 2421375577
-    locked: 0
   - name: Computer
     uniqueID: 3406858725
     locked: 0
@@ -67,4 +64,7 @@ TagManager:
     locked: 0
   - name: Canvas
     uniqueID: 3919292757
+    locked: 0
+  - name: VisualEffects
+    uniqueID: 2421375577
     locked: 0
