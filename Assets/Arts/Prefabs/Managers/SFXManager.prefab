@@ -146,7 +146,35 @@ MonoBehaviour:
     - Button
     - Start
     - Correct
+    - GoodMale1
+    - GoodMale2
+    - GoodMale3
+    - GoodFemale1
+    - GoodFemale2
+    - GoodFemale3
+    - BadMale1
+    - BadMale2
+    - BadMale3
+    - BadFemale1
+    - BadFemale2
+    - BadFemale3
+    - FootStep1
+    - FootStep2
     m_values:
     - {fileID: 8300000, guid: 47def54f99cae4846aa309e4cacb7943, type: 3}
     - {fileID: 8300000, guid: 8d09f23afd8c5da429a29724345a27b0, type: 3}
     - {fileID: 8300000, guid: fb67e7506a9bb4548b6ca5222f03d05d, type: 3}
+    - {fileID: 8300000, guid: 7893883186271ec4d8f55b0febed1896, type: 3}
+    - {fileID: 8300000, guid: e688cb4042b95594ea4d7afe116e5e57, type: 3}
+    - {fileID: 8300000, guid: 197bf2e6e4432164f847f8b9fd3b7a3f, type: 3}
+    - {fileID: 8300000, guid: e5184313b922d904d95c20208e066c26, type: 3}
+    - {fileID: 8300000, guid: ee622a5725bfd774b8d9c478d945c841, type: 3}
+    - {fileID: 8300000, guid: 0a5e739f81e2ada42924e232165e77b5, type: 3}
+    - {fileID: 8300000, guid: 167f5f0e91bd4cb4aab942a96e77b928, type: 3}
+    - {fileID: 8300000, guid: 77f45f44893414843a98cd7a78f57954, type: 3}
+    - {fileID: 8300000, guid: 555f88116752c6b4c8cd42963b2184d2, type: 3}
+    - {fileID: 8300000, guid: f64e318e5007f794db51c027f588f785, type: 3}
+    - {fileID: 8300000, guid: 9ade2bf9444a34f409bc633017fbe28d, type: 3}
+    - {fileID: 8300000, guid: 47d1fb8e295fbb7429a739803f90b683, type: 3}
+    - {fileID: 8300000, guid: 310fb3b8df12be2469b79e3c82ae40e9, type: 3}
+    - {fileID: 8300000, guid: 3dd12e3bee977dd498b65434cda24de2, type: 3}
