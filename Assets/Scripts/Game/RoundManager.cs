@@ -67,7 +67,7 @@ public class RoundManager : Singleton<RoundManager>
         debugTimerText.text = timer.ToString(); // TODO: Remove this
         if (timer <= 0f)
         {
-            EventManager.Invoke("GameLost");
+            GameManager.ChangeScene("Lose");
         }
     }
 

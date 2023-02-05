@@ -13,11 +13,11 @@ public class EventManager : Singleton<EventManager>
 {
     [SerializeField]
     private EventDictionary eventDictionary;
-    public void Init()
+    public static void Init()
     {
-        if (eventDictionary == null)
+        if (Instance.eventDictionary == null)
         {
-            eventDictionary = new EventDictionary();
+            Instance.eventDictionary = new EventDictionary();
         }
     }
 
@@ -91,6 +91,10 @@ public class EventManager : Singleton<EventManager>
     public static void Invoke(string eventName)
     {
         UnityEvent thisEvent = null;
+        if (Instance.eventDictionary == null)
+        {
+            Instance.eventDictionary = new EventDictionary();
+        }
         if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent))
         {
             thisEvent.Invoke();
