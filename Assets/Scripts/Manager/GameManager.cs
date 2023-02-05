@@ -31,7 +31,7 @@ public class GameManager : Singleton<GameManager>
         EventManager.AddEvent("GameLost", new UnityAction(()=>SceneManager.LoadScene(Instance.sceneNameList[4]))); //When you press the start button
         EventManager.AddEvent("ChangeState", new UnityAction(()=>Debug.Log("ChangeState")));//when you change the states'
         haveDone = true;
-        ChangeState(GameState.Menu);
+        // ChangeState(GameState.Menu);  // TODO: uncomment in final build
     }
 
      public static void ChangeState(string str){

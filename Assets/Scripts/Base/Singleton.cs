@@ -53,7 +53,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : Component
 		}
 		else
 		{
-            Debug.Log("Singleton Destroying" + gameObject.name);
+            //Debug.Log("Singleton Destroying" + gameObject.name);
 			Destroy ( gameObject );
 		}
 	}
