@@ -39,13 +39,14 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour
                     return _instance;
                 var instances = FindObjectsOfType<T>();
                 var count = instances.Length;
+                Debug.Log(count); 
                 if (count > 0)
                 {
                     if (count == 1)
                         return _instance = instances[0];
                     Debug.LogWarning($"[{nameof(Singleton)}<{typeof(T)}>] There should never be more than one {nameof(Singleton)} of type {typeof(T)} in the scene, but {count} were found. The first instance found will be used, and all others will be destroyed.");
                     for (var i = 1; i < instances.Length; i++)
-                        Destroy(instances[i]);
+                        Destroy(instances[i].gameObject);
                     return _instance = instances[0];
                 }
 
@@ -62,6 +63,9 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour
     {
         if (_persistent)
             DontDestroyOnLoad(gameObject);
+        // if(_instance != null) {
+        //     Destroy(gameObject);
+        // }
         OnAwake();
     }
 
