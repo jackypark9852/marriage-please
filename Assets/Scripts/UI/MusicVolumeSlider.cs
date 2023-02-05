@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VolumeSlider : MonoBehaviour
+public class MusicVolumeSlider : MonoBehaviour
 {
    public static Button muteButton;
    public static Slider slider;
    public static bool isMute= false;
    void Awake(){
-      foreach(var item in GetComponentsInChildren<Button>())
-         if(item.name == "MuteButton")
-            muteButton = item;
 
+      muteButton = GetComponentInChildren<Button>();
       slider = GetComponentInChildren<Slider>();
       slider.value = MusicManager.Instance.GetVolume();
    }
