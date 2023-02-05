@@ -54,7 +54,6 @@ public class RoundManager : Singleton<RoundManager>
         familyLogic = GetComponent<FamilyLogic>();
         EventManager.AddEvent("StagePassed", new UnityAction(() => {StartStage(); }));
         EventManager.AddEvent("GameLost", new UnityAction(() => { }));
-
     }
 
     void Start()
@@ -119,6 +118,7 @@ public class RoundManager : Singleton<RoundManager>
     {
         SetCandidates();
         SetInfoCardDatas();
+        Debug.Log(familyTreeCanvasWindowController);
         familyTreeCanvasWindowController.SetProfileFrameActive(client, true);
     }
 
