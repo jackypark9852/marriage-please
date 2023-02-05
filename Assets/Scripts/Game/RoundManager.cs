@@ -111,9 +111,6 @@ public class RoundManager : Singleton<RoundManager>
 
     public void StartRound()
     {
-        debugRoundText.text = "Round: " + roundNum; // TODO: Remove this
-        client = familyLogic.GetClient();
-        debugClientText.text = client.name; // TODO: Remove this
         SetCandidates();
         SetInfoCardDatas();
     }
@@ -150,24 +147,55 @@ public class RoundManager : Singleton<RoundManager>
 
     public void SetCandidates()
     {
-        candidate1 = familyLogic.GetSafeCandidate(client);
-        float rand = Random.Range(0f, 1f);
-        if (rand < unsafeProbability)
+        const int MAX_TRIES = 10;
+        int tries = 0;
+        bool candidatesFound = false; 
+        List<PersonData> triedClients = new List<PersonData>();
+        while (tries < MAX_TRIES)
         {
-            candidate2 = familyLogic.GetUnsafeCandidate(client, new List<PersonData> { candidate1 });
-        }
-        else
-        {
-            candidate2 = familyLogic.GetSafeCandidate(client, new List<PersonData> { candidate1 });
+            debugRoundText.text = "Round: " + roundNum; // TODO: Remove this
+            client = familyLogic.GetClient(triedClients);
+            if (client == null)
+            {
+                Debug.LogWarning("No clients left");
+                EndStage();
+                return;
+            }
+            debugClientText.text = client.name; // TODO: Remove this
+            
+            candidate1 = familyLogic.GetSafeCandidate(client);
+            float rand = Random.Range(0f, 1f);
+            if (rand < unsafeProbability)
+            {
+                candidate2 = familyLogic.GetUnsafeCandidate(client, new List<PersonData> { candidate1 });
+            }
+            else
+            {
+                candidate2 = familyLogic.GetSafeCandidate(client, new List<PersonData> { candidate1 });
+            }
+
+            bool swap = Random.Range(0, 2) == 1;
+            if (swap)
+            {
+                PersonData temp = candidate1;
+                candidate1 = candidate2;
+                candidate2 = temp;
+            }
+            tries++;
+            triedClients.Add(client);
+            if (candidate1 != null && candidate2 != null)
+            {
+                candidatesFound = true; 
+                break; ;
+            }
         }
 
-        bool swap = Random.Range(0, 2) == 1;
-        if (swap)
+        if(!candidatesFound)
         {
-            PersonData temp = candidate1;
-            candidate1 = candidate2;
-            candidate2 = temp;
+            Debug.LogWarning("No suitable candidates found");
+            EndStage(); 
         }
+        return; 
     }
 
     public void OnInfoCardClicked(PersonData personData)

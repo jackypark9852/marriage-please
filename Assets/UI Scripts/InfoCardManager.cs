@@ -23,6 +23,11 @@ public class InfoCardManager : MonoBehaviour, I_InfoCard
         set
         {
             personData = value;
+            Debug.Log(personData);
+            if (personData != null)
+            {
+                Debug.Log($"{personData.name} | {personData.Sprite}");
+            }
             ChangePicture(personData.Sprite);
             ChangeName(personData.name);
         }
