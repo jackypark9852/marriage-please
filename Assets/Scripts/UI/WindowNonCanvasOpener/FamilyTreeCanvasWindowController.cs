@@ -25,6 +25,8 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController, IPointer
 
     [SerializeField] SerializableDictionary<PersonData, ProfileFrame> personDataToFrame;
 
+    bool isInAnim = false;
+
     void Awake()
     {
         // Quick fix
@@ -38,6 +40,10 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController, IPointer
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (isInAnim)
+            {
+                return;
+            }
             if (isOpened)
             {
                 CloseWindow();
@@ -71,6 +77,7 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController, IPointer
 
     private void OpenWindowAnim()
     {
+        isInAnim = true;
         if (!isClosePosScaleSet)
         {
             closePos = familyTreeOpenerSR.transform.position;
@@ -82,8 +89,9 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController, IPointer
             .SetEase(Ease.OutBack)
             .OnComplete(() =>
             {
-                familyTreeOpenerSR.gameObject.SetActive(true);
+                familyTreeOpenerSR.gameObject.SetActive(false);
                 base.OpenWindow();
+                isInAnim = false;
             });
         familyTreeOpenerSR.transform.DOScale(openScale, openAnimTime)
             .SetEase(Ease.OutBack);
@@ -97,6 +105,8 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController, IPointer
 
     private void CloseWindowAnim()
     {
+        familyTreeOpenerSR.gameObject.SetActive(true);
+        isInAnim = true;
         windowGO.SetActive(false);
         familyTreeOpenerSR.gameObject.SetActive(true);
         familyTreeOpenerSR.transform.DOMove(closePos, closeAnimTime)
@@ -104,6 +114,7 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController, IPointer
             .OnComplete(() =>
             {
                 isOpened = false;
+                isInAnim = false;
             });
         familyTreeOpenerSR.transform.DOScale(closeScale, closeAnimTime)
             .SetEase(Ease.OutBack);
