@@ -37,6 +37,9 @@ public class InfoCardManager : MonoBehaviour
         }
     }
 
+    // private string[] paperflipAudios = new(){"Paper1", "Paper2", "Paper3"};
+    private List<string> paperflipAudios = new List<string>(){"Paper1", "Paper2", "Paper3"};
+
     [Header("For Test Only: ")]
     public Sprite testSprite;
 
@@ -91,6 +94,9 @@ public class InfoCardManager : MonoBehaviour
         // }
         transform.DOShakeScale(1, 0.05f);
 
+        int audioIndex = UnityEngine.Random.Range(0, paperflipAudios.Count);
+        SFXManager.PlayMusic(paperflipAudios[audioIndex]);
+
     }
 
     void OnMouseDown()
@@ -106,6 +112,9 @@ public class InfoCardManager : MonoBehaviour
 
         animatingInfoCard.Invoke(gameObject, IsSafeChoice);
         infoCardClicked.Invoke(personData);
+
+        SFXManager.PlayMusic("Click");
+
 
 
     }

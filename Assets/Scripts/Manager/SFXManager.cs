@@ -44,7 +44,27 @@ public class SFXManager : Singleton<SFXManager>
         if (Instance.sfxClips.ContainsKey(SFXName))
         {
             Instance.audioSource.clip = Instance.sfxClips[SFXName];
+            Instance.audioSource.loop = false;
             Instance.audioSource.Play();
+        }
+    }
+
+    public static void PlayMusicLoop(string SFXName)
+    {
+        if (Instance.sfxClips.ContainsKey(SFXName))
+        {
+            Instance.audioSource.clip = Instance.sfxClips[SFXName];
+            Instance.audioSource.loop = true;
+            Instance.audioSource.Play();
+        }
+    }
+
+    public static void StopMusic(string SFXName)
+    {
+        if (Instance.sfxClips.ContainsKey(SFXName))
+        {
+            Instance.audioSource.clip = Instance.sfxClips[SFXName];
+            Instance.audioSource.Stop();
         }
     }
     

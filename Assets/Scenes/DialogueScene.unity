@@ -199,7 +199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4386322922368629986, guid: 89d1dbc0a16a18844a61b38202eda268, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4386322922368629986, guid: 89d1dbc0a16a18844a61b38202eda268, type: 3}
       propertyPath: m_LocalPosition.x
@@ -269,6 +269,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89d1dbc0a16a18844a61b38202eda268, type: 3}
+--- !u!114 &94490184 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5852984175939138429, guid: 41f326965685ec446a68e56fdc44d6e2, type: 3}
+  m_PrefabInstance: {fileID: 5852984176016653621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fb867d2049d41f597aefdd6b19f598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &114253658
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +415,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &205806210 stripped
 MonoBehaviour:
@@ -520,7 +531,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &334174244
 GameObject:
@@ -671,6 +682,8 @@ GameObject:
   - component: {fileID: 407307765}
   - component: {fileID: 407307767}
   - component: {fileID: 407307766}
+  - component: {fileID: 407307768}
+  - component: {fileID: 407307769}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -717,9 +730,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 9
   indentLevel: 0
-  storyText: This is the profile of the marriage requestor looking to marry.
+  storyText: '{b} Dale: {/b} This is the profile of the marriage requestor looking
+    to marry.'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -744,9 +758,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 1
   indentLevel: 0
-  storyText: ' Marriage requests are coming in!'
+  storyText: ' {b} Dale: {/b} Marriage requests are coming in!'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -786,9 +800,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 42
-    y: 75
-    width: 77.2
+    x: -130.86365
+    y: 41
+    width: 76.36363
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -797,10 +811,12 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 407307740}
   commandList:
+  - {fileID: 407307768}
   - {fileID: 407307749}
   - {fileID: 407307748}
   - {fileID: 407307750}
   - {fileID: 407307751}
+  - {fileID: 407307769}
   - {fileID: 407307736}
   - {fileID: 407307739}
   - {fileID: 407307754}
@@ -838,19 +854,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 337.2, y: 140.1}
+  scrollPos: {x: 364.5106, y: 155.4535}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 400
-  zoom: 1
+  blockViewHeight: 365.8
+  zoom: 0.8800001
   scrollViewRect:
     serializedVersion: 2
     x: -343
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 407307741}
+  selectedCommands:
+  - {fileID: 407307769}
   variables: []
   description: 
   stepPause: 0
@@ -1027,11 +1045,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 14
   indentLevel: 0
-  storyText: 'In front of you, papers of marriage candidates looking to be married.
+  storyText: '{b} Dale: {/b} In front of you, papers of marriage candidates looking
+    to be married.
 
 '
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1112,12 +1131,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 19
   indentLevel: 0
-  storyText: 'Ever since the three families founded our island, our people have always
-    been living in peace and harmony.
+  storyText: '{b} Dale: {/b}  Ever since the three families founded our island, our
+    people have always been living in peace and harmony.
 
 '
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1142,10 +1161,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 18
   indentLevel: 0
-  storyText: Thank god you are here!
+  storyText: '{b} Dale: {/b} Thank god you are here!'
   description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
+  character: {fileID: 94490184}
+  portrait: {fileID: 21300000, guid: 89be5ec975d9b0d4bb77457ec91f997e, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -1169,9 +1188,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 20
   indentLevel: 0
-  storyText: However, this island has never been a populous place...
+  storyText: '{b} Dale: {/b} However, this island has never been a populous place...'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1196,10 +1215,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 21
   indentLevel: 0
-  storyText: "Especially in the last decade, our gene pool runs dangerously close
-    to being inbred! \r"
+  storyText: "{b} Dale: {/b} Especially in the last decade, our gene pool runs dangerously
+    close to being inbred! \r"
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1224,9 +1243,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 24
   indentLevel: 0
-  storyText: "Make sure people don\u2019t marry their relatives!"
+  storyText: "{b} Dale: {/b} Make sure people don\u2019t marry their relatives!"
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1251,9 +1270,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 23
   indentLevel: 0
-  storyText: While doing so, beware of their roots!
+  storyText: '{b} Dale: {/b} While doing so, beware of their roots!'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1278,12 +1297,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 22
   indentLevel: 0
-  storyText: 'Please, guide those lost lovebirds, and help them find their special
-    one!
+  storyText: '{b} Dale: {/b} Please, guide those lost lovebirds, and help them find
+    their special one!
 
 '
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1308,10 +1327,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 27
   indentLevel: 0
-  storyText: Now that you know how "close relatives" are determined, good luck out
-    there!
+  storyText: '{b} Dale: {/b} Now that you know how "close relatives" are determined,
+    good luck out there!'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1336,9 +1355,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 26
   indentLevel: 0
-  storyText: When in doubt, consult the family tree by your hand!
+  storyText: '{b} Dale: {/b} When in doubt, consult the family tree by your hand!'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1363,9 +1382,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 25
   indentLevel: 0
-  storyText: Choose one to marry the applicant. Make sure not to make inbred couples!
+  storyText: '{b} Dale: {/b} Choose one to marry the applicant. Make sure not to
+    make inbred couples!'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1390,9 +1410,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 34
   indentLevel: 0
-  storyText: Congratulations, Viviana and Alvina!
+  storyText: '{b} Dale: {/b} Congratulations, Viviana and Alvina!'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1417,10 +1437,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 33
   indentLevel: 0
-  storyText: They are 4 times removed. They are NOT close relatives, and can marry
-    each other.
+  storyText: '{b} Dale: {/b} They are 4 times removed. They are NOT close relatives,
+    and can marry each other.'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1445,9 +1465,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 32
   indentLevel: 0
-  storyText: Viviana Gyoker and Alvina Gyoker though...
+  storyText: '{b} Dale: {/b} Viviana Gyoker and Alvina Gyoker though...'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1472,9 +1492,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 31
   indentLevel: 0
-  storyText: They are 3 times removed. They are close relatives!
+  storyText: '{b} Dale: {/b} They are 3 times removed. They are close relatives!'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1499,9 +1519,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 30
   indentLevel: 0
-  storyText: Cornard Wurzel and Alvina Gyoker. If you count the lines between them...
+  storyText: '{b} Dale: {/b} Cornard Wurzel and Alvina Gyoker. If you count the lines
+    between them...'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1526,9 +1547,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 29
   indentLevel: 0
-  storyText: Look at the family tree.
+  storyText: '{b} Dale: {/b} Look at the family tree.'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1737,6 +1758,66 @@ MonoBehaviour:
     floatRef: {fileID: 0}
     floatVal: 1
   durationOLD: 0
+--- !u!114 &407307768
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407307734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 38
+  indentLevel: 0
+  display: 1
+  stage: {fileID: 0}
+  character: {fileID: 94490184}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 89be5ec975d9b0d4bb77457ec91f997e, type: 3}
+  offset: 0
+  fromPosition: {fileID: 590997515}
+  toPosition: {fileID: 1747413227}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 1
+  shiftIntoPlace: 0
+  waitUntilFinished: 1
+--- !u!114 &407307769
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407307734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 39
+  indentLevel: 0
+  display: 1
+  stage: {fileID: 0}
+  character: {fileID: 94490184}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 1747413227}
+  toPosition: {fileID: 590997515}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 1
+  shiftIntoPlace: 0
+  waitUntilFinished: 1
 --- !u!114 &479165259 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 809692341, guid: 65d574b9d4e6e9f4c896c2478277928a, type: 3}
@@ -1765,7 +1846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8402541545355194246, guid: ab232003ee1a325479c87a0a18c8dbd2, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8402541545355194246, guid: ab232003ee1a325479c87a0a18c8dbd2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1820,6 +1901,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &590997515 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2587570359045941423, guid: 9ce9fa6eab99d334e9aa0f69f5569fb3, type: 3}
+  m_PrefabInstance: {fileID: 2587570358495903908}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &609591543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1837,7 +1923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1384797788946280378, guid: 9ab6bd157f9784e47bcdea5686a5e935, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1384797788946280378, guid: 9ab6bd157f9784e47bcdea5686a5e935, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1963,7 +2049,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5257289785045991980, guid: 1202221ecb9af924587fd1d581546178, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5257289785045991980, guid: 1202221ecb9af924587fd1d581546178, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2172,7 +2258,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &935408205
 GameObject:
@@ -2256,7 +2342,7 @@ Transform:
   m_Children:
   - {fileID: 114253659}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &965780555 stripped
 MonoBehaviour:
@@ -2407,7 +2493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3020726147123476341, guid: 8ad3482c47c88a042a7c6f8a7ba82f88, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3020726147123476341, guid: 8ad3482c47c88a042a7c6f8a7ba82f88, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2550,7 +2636,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1163828267
 GameObject:
@@ -2670,7 +2756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5752299635361984581, guid: 5d580d09fc8d0e04fa191c45dd747c6a, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5752299635361984581, guid: 5d580d09fc8d0e04fa191c45dd747c6a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2723,7 +2809,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 363625431201697001, guid: 46dbb736d920647469b7bbedf49de168, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 363625431201697001, guid: 46dbb736d920647469b7bbedf49de168, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2864,7 +2950,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1464867471
 PrefabInstance:
@@ -2879,7 +2965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6713342935642252644, guid: 0d84a1475b075f94a8de65e86df9c225, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6713342935642252644, guid: 0d84a1475b075f94a8de65e86df9c225, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2981,7 +3067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5468313833721639189, guid: aabc01acb5e608b4eb01c06ef324bb2c, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5468313833721639189, guid: aabc01acb5e608b4eb01c06ef324bb2c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3177,7 +3263,7 @@ RectTransform:
   - {fileID: 47675546}
   - {fileID: 1664957406}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3332,6 +3418,95 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c896d80e99bb14292b8d1e92fbbcd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1735513969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1735513971}
+  - component: {fileID: 1735513970}
+  m_Layer: 0
+  m_Name: Dale Racine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1735513970
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735513969}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 89be5ec975d9b0d4bb77457ec91f997e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.32, y: 0.32}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1735513971
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735513969}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 458.04385, y: -39.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1747413227 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2587570360238860367, guid: 9ce9fa6eab99d334e9aa0f69f5569fb3, type: 3}
+  m_PrefabInstance: {fileID: 2587570358495903908}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1755533114 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 965031216489251409, guid: 9ab6bd157f9784e47bcdea5686a5e935, type: 3}
@@ -3445,7 +3620,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1949741689
 GameObject:
@@ -3561,7 +3736,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2013558682
 MonoBehaviour:
@@ -3591,7 +3766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6200478167700904927, guid: 5de6cb04b888cf44cb903e89a6c64d1e, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6200478167700904927, guid: 5de6cb04b888cf44cb903e89a6c64d1e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3704,7 +3879,7 @@ Transform:
   m_Children:
   - {fileID: 1080472035}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -3.552}
 --- !u!1001 &2083915835
 PrefabInstance:
@@ -3727,7 +3902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 519245503344573888, guid: 65d574b9d4e6e9f4c896c2478277928a, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 519245503344573888, guid: 65d574b9d4e6e9f4c896c2478277928a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3878,6 +4053,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a0bbe22c246e4c78ad8e9816cbae9d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &2587570358495903908
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2587570359906264601, guid: 9ce9fa6eab99d334e9aa0f69f5569fb3, type: 3}
+      propertyPath: m_Name
+      value: Stage
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587570359906264603, guid: 9ce9fa6eab99d334e9aa0f69f5569fb3, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587570359906264603, guid: 9ce9fa6eab99d334e9aa0f69f5569fb3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587570359906264603, guid: 9ce9fa6eab99d334e9aa0f69f5569fb3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587570359906264603, guid: 9ce9fa6eab99d334e9aa0f69f5569fb3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587570359906264603, guid: 9ce9fa6eab99d334e9aa0f69f5569fb3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587570359906264603, guid: 9ce9fa6eab99d334e9aa0f69f5569fb3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587570359906264603, guid: 9ce9fa6eab99d334e9aa0f69f5569fb3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587570359906264603, guid: 9ce9fa6eab99d334e9aa0f69f5569fb3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587570359906264603, guid: 9ce9fa6eab99d334e9aa0f69f5569fb3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587570359906264603, guid: 9ce9fa6eab99d334e9aa0f69f5569fb3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587570359906264603, guid: 9ce9fa6eab99d334e9aa0f69f5569fb3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9ce9fa6eab99d334e9aa0f69f5569fb3, type: 3}
 --- !u!1 &5257289785863171833 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5257289785045991983, guid: 1202221ecb9af924587fd1d581546178, type: 3}
@@ -3894,3 +4126,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb32816612ff9b4b8959994d62879cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &5852984176016653621
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5852984175939138418, guid: 41f326965685ec446a68e56fdc44d6e2, type: 3}
+      propertyPath: m_Name
+      value: Dale
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852984175939138428, guid: 41f326965685ec446a68e56fdc44d6e2, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852984175939138428, guid: 41f326965685ec446a68e56fdc44d6e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852984175939138428, guid: 41f326965685ec446a68e56fdc44d6e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852984175939138428, guid: 41f326965685ec446a68e56fdc44d6e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852984175939138428, guid: 41f326965685ec446a68e56fdc44d6e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852984175939138428, guid: 41f326965685ec446a68e56fdc44d6e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852984175939138428, guid: 41f326965685ec446a68e56fdc44d6e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852984175939138428, guid: 41f326965685ec446a68e56fdc44d6e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852984175939138428, guid: 41f326965685ec446a68e56fdc44d6e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852984175939138428, guid: 41f326965685ec446a68e56fdc44d6e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852984175939138428, guid: 41f326965685ec446a68e56fdc44d6e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 41f326965685ec446a68e56fdc44d6e2, type: 3}

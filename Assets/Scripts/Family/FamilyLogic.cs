@@ -28,8 +28,8 @@ public class FamilyLogic : MonoBehaviour
 
     public MarriageInfo Marry(PersonData person1, PersonData person2)
     {
-        availablePeople.Remove(person1);
-        availablePeople.Remove(person2);
+        // availablePeople.Remove(person1);
+        // availablePeople.Remove(person2);
 
         MarriageInfo marriageInfo;
         marriageInfo.person1 = person1;
@@ -117,14 +117,15 @@ public class FamilyLogic : MonoBehaviour
             Debug.LogWarning("Client requested, but no candidates available");
             return null;
         }
-        
+
         // Debug.Log("Getting client");
         // Debug.Log("Client:" + availablePeople[0].Name);
         return availablePeople[0];
     }
 
-    public bool IsCloseRelative(PersonData person1, PersonData person2) {
-        return _familyData.IsCloseRelative(person1, person2); 
+    public bool IsCloseRelative(PersonData person1, PersonData person2)
+    {
+        return _familyData.IsCloseRelative(person1, person2);
     }
 
     private void InitializeMembers()

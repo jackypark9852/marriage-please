@@ -23,6 +23,8 @@ public class RoundManager : Singleton<RoundManager>
     [SerializeField] FamilyTreeCanvasWindowController familyTreeCanvasWindowController;
 
     [SerializeField] ProgressBar timerBar;
+
+    [SerializeField] TraumaInducer traumaInducer;
     [Header("Data")]
     [SerializeField] List<StageData> stageDatas;
     [Header("Events")]
@@ -131,6 +133,10 @@ public class RoundManager : Singleton<RoundManager>
         MarriageInfo marriageInfo = familyLogic.Marry(candidateChosen, client);
         familyTreeCanvasWindowController.SetProfileFrameActive(client, false);
         debugChoiceResultText.text = marriageInfo.isMarriageAllowed ? "<color=green>Correct!</color>" : "<color=red>Wrong!</color>";
+        if (!marriageInfo.isMarriageAllowed)
+        {
+            traumaInducer.InduceTrauma();
+        }
         unsafeProbability += currentStageData.unsafeProbabilityIncrement;
         IncrementRound();
         if (roundNum >= currentStageData.gameRoundLength)
