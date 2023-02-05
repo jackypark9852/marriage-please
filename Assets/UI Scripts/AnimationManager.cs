@@ -10,10 +10,11 @@ using UnityEngine.Events;
 public class AnimationManager : MonoBehaviour
 {
 
-    [Header("InfoCards: ")]
+    [Header("InfoCards and PersonEffects: ")]
     public GameObject cardLeft;    
     public GameObject cardRight;
-    public GameObject cardCandidate;
+    // public GameObject cardCandidate;
+    public GameObject personEffectsHolder;
 
 
     [Header("The Random People Walk in:")]
@@ -23,25 +24,23 @@ public class AnimationManager : MonoBehaviour
 
 
     [Header("Animation Hooks:")]
-    public Vector3 leftOutPos;
+    public Vector3 outPos;
+    public Vector3 dropPosition;
     public Vector3 leftScenePos;
     
-    public Vector3 rightOutPos;
     public Vector3 rightScenePos;
-    public Vector3 candidateOutPos;
-    public Vector3 candidateScenePos;
+    // public Vector3 candidateOutPos;
+    // public Vector3 candidateScenePos;
 
     public float cardEnterDuration;
 
     public Vector3 personOutPos;
     public Vector3 personScenePos;
-    public Vector3 personEndPos;
     public float personEnterDuartion; 
     public float personLeaveDuartion; 
 
     [Header("After Selection Hooks:")]
-    public Vector3 resultPlaceFront;
-    public Vector3 resultPlaceBack;
+    public Vector3 resultPlace;
     public float randomRoateValue;
     public float cardLeaveDuration;
 
@@ -90,9 +89,9 @@ public class AnimationManager : MonoBehaviour
 
         // make the cards fly into the scence
 
-        cardLeft.transform.position = leftOutPos;
+        cardLeft.transform.position = outPos;
         cardLeft.transform.rotation = Quaternion.identity;
-        cardRight.transform.position = rightOutPos;
+        cardRight.transform.position = outPos;
         cardRight.transform.rotation = Quaternion.identity;
 
 
@@ -101,16 +100,17 @@ public class AnimationManager : MonoBehaviour
 
         Vector3 rot = new Vector3(0, 0, Random.Range(0, randomRoateValue));
         seq.Join(cardLeft.transform.DORotate(rot, cardLeaveDuration));
-        seq.Join(cardRight.transform.DORotate(rot, cardLeaveDuration));
+        Vector3 rot2 = new Vector3(0, 0, Random.Range(-randomRoateValue, 0));
+        seq.Join(cardRight.transform.DORotate(rot2, cardLeaveDuration));
         // seq.Join(cardLeft.transform.DOShakePosition(cardEnterDuration));
 
         // make the candidate card fly from bottom to inside the scene
         // cardLeft.transform.DOMove(leftScenePos, cardEnterDuration);
 
-        cardCandidate.transform.position = candidateOutPos;
-        cardCandidate.transform.rotation = Quaternion.identity;
+        // cardCandidate.transform.position = candidateOutPos;
+        // cardCandidate.transform.rotation = Quaternion.identity;
 
-        seq.Append(cardCandidate.transform.DOMove(candidateScenePos, cardEnterDuration));
+        // seq.Append(cardCandidate.transform.DOMove(candidateScenePos, cardEnterDuration));
 
     }
 
@@ -137,48 +137,76 @@ public class AnimationManager : MonoBehaviour
             // correctOutPos = rightOutPos;
         }
 
+
+        // play anims
+        if (isCorrect) {
+            personEffectsHolder.GetComponent<InfoCardManager>().PlayHeartAnim();
+            selected.GetComponent<InfoCardManager>().PlayHeartAnim();
+        }
+        else {
+            personEffectsHolder.GetComponent<InfoCardManager>().PlayAngryEffect();
+            selected.GetComponent<InfoCardManager>().PlayAngryEffect();
+        }
+
         // make the wrong card fly away from the scene
         var seq = DOTween.Sequence();
-        seq.Append(other.transform.DOMove(rightOutPos, cardLeaveDuration));
+        seq.Append(other.transform.DOMove(outPos, cardLeaveDuration));
 
-        // make the selcted cards to the designed postion
-        seq.Join(selected.transform.DOMove(resultPlaceBack, cardLeaveDuration));
-        seq.Join(cardCandidate.transform.DOMove(resultPlaceFront, cardLeaveDuration));
+        // if the card is correct, then fly card there and passaway with the person.
+        // if (isCorrect) {
+        //     // make the selcted cards to the designed postion
+        //     seq.Append(selected.transform.DOMove(resultPlace, cardLeaveDuration));
+        //     // seq.Join(selected.transform.DOScale(new Vector3(0.5f, 0.5f, 0.5f), cardLeaveDuration));
 
-        // make some random rotation
-        Vector3 rot = new Vector3(0, 0, Random.Range(0, randomRoateValue));
-        seq.Join(selected.transform.DORotate(rot, cardLeaveDuration));
-        seq.Join(cardCandidate.transform.DORotate(-rot, cardLeaveDuration));
+        //     // make some random rotation
+        //     Vector3 rot = new Vector3(0, 0, Random.Range(0, randomRoateValue));
+        //     seq.Join(selected.transform.DORotate(rot, cardLeaveDuration));
+
+        //     // the person left the room
+        //     seq.Append(personPlaceholder.transform.DOMove(personOutPos, cardLeaveDuration));
+        //     seq.Join(personPlaceholder.transform.GetChild(0).DOPunchPosition(new Vector3(0, 0.3f, 0), cardLeaveDuration));
+                    
+        //     // all cards fly outside the screen
+        //     seq.Join(selected.transform.DOMove(personOutPos, cardLeaveDuration));
+        // }
 
         // add callback at the end;
-        seq.AppendCallback(() => {
-            if (isCorrect) {
-                cardCandidate.GetComponent<InfoCardManager>().PlayHeartAnim();
-                selected.GetComponent<InfoCardManager>().PlayHeartAnim();
-            }
-            else {
-                cardCandidate.GetComponent<InfoCardManager>().PlayAngryEffect();
-                selected.GetComponent<InfoCardManager>().PlayAngryEffect();
-            }
+        // seq.AppendCallback(() => {
+        //     if (isCorrect) {
+        //         cardCandidate.GetComponent<InfoCardManager>().PlayHeartAnim();
+        //         selected.GetComponent<InfoCardManager>().PlayHeartAnim();
+        //     }
+        //     else {
+        //         cardCandidate.GetComponent<InfoCardManager>().PlayAngryEffect();
+        //         selected.GetComponent<InfoCardManager>().PlayAngryEffect();
+        //     }
 
-        });
+        // });
 
-        seq.AppendInterval(waitTimeToDiscard);
+        // seq.AppendInterval(waitTimeToDiscard);
         // seq.Append(other.transform.DOMove(rightScenePos, cardLeaveDuration));
 
 
 
         // the person left the room
 
-        int index = Random.Range (0, peopleSprites.Length);
-        personPlaceholder.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = peopleSprites[index];
+        // int index = Random.Range (0, peopleSprites.Length);
+        // personPlaceholder.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = peopleSprites[index];
+        if (isCorrect) {
 
-        seq.Append(personPlaceholder.transform.DOMove(personEndPos, cardLeaveDuration));
-        seq.Join(personPlaceholder.transform.GetChild(0).DOPunchPosition(new Vector3(0, 1, 0), cardLeaveDuration));
+            seq.Append(personPlaceholder.transform.DOMove(personOutPos, cardLeaveDuration));
+            seq.Join(personPlaceholder.transform.GetChild(0).DOPunchPosition(new Vector3(0, 0.3f, 0), cardLeaveDuration));
 
-        // all cards fly outside the screen
-        seq.Join(selected.transform.DOMove(leftOutPos, cardLeaveDuration));
-        seq.Join(cardCandidate.transform.DOMove(leftOutPos, cardLeaveDuration));
+            // all cards fly outside the screen
+            seq.Join(selected.transform.DOMove(personOutPos, cardLeaveDuration));
+            // seq.Join(cardCandidate.transform.DOMove(leftOutPos, cardLeaveDuration));
+        } else {
+            seq.Append(personPlaceholder.transform.DOMove(personOutPos, cardLeaveDuration));
+            seq.Join(personPlaceholder.transform.GetChild(0).DOPunchPosition(new Vector3(0, 0.3f, 0), cardLeaveDuration));
+            seq.Append(selected.transform.DOMove(dropPosition, cardLeaveDuration));
+
+        }
+
         
 
     }

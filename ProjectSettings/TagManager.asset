@@ -41,6 +41,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 390752705
+    locked: 0
+  - name: Person
+    uniqueID: 1755201449
+    locked: 0
+  - name: Table
+    uniqueID: 99369255
+    locked: 0
+  - name: CardLeft(Back)
+    uniqueID: 3100884729
+    locked: 0
+  - name: CardRight(Front)
+    uniqueID: 1613634295
+    locked: 0
+  - name: CardCandidate
+    uniqueID: 1247047751
+    locked: 0
   - name: VisualEffects
     uniqueID: 2421375577
     locked: 0
