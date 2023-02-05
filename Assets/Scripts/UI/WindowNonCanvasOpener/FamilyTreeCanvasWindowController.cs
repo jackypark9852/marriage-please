@@ -22,6 +22,12 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController, IPointer
 
     [SerializeField] SerializableDictionary<PersonData, ProfileFrame> personDataToFrame;
 
+    void Awake() {
+        // Quick fix
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        gameObject.SetActive(false);
+    }
+
     public override void OpenWindow()
     {
         if (isOpened)
