@@ -231,6 +231,10 @@ public class RoundManager : Singleton<RoundManager>
     }
     private void SetInfoCardDatas()
     {
+        if (infoCardManager1 == null || infoCardManager2 == null || clientInfoLogic == null)
+        {
+            return;
+        }
         infoCardManager1.PersonData = candidate1;
         infoCardManager1.IsSafeChoice = !familyLogic.IsCloseRelative(client, candidate1);
         infoCardManager2.PersonData = candidate2;
