@@ -4,15 +4,18 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
+[System.Serializable]
+public class MusicDictionary : SerializableDictionary<string, AudioClip>
+{ }
 [RequireComponent(typeof(AudioSource))]
 public class MusicManager : Singleton<MusicManager>
 {
-    public List<AudioClip> musicClips = new List<AudioClip>();
+    public MusicDictionary musicClips = new MusicDictionary();
     private AudioSource audioSource1;
     private AudioSource audioSource2;
     private float volume = 1;
     private static bool haveDone = false;
-    private int playIndex = -1;
+    private string playName;
     [SerializeField]
     private float fadeTime = 2f;
     protected override void Awake()
@@ -28,10 +31,11 @@ public class MusicManager : Singleton<MusicManager>
         {
             return;
         }
-        Instance.PlayMusic(0); ;
-        EventManager.AddEvent("StartMenu", new UnityAction(() => Instance.PlayMusic(0))); //When you enter into the menu
-        EventManager.AddEvent("StartTutorial", new UnityAction(() => Instance.PlayMusic(1))); //When you press the start button
-        EventManager.AddEvent("RoundStart", new UnityAction(() => Instance.PlayMusic(1))); //When you press the start button
+        Instance.PlayMusic("Menu"); ;
+        EventManager.AddEvent("StartMenu", new UnityAction(() => Instance.PlayMusic("Menu"))); //When you enter into the menu
+        EventManager.AddEvent("StartTutorial", new UnityAction(() => Instance.PlayMusic("Round"))); //When you press the start button
+        EventManager.AddEvent("RoundStart", new UnityAction(() => Instance.PlayMusic("Round"))); //When you press the start button
+        EventManager.AddEvent("GameLost", new UnityAction(() => Instance.PlayMusic("GameLost"))); //When you press the start button
         haveDone = true;
     }
     public void SetVolume(float num)
@@ -53,26 +57,33 @@ public class MusicManager : Singleton<MusicManager>
     {
         return volume;
     }
-    public void PlayMusic(int index)
+
+    public void PlayMusic(string musicName)
     {
-        if (playIndex == index)
-            //if the music is playing, don't play it again
-            return;
-        playIndex = index;
-        if (playIndex >= musicClips.Count)
-            return;
-        PlayFadeMusic(musicClips[playIndex], audioSource1, audioSource2);
+        if (musicClips.ContainsKey(musicName))
+        {
+            if (playName == musicName)
+                //if the music is playing, don't play it again
+                return;
+            playName = musicName;
+            PlayFadeMusic(musicClips[musicName], audioSource1, audioSource2);
+        }
+        else
+        {
+            Debug.LogWarning("MusicManager: No music named " + musicName);
+        }
     }
 
     public void StopMusic()
     {
         audioSource1.Stop();
     }
+
     public void PlayFadeMusic(AudioClip newClip, AudioSource audioSource1, AudioSource audioSource2)
     {
         // Check if the first audio source is playing
-        Debug.Log("audioSource1:"+audioSource1.isPlaying);
-        Debug.Log("audioSource2:"+audioSource2.isPlaying);
+        Debug.Log("audioSource1:" + audioSource1.isPlaying);
+        Debug.Log("audioSource2:" + audioSource2.isPlaying);
         if (audioSource1.isPlaying)
         {
             // Start fading out the first audio source
