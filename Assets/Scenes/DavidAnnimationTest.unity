@@ -815,6 +815,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &402372358 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4386322922287786887, guid: 89d1dbc0a16a18844a61b38202eda268, type: 3}
+  m_PrefabInstance: {fileID: 8370780216077108829}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &747703268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,7 +1323,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 99369255
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f697890cbb766904cb6a62a377fc9377, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1471,6 +1476,17 @@ MonoBehaviour:
   randomRoateValue: 10
   cardLeaveDuration: 1
   waitTimeToDiscard: 0
+  leftCardStyle: {fileID: 1236495952}
+  rightCardStyle: {fileID: 402372358}
+  cardStyles:
+  - {fileID: 21300000, guid: 4bb2f07e051f654489e347d271f28995, type: 3}
+  - {fileID: 21300000, guid: f122c13bd6a206d4bb898caeaaf2f471, type: 3}
+  - {fileID: 21300000, guid: 452a94bad7d5f654693d89bd3d7a963a, type: 3}
+--- !u!1 &1236495952 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5257289785097475401, guid: 1202221ecb9af924587fd1d581546178, type: 3}
+  m_PrefabInstance: {fileID: 5257289786966017522}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1377960855
 GameObject:
   m_ObjectHideFlags: 0

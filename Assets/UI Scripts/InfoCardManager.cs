@@ -27,13 +27,13 @@ public class InfoCardManager : MonoBehaviour
         set
         {
             personData = value;
-            Debug.Log(personData);
-            if (personData != null)
-            {
-                Debug.Log($"{personData.name} | {personData.Sprite}");
-            }
-            ChangePicture(personData.Sprite);
-            ChangeName(personData.name);
+            // Debug.Log(personData);
+            // if (personData != null)
+            // {
+            //     Debug.Log($"{personData.name} | {personData.Sprite}");
+            // }
+            // ChangePicture(personData.Sprite);
+            // ChangeName(personData.name);
         }
     }
 
@@ -43,6 +43,17 @@ public class InfoCardManager : MonoBehaviour
     [SerializeField] bool isCandidate = true;
 
     // public 
+
+    // handler for changeing the sprite and name
+    public void UpdateCard() {
+        if (personData != null)
+        {
+            // Debug.Log($"{personData.name} | {personData.Sprite}");
+            ChangePicture(personData.Sprite);
+            ChangeName(personData.name);
+        }
+        
+    }
 
     // Start is called before the first frame update
     void Start()
