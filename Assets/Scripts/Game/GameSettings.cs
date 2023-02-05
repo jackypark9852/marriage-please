@@ -20,8 +20,8 @@ public static class GameSettings
         { 2, 30f },
     };
 
-    public static float CORRECT_TIME_INCREMENT = 5f;
-    public static float INCORRECT_TIME_INCREMENT = -10f;
+    public static float CORRECT_TIME_INCREMENT = 20f;
+    public static float INCORRECT_TIME_INCREMENT = -30f;
 
     public static SerializableDictionary<int, float> GAME_ROUND_LENGTHS = new SerializableDictionary<int, float>
     {
