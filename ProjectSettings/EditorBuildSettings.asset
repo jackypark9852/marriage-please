@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DialogueScene.unity
     guid: 00bdc96c0d0bdf24cb8ae94017ecd390
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameScene.unity
     guid: b3fc1a24c96a4d949986b6caddd97aff
   - enabled: 1
@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/RoundManagerUIIntegrationTestScene.unity
     guid: 822665eb8aa485544af393d604faf3d5
+  - enabled: 1
+    path: Assets/Scenes/RoundFlow.unity
+    guid: 507f1752b3d2d2443bc1140ece8c56a0
+  - enabled: 1
+    path: Assets/Scenes/EndingScenes/GameLostScene.unity
+    guid: 629731bc37bb7d94ca291c74186d84b3
+  - enabled: 1
+    path: Assets/Scenes/EndingScenes/GameWonScene.unity
+    guid: c7a77edc42c51f54cb46442c3d75cfcb
   m_configObjects: {}

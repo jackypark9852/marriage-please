@@ -588,7 +588,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 42
     y: 75
-    width: 77.2
+    width: 77.333336
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -852,16 +852,16 @@ MonoBehaviour:
   staticEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1327492480}
+      - m_Target: {fileID: 1496042322}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ChangeStateIndex
-        m_Mode: 3
+        m_MethodName: ChangeScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Round
           m_BoolArgument: 0
         m_CallState: 2
   booleanParameter:
@@ -1511,7 +1511,7 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5257289785738528985, guid: 1202221ecb9af924587fd1d581546178, type: 3}
   m_PrefabInstance: {fileID: 5257289786966017522}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1327492479
+--- !u!1001 &1496042321
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1544,15 +1544,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6713342935642252644, guid: 0d84a1475b075f94a8de65e86df9c225, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6713342935642252644, guid: 0d84a1475b075f94a8de65e86df9c225, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6713342935642252644, guid: 0d84a1475b075f94a8de65e86df9c225, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6713342935642252644, guid: 0d84a1475b075f94a8de65e86df9c225, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1566,28 +1566,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6713342935642252645, guid: 0d84a1475b075f94a8de65e86df9c225, type: 3}
-      propertyPath: sceneNameList.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6713342935642252645, guid: 0d84a1475b075f94a8de65e86df9c225, type: 3}
-      propertyPath: sceneNameList.Array.data[0]
-      value: MainMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 6713342935642252645, guid: 0d84a1475b075f94a8de65e86df9c225, type: 3}
-      propertyPath: sceneNameList.Array.data[1]
-      value: DialogueScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 6713342935642252645, guid: 0d84a1475b075f94a8de65e86df9c225, type: 3}
-      propertyPath: sceneNameList.Array.data[2]
-      value: GameScene
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d84a1475b075f94a8de65e86df9c225, type: 3}
---- !u!114 &1327492480 stripped
+--- !u!114 &1496042322 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6713342935642252645, guid: 0d84a1475b075f94a8de65e86df9c225, type: 3}
-  m_PrefabInstance: {fileID: 1327492479}
+  m_PrefabInstance: {fileID: 1496042321}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
