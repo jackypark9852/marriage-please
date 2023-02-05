@@ -398,6 +398,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 762744022535301371, guid: 65d574b9d4e6e9f4c896c2478277928a, type: 3}
+      propertyPath: m_Value
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 832532852277055699, guid: 65d574b9d4e6e9f4c896c2478277928a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1508,7 +1512,13 @@ MonoBehaviour:
   waitTimeToDiscard: 0
   leftCardStyle: {fileID: 5257289786966017523}
   rightCardStyle: {fileID: 5257289786301594300}
-  cardStyles: []
+  cardStyles:
+  - {fileID: 21300000, guid: 4bb2f07e051f654489e347d271f28995, type: 3}
+  - {fileID: 21300000, guid: f122c13bd6a206d4bb898caeaaf2f471, type: 3}
+  - {fileID: 21300000, guid: 452a94bad7d5f654693d89bd3d7a963a, type: 3}
+  footstepAudios:
+  - FootStep1
+  - FootStep2
 --- !u!1001 &1456717514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1721,6 +1731,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3752003691560219338, guid: 5d580d09fc8d0e04fa191c45dd747c6a, type: 3}
+      propertyPath: m_Volume
+      value: 0.055
+      objectReference: {fileID: 0}
     - target: {fileID: 5752299635361984581, guid: 5d580d09fc8d0e04fa191c45dd747c6a, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -1833,6 +1847,62 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6210309294185845653, guid: 5de6cb04b888cf44cb903e89a6c64d1e, type: 3}
+      propertyPath: sfxClips.m_keys.Array.size
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210309294185845653, guid: 5de6cb04b888cf44cb903e89a6c64d1e, type: 3}
+      propertyPath: sfxClips.m_values.Array.size
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210309294185845653, guid: 5de6cb04b888cf44cb903e89a6c64d1e, type: 3}
+      propertyPath: sfxClips.m_keys.Array.data[17]
+      value: Paper1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210309294185845653, guid: 5de6cb04b888cf44cb903e89a6c64d1e, type: 3}
+      propertyPath: sfxClips.m_keys.Array.data[18]
+      value: Paper2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210309294185845653, guid: 5de6cb04b888cf44cb903e89a6c64d1e, type: 3}
+      propertyPath: sfxClips.m_keys.Array.data[19]
+      value: Paper3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210309294185845653, guid: 5de6cb04b888cf44cb903e89a6c64d1e, type: 3}
+      propertyPath: sfxClips.m_keys.Array.data[20]
+      value: Click
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210309294185845653, guid: 5de6cb04b888cf44cb903e89a6c64d1e, type: 3}
+      propertyPath: sfxClips.m_keys.Array.data[21]
+      value: Heartbeat
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210309294185845653, guid: 5de6cb04b888cf44cb903e89a6c64d1e, type: 3}
+      propertyPath: sfxClips.m_keys.Array.data[22]
+      value: Humm
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210309294185845653, guid: 5de6cb04b888cf44cb903e89a6c64d1e, type: 3}
+      propertyPath: sfxClips.m_values.Array.data[17]
+      value: 
+      objectReference: {fileID: 8300000, guid: a175ba7427e0b42458dff7206f5d4939, type: 3}
+    - target: {fileID: 6210309294185845653, guid: 5de6cb04b888cf44cb903e89a6c64d1e, type: 3}
+      propertyPath: sfxClips.m_values.Array.data[18]
+      value: 
+      objectReference: {fileID: 8300000, guid: b0c94f1ed2838b6449921843e4dd3e6a, type: 3}
+    - target: {fileID: 6210309294185845653, guid: 5de6cb04b888cf44cb903e89a6c64d1e, type: 3}
+      propertyPath: sfxClips.m_values.Array.data[19]
+      value: 
+      objectReference: {fileID: 8300000, guid: 15c17e63eeae83248b50086d92619ac0, type: 3}
+    - target: {fileID: 6210309294185845653, guid: 5de6cb04b888cf44cb903e89a6c64d1e, type: 3}
+      propertyPath: sfxClips.m_values.Array.data[20]
+      value: 
+      objectReference: {fileID: 8300000, guid: c6562f069875b92449535f0cdaff0a28, type: 3}
+    - target: {fileID: 6210309294185845653, guid: 5de6cb04b888cf44cb903e89a6c64d1e, type: 3}
+      propertyPath: sfxClips.m_values.Array.data[21]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6bf725a502d68b94eba109dacc392224, type: 3}
+    - target: {fileID: 6210309294185845653, guid: 5de6cb04b888cf44cb903e89a6c64d1e, type: 3}
+      propertyPath: sfxClips.m_values.Array.data[22]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8dc2194b35e6b554ba5d27c373393f3d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5de6cb04b888cf44cb903e89a6c64d1e, type: 3}
 --- !u!114 &1917383711 stripped
