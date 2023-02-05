@@ -20,6 +20,8 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController, IPointer
 
     [SerializeField] GameObject onMouseDownBlockerGO;
 
+    [SerializeField] SerializableDictionary<PersonData, ProfileFrame> personDataToFrame;
+
     public override void OpenWindow()
     {
         if (isOpened)
