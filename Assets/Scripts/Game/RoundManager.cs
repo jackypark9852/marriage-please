@@ -121,7 +121,7 @@ public class RoundManager : Singleton<RoundManager>
     public void EndRound()
     {
         MarriageInfo marriageInfo = familyLogic.Marry(candidateChosen, client);
-        debugChoiceResultText.text = marriageInfo.isMarriageAllowed ? "Correct!" : "Wrong!";
+        debugChoiceResultText.text = marriageInfo.isMarriageAllowed ? "<color=green>Correct!</color>" : "<color=red>Wrong!</color>";
         unsafeProbability += currentStageData.unsafeProbabilityIncrement;
         IncrementRound();
         if (roundNum >= currentStageData.gameRoundLength)
