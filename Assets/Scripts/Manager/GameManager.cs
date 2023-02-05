@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -14,12 +14,13 @@ public class GameManager : Singleton<GameManager>
         get { return state; }
     }
     public static int stageNum;
+    public FadeSceneController fadeImage;
     public List<string> sceneNameList = new List<string>();
     private static bool haveDone = false;
     protected override void Awake(){
         base.Awake();
-    
-       
+        //fadeImage = GameObject.Find("FadeImage").GetComponent<FadeSceneController>();
+        
     }
 
     void Start(){
@@ -27,7 +28,7 @@ public class GameManager : Singleton<GameManager>
             return;
         }
         EventManager.AddEvent("StartMenu", new UnityAction(()=>SceneManager.LoadScene(Instance.sceneNameList[0]))); //When you first enter into the game
-        EventManager.AddEvent("StartTutorial", new UnityAction(()=>SceneManager.LoadScene(Instance.sceneNameList[1]))); //When you press the start button
+        EventManager.AddEvent("StartTutorial", new UnityAction(()=>fadeImage.FadeToScene(Instance.sceneNameList[1]))); //When you press the start button
         EventManager.AddEvent("RoundStart", new UnityAction(()=>SceneManager.LoadScene(Instance.sceneNameList[2]))); //When you press the start button
         EventManager.AddEvent("GameWon", new UnityAction(()=>SceneManager.LoadScene(Instance.sceneNameList[3]))); //When you press the start button
         EventManager.AddEvent("GameLost", new UnityAction(()=>SceneManager.LoadScene(Instance.sceneNameList[4]))); //When you press the start button
