@@ -1,6 +1,6 @@
-using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -22,7 +22,8 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController, IPointer
 
     [SerializeField] SerializableDictionary<PersonData, ProfileFrame> personDataToFrame;
 
-    void Awake() {
+    void Awake()
+    {
         // Quick fix
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
         gameObject.SetActive(false);
@@ -61,7 +62,7 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController, IPointer
             .SetEase(Ease.OutBack)
             .OnComplete(() =>
             {
-                familyTreeOpenerSR.gameObject.SetActive(false);
+                familyTreeOpenerSR.gameObject.SetActive(true);
                 base.OpenWindow();
             });
         familyTreeOpenerSR.transform.DOScale(openScale, openAnimTime)

@@ -8,6 +8,7 @@ public class CanvasWindowOpener : MonoBehaviour
 
     void OnMouseDown()
     {
+        canvasWindowController.gameObject.SetActive(true);
         canvasWindowController.OpenWindow();
     }
 }
