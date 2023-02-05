@@ -17,12 +17,14 @@ public class ClientInfoLogic : MonoBehaviour
         set
         {
             personData = value;
+            Debug.Log("PersonData Set");
             StartCoroutine("UpdateInfo");
         }
     }
 
     private void UpdateCard()
     {
+        Debug.Log("Updating Card");
         // Debug.Log(personData);
         if (personData != null)
         {
@@ -42,8 +44,9 @@ public class ClientInfoLogic : MonoBehaviour
         nameField.text = name;
     }
 
-    IEnumerable UpdateInfo()
+    private IEnumerator UpdateInfo()
     {
+        Debug.Log("Updating Info");
         yield return new WaitForSeconds(_infoUpdateDelaySeconds);
         UpdateCard();
     }

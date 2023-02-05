@@ -2068,6 +2068,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 669922178642912166, guid: e08fc0fc8a79b3545a81163c4e5a5198, type: 3}
+      propertyPath: _infoUpdateDelaySeconds
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 669922179113983417, guid: e08fc0fc8a79b3545a81163c4e5a5198, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
