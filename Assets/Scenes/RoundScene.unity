@@ -1104,8 +1104,8 @@ MonoBehaviour:
   randomRoateValue: 10
   cardLeaveDuration: 1
   waitTimeToDiscard: 0
-  leftCardStyle: {fileID: 0}
-  rightCardStyle: {fileID: 0}
+  leftCardStyle: {fileID: 5257289786966017523}
+  rightCardStyle: {fileID: 5257289786301594300}
   cardStyles: []
 --- !u!1001 &1318444399
 PrefabInstance:

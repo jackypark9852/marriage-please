@@ -1,9 +1,9 @@
 
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using DG.Tweening;
 using TMPro;
+using UnityEngine;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,7 +11,7 @@ public class AnimationManager : MonoBehaviour
 {
 
     [Header("InfoCards and PersonEffects: ")]
-    public GameObject cardLeft;    
+    public GameObject cardLeft;
     public GameObject cardRight;
     // public GameObject cardCandidate;
     public GameObject personEffectsHolder;
@@ -27,7 +27,7 @@ public class AnimationManager : MonoBehaviour
     public Vector3 outPos;
     public Vector3 dropPosition;
     public Vector3 leftScenePos;
-    
+
     public Vector3 rightScenePos;
     // public Vector3 candidateOutPos;
     // public Vector3 candidateScenePos;
@@ -36,8 +36,8 @@ public class AnimationManager : MonoBehaviour
 
     public Vector3 personOutPos;
     public Vector3 personScenePos;
-    public float personEnterDuartion; 
-    public float personLeaveDuartion; 
+    public float personEnterDuartion;
+    public float personLeaveDuartion;
 
     [Header("After Selection Hooks:")]
     public Vector3 resultPlace;
@@ -82,11 +82,12 @@ public class AnimationManager : MonoBehaviour
 
     // SEQUENCES
 
-    public void StartRoundSequence() {
+    public void StartRoundSequence()
+    {
         // the random person walk from left to right to the scene
 
         personPlaceholder.transform.position = personOutPos;
-        int index = Random.Range (0, peopleSprites.Length);
+        int index = Random.Range(0, peopleSprites.Length);
         personPlaceholder.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = peopleSprites[index];
 
         var seq = DOTween.Sequence();
@@ -120,15 +121,18 @@ public class AnimationManager : MonoBehaviour
         // seq.Append(cardCandidate.transform.DOMove(candidateScenePos, cardEnterDuration));
 
         // Make player can choose
-        seq.AppendCallback(() => {
+        seq.AppendCallback(() =>
+        {
             playerCanSelect = true;
         });
 
     }
 
-    public void takeChoice(GameObject sel, bool isCorrect) {
+    public void takeChoice(GameObject sel, bool isCorrect)
+    {
 
-        if(!playerCanSelect) {
+        if (!playerCanSelect)
+        {
             return;
         }
 
@@ -142,12 +146,15 @@ public class AnimationManager : MonoBehaviour
         GameObject other;
         // Vector3 wrongOutPos;
         // Vector3 correctOutPos;
-        if(isLeft) {
+        if (isLeft)
+        {
             other = cardRight;
             selected = cardLeft;
             // wrongOutPos = rightOutPos;
             // correctOutPos = leftOutPos;
-        } else {
+        }
+        else
+        {
             other = cardLeft;
             selected = cardRight;
             // wrongOutPos = leftOutPos;
@@ -156,11 +163,13 @@ public class AnimationManager : MonoBehaviour
 
 
         // play anims
-        if (isCorrect) {
+        if (isCorrect)
+        {
             personEffectsHolder.GetComponent<InfoCardManager>().PlayHeartAnim();
             selected.GetComponent<InfoCardManager>().PlayHeartAnim();
         }
-        else {
+        else
+        {
             personEffectsHolder.GetComponent<InfoCardManager>().PlayAngryEffect();
             selected.GetComponent<InfoCardManager>().PlayAngryEffect();
         }
@@ -182,7 +191,7 @@ public class AnimationManager : MonoBehaviour
         //     // the person left the room
         //     seq.Append(personPlaceholder.transform.DOMove(personOutPos, cardLeaveDuration));
         //     seq.Join(personPlaceholder.transform.GetChild(0).DOPunchPosition(new Vector3(0, 0.3f, 0), cardLeaveDuration));
-                    
+
         //     // all cards fly outside the screen
         //     seq.Join(selected.transform.DOMove(personOutPos, cardLeaveDuration));
         // }
@@ -209,7 +218,8 @@ public class AnimationManager : MonoBehaviour
 
         // int index = Random.Range (0, peopleSprites.Length);
         // personPlaceholder.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = peopleSprites[index];
-        if (isCorrect) {
+        if (isCorrect)
+        {
 
             seq.Append(personPlaceholder.transform.DOMove(personOutPos, cardLeaveDuration));
             seq.Join(personPlaceholder.transform.GetChild(0).DOPunchPosition(new Vector3(0, 0.3f, 0), cardLeaveDuration));
@@ -217,17 +227,20 @@ public class AnimationManager : MonoBehaviour
             // all cards fly outside the screen
             seq.Join(selected.transform.DOMove(personOutPos, cardLeaveDuration));
             // seq.Join(cardCandidate.transform.DOMove(leftOutPos, cardLeaveDuration));
-        } else {
+        }
+        else
+        {
             seq.Append(personPlaceholder.transform.DOMove(personOutPos, cardLeaveDuration));
             seq.Join(personPlaceholder.transform.GetChild(0).DOPunchPosition(new Vector3(0, 0.3f, 0), cardLeaveDuration));
             seq.Append(selected.transform.DOMove(dropPosition, cardLeaveDuration));
 
         }
 
-        seq.AppendCallback(() => {
+        seq.AppendCallback(() =>
+        {
             ChangeInfoOnCard();
-            RandomChangeCardStyle(leftCardStyle);
-            RandomChangeCardStyle(rightCardStyle);
+            // RandomChangeCardStyle(leftCardStyle);
+            // RandomChangeCardStyle(rightCardStyle);
             StartRoundSequence();
         });
 
@@ -237,13 +250,15 @@ public class AnimationManager : MonoBehaviour
 
 
     // PRIVATE HELPERS
-    private void ChangeInfoOnCard() {
+    private void ChangeInfoOnCard()
+    {
         cardLeft.GetComponent<InfoCardManager>().UpdateCard();
         cardRight.GetComponent<InfoCardManager>().UpdateCard();
     }
 
-    private void RandomChangeCardStyle(GameObject card) {
-        int index = Random.Range (0, cardStyles.Length);
+    private void RandomChangeCardStyle(GameObject card)
+    {
+        int index = Random.Range(0, cardStyles.Length);
         card.GetComponent<SpriteRenderer>().sprite = cardStyles[index];
     }
 
