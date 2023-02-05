@@ -142,5 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfxClips:
-    m_keys: []
-    m_values: []
+    m_keys:
+    - Button
+    m_values:
+    - {fileID: 8300000, guid: c6562f069875b92449535f0cdaff0a28, type: 3}
