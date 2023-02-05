@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager : Singleton<GameManager>
 {
     public GameState state = GameState.Menu;
@@ -12,6 +13,7 @@ public class GameManager : Singleton<GameManager>
     {
         get { return state; }
     }
+    public static int stageNum;
     public List<string> sceneNameList = new List<string>();
     private static bool haveDone = false;
     protected override void Awake(){
@@ -30,6 +32,8 @@ public class GameManager : Singleton<GameManager>
         EventManager.AddEvent("GameWon", new UnityAction(()=>SceneManager.LoadScene(Instance.sceneNameList[3]))); //When you press the start button
         EventManager.AddEvent("GameLost", new UnityAction(()=>SceneManager.LoadScene(Instance.sceneNameList[4]))); //When you press the start button
         EventManager.AddEvent("ChangeState", new UnityAction(()=>Debug.Log("ChangeState")));//when you change the states'
+        EventManager.AddEvent("Interm1", new UnityAction(()=>SceneManager.LoadScene(Instance.sceneNameList[5])));
+        EventManager.AddEvent("Interm2", new UnityAction(()=>SceneManager.LoadScene(Instance.sceneNameList[6])));
         haveDone = true;
         // ChangeState(GameState.Menu);  // TODO: uncomment in final build
     }
@@ -41,17 +45,34 @@ public class GameManager : Singleton<GameManager>
                 ChangeState(GameState.Menu);
                 break;
             case "Tutorial":
-                SceneManager.LoadScene(Instance.sceneNameList[1]);
                 ChangeState(GameState.Tutorial);
                 break;
 
-            case "Round":
-                SceneManager.LoadScene(Instance.sceneNameList[2]);
+
+            case "Round1":
+                stageNum = 0;
                 ChangeState(GameState.Round1);
                 break;
             
+            case "Interim1":
+                ChangeState(GameState.Interim1);
+                break;
+            
+            case "Round2":
+                stageNum = 1;
+                ChangeState(GameState.Round2);
+                break;
+            
+            case "Interim2":
+                ChangeState(GameState.Interim2);
+                break;  
+            
+            case "Round3":
+                stageNum = 2;
+                ChangeState(GameState.Round3);
+                break;
+
             case "Win": 
-                SceneManager.LoadScene(Instance.sceneNameList[3]);
                 ChangeState(GameState.Win);
                 break;
             
@@ -77,6 +98,20 @@ public class GameManager : Singleton<GameManager>
                 EventManager.Invoke("StartTutorial");
                 break;
             case GameState.Round1:
+                EventManager.Invoke("RoundStart");
+                break;
+            case GameState.Interim1:
+                EventManager.Invoke("Interm1");
+                break;
+            case GameState.Round2:
+                EventManager.Invoke("RoundStart");
+                break;
+
+            case GameState.Interim2:
+                EventManager.Invoke("Interm2");
+                break;
+
+            case GameState.Round3:
                 EventManager.Invoke("RoundStart");
                 break;
             
