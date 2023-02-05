@@ -39,12 +39,12 @@ public class SFXManager : Singleton<SFXManager>
     {
         return volume;
     }
-    public void PlayMusic(string SFXName)
+    public static void PlayMusic(string SFXName)
     {
-        if (sfxClips.ContainsKey(SFXName))
+        if (Instance.sfxClips.ContainsKey(SFXName))
         {
-            audioSource.clip = sfxClips[SFXName];
-            audioSource.Play();
+            Instance.audioSource.clip = Instance.sfxClips[SFXName];
+            Instance.audioSource.Play();
         }
     }
     
