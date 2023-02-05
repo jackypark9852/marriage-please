@@ -10,11 +10,13 @@ public class ChangeDialoguePosition : MonoBehaviour
     {
         dialoguePosition = GetComponent<Transform>();
     }
+    
+    
     public static void ChangePositionX(float x){
-        dialoguePosition.position = new Vector2(x, dialoguePosition.position.y);
+        dialoguePosition.position = new Vector2(x/1920f * Camera.current.pixelRect.width, dialoguePosition.position.y);
     }
     public static void ChangePositionY(float y){
-        dialoguePosition.position = new Vector2(dialoguePosition.position.x, y);
+        dialoguePosition.position = new Vector2(dialoguePosition.position.x, y/1080f * Camera.current.pixelRect.height);
     }
     public static void ChangePosition(Vector2 position){
         dialoguePosition.position = position;
