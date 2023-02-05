@@ -111,6 +111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 669922179156345852}
+  - component: {fileID: 1481508525}
   m_Layer: 0
   m_Name: Computer (Client Info)
   m_TagString: Untagged
@@ -135,6 +136,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1481508525
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669922179156345851}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c053ebeaae090af4995d84c6ca8e2ffa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &669922179600223252
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +233,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1613634295
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &669922179600223254
@@ -316,6 +337,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 669922179156345852}
     m_Modifications:
+    - target: {fileID: 8402541544090020867, guid: ab232003ee1a325479c87a0a18c8dbd2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402541544633603487, guid: ab232003ee1a325479c87a0a18c8dbd2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402541545064430144, guid: ab232003ee1a325479c87a0a18c8dbd2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8402541545355194240, guid: ab232003ee1a325479c87a0a18c8dbd2, type: 3}
       propertyPath: m_Name
       value: 'computer '
@@ -501,6 +534,18 @@ PrefabInstance:
     - target: {fileID: 459384640428865098, guid: 4183026c2ac4a6848844be8e80741572, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 459384640428865099, guid: 4183026c2ac4a6848844be8e80741572, type: 3}
+      propertyPath: BarColor.b
+      value: 0.1981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 459384640428865099, guid: 4183026c2ac4a6848844be8e80741572, type: 3}
+      propertyPath: BarColor.g
+      value: 0.1981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 459384640428865099, guid: 4183026c2ac4a6848844be8e80741572, type: 3}
+      propertyPath: BarColor.r
+      value: 0.1981132
       objectReference: {fileID: 0}
     - target: {fileID: 459384641538960046, guid: 4183026c2ac4a6848844be8e80741572, type: 3}
       propertyPath: m_FillAmount
