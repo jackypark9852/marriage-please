@@ -19,5 +19,5 @@ MonoBehaviour:
   gameRoundLength: 5
   unsafeStartingProbability: 1
   unsafeProbabilityIncrement: 0
-  correctTimeIncrement: 20
-  incorrectTimeIncrement: -30
+  correctTimeIncrement: 25
+  incorrectTimeIncrement: -50

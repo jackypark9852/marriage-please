@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ClientInfoLogic : MonoBehaviour
 {
+    [SerializeField] private float _infoUpdateDelaySeconds = 1f;
     private PersonData personData;
 
     public SpriteRenderer portraitSprite;
@@ -16,23 +17,37 @@ public class ClientInfoLogic : MonoBehaviour
         set
         {
             personData = value;
-            // Debug.Log(personData);
-            if (personData != null)
-            {
-                Debug.Log($"{personData.Name} | {personData.Sprite}");
-            }
+            Debug.Log("PersonData Set");
+            StartCoroutine("UpdateInfo");
+        }
+    }
+
+    private void UpdateCard()
+    {
+        Debug.Log("Updating Card");
+        // Debug.Log(personData);
+        if (personData != null)
+        {
+            // Debug.Log($"{personData.name} | {personData.Sprite}");
             ChangePicture(personData.Sprite);
             ChangeName(personData.Name);
         }
     }
 
-    public void ChangePicture(Sprite sp)
+    private void ChangePicture(Sprite sp)
     {
         portraitSprite.sprite = sp;
     }
 
-    public void ChangeName(string name)
+    private void ChangeName(string name)
     {
         nameField.text = name;
+    }
+
+    private IEnumerator UpdateInfo()
+    {
+        Debug.Log("Updating Info");
+        yield return new WaitForSeconds(_infoUpdateDelaySeconds);
+        UpdateCard();
     }
 }

@@ -11,8 +11,7 @@ public class RoundManager : Singleton<RoundManager>
     [HideInInspector] public float timer { get; private set; }
     [HideInInspector] public float unsafeProbability { get; private set; }
     [HideInInspector] public Sprite familyTreeSprite { get; private set; }
-    [HideInInspector] public float correctTimeIncrement { get; private set; }
-    [HideInInspector] public float incorrectTimeIncrement { get; private set; }
+
 
     [Header("Script References")]
     [SerializeField] private InfoCardManager infoCardManager1;
@@ -50,6 +49,7 @@ public class RoundManager : Singleton<RoundManager>
 
     void Awake()
     {
+        //ase.Awake();
         familyLogic = GetComponent<FamilyLogic>();
         EventManager.AddEvent("GameLost", new UnityAction(() => { }));
     }
@@ -70,7 +70,7 @@ public class RoundManager : Singleton<RoundManager>
         debugTimerText.text = timer.ToString(); // TODO: Remove this
         if (timer <= 0f)
         {
-            EventManager.Invoke("GameLost");
+            EventManager.Invoke("LoseInterim");
         }
     }
 
@@ -103,10 +103,10 @@ public class RoundManager : Singleton<RoundManager>
                     GameManager.ChangeState(GameState.Interim2);
                     break;
                 case 2:
-                    GameManager.ChangeState(GameState.Win);
+                    GameManager.ChangeState(GameState.WinInterim);
                     break;
                 default:
-                    GameManager.ChangeState(GameState.Win);
+                    GameManager.ChangeState(GameState.WinInterim);
                     break;
                 
         }
@@ -146,14 +146,14 @@ public class RoundManager : Singleton<RoundManager>
 
     public void OnCorrectMarry()
     {
-        timer += correctTimeIncrement;
+        timer += stageDatas[GameManager.stageNum].correctTimeIncrement;
         timer = Mathf.Clamp(timer, 0f, currentStageData.maxTimeLength);
 
     }
 
     public void OnInorrectMarry()
     {
-        timer += incorrectTimeIncrement;
+        timer += stageDatas[GameManager.stageNum].incorrectTimeIncrement;
         timer = Mathf.Clamp(timer, 0f, currentStageData.maxTimeLength);
     }
 

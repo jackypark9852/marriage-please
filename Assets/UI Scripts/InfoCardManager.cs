@@ -100,8 +100,8 @@ public class InfoCardManager : MonoBehaviour
         //     return;
         // }
         // Debug.Log("clicked");
-        Debug.Log("OnMouseDown: " + personData.Name);
-        Debug.Log("OnMouseDown IsSafeChoice: " + IsSafeChoice);
+        // Debug.Log("OnMouseDown: " + personData.Name);
+        // Debug.Log("OnMouseDown IsSafeChoice: " + IsSafeChoice);
 
 
         animatingInfoCard.Invoke(gameObject, IsSafeChoice);

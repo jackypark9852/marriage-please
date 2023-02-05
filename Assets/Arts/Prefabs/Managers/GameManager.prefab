@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  fadeImage: {fileID: 0}
   sceneNameList:
   - MainMenu
   - DialogueScene
@@ -53,3 +54,5 @@ MonoBehaviour:
   - GameLostScene
   - Interm1
   - Interm2
+  - WinInterim
+  - LoseInterim
