@@ -160,6 +160,12 @@ MonoBehaviour:
     - BadFemale3
     - FootStep1
     - FootStep2
+    - Paper1
+    - Paper2
+    - Paper3
+    - Click
+    - Heartbeat
+    - Humm
     m_values:
     - {fileID: 8300000, guid: 47def54f99cae4846aa309e4cacb7943, type: 3}
     - {fileID: 8300000, guid: 8d09f23afd8c5da429a29724345a27b0, type: 3}
@@ -178,3 +184,9 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 47d1fb8e295fbb7429a739803f90b683, type: 3}
     - {fileID: 8300000, guid: 310fb3b8df12be2469b79e3c82ae40e9, type: 3}
     - {fileID: 8300000, guid: 3dd12e3bee977dd498b65434cda24de2, type: 3}
+    - {fileID: 8300000, guid: a175ba7427e0b42458dff7206f5d4939, type: 3}
+    - {fileID: 8300000, guid: b0c94f1ed2838b6449921843e4dd3e6a, type: 3}
+    - {fileID: 8300000, guid: 15c17e63eeae83248b50086d92619ac0, type: 3}
+    - {fileID: 8300000, guid: c6562f069875b92449535f0cdaff0a28, type: 3}
+    - {fileID: 8300000, guid: 6bf725a502d68b94eba109dacc392224, type: 3}
+    - {fileID: 8300000, guid: bec29df750f3f664bb74de82c6a8104b, type: 3}
