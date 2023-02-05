@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c6fb74845b350e408804041ca9ef099, type: 3}
+  m_Name: IsoldRacine
+  m_EditorClassIdentifier: 
+  _name: IsoldRacine
+  _sprite: {fileID: 21300000, guid: 933d2d9466599bf4b92d3d3a03af2626, type: 3}
+  _children: []

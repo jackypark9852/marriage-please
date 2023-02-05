@@ -13,7 +13,7 @@ public class GameManager : Singleton<GameManager>
         get { return state; }
     }
     public List<string> sceneNameList = new List<string>();
-    public static bool haveDone = false;
+    private static bool haveDone = false;
     protected override void Awake(){
         base.Awake();
     
@@ -31,6 +31,7 @@ public class GameManager : Singleton<GameManager>
         EventManager.AddEvent("GameLost", new UnityAction(()=>SceneManager.LoadScene(Instance.sceneNameList[4]))); //When you press the start button
         EventManager.AddEvent("ChangeState", new UnityAction(()=>Debug.Log("ChangeState")));//when you change the states'
         haveDone = true;
+        // ChangeState(GameState.Menu);  // TODO: uncomment in final build
     }
 
      public static void ChangeState(string str){
@@ -64,10 +65,6 @@ public class GameManager : Singleton<GameManager>
 
     public static void ChangeState(GameState newState)
     {
-        if (newState == Instance.state)
-        {
-            return;
-        }   
         Debug.Log(newState);
         Instance.state = newState;
         OnStateChanged();

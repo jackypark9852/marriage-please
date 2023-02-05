@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class FamilyTreeCanvasWindowController : CanvasWindowController
+public class FamilyTreeCanvasWindowController : CanvasWindowController, IPointerDownHandler
 {
     [Header("Animation settings")]
     [SerializeField] float openAnimTime = 0.5f;
@@ -80,6 +81,14 @@ public class FamilyTreeCanvasWindowController : CanvasWindowController
         if (closeSound != null)
         {
             AudioSource.PlayClipAtPoint(closeSound, Camera.main.transform.position);
+        }
+    }
+
+    public void OnPointerDown(PointerEventData data)
+    {
+        if (data.button == PointerEventData.InputButton.Right)
+        {
+            CloseWindow();
         }
     }
 }
