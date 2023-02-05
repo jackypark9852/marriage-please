@@ -300,7 +300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: Dale
   nameColor: {r: 1, g: 1, b: 1, a: 1}
-  soundEffect: {fileID: 0}
+  soundEffect: {fileID: 8300000, guid: 167f5f0e91bd4cb4aab942a96e77b928, type: 3}
   portraits:
   - {fileID: 21300000, guid: 89be5ec975d9b0d4bb77457ec91f997e, type: 3}
   portraitsFace: 0
@@ -850,7 +850,7 @@ MonoBehaviour:
   storyText: '{b} Dale: {/b} This is the profile of the marriage requestor looking
     to marry.'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -877,7 +877,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: ' {b} Dale: {/b} Marriage requests are coming in!'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1167,7 +1167,7 @@ MonoBehaviour:
 
 '
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1253,7 +1253,7 @@ MonoBehaviour:
 
 '
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1307,7 +1307,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: '{b} Dale: {/b} However, this island has never been a populous place...'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1335,7 +1335,7 @@ MonoBehaviour:
   storyText: "{b} Dale: {/b} Especially in the last decade, our gene pool runs dangerously
     close to being inbred! \r"
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1362,7 +1362,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: "{b} Dale: {/b} Make sure people don\u2019t marry their relatives!"
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1389,7 +1389,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: '{b} Dale: {/b} While doing so, beware of their roots!'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1419,7 +1419,7 @@ MonoBehaviour:
 
 '
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1447,7 +1447,7 @@ MonoBehaviour:
   storyText: '{b} Dale: {/b} Now that you know how "close relatives" are determined,
     good luck out there!'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1474,7 +1474,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: '{b} Dale: {/b} When in doubt, consult the family tree by your hand!'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1502,7 +1502,7 @@ MonoBehaviour:
   storyText: '{b} Dale: {/b} Choose one to marry the applicant. Make sure not to
     make inbred couples!'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1529,7 +1529,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: '{b} Dale: {/b} Congratulations, Viviana and Alvina!'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1557,7 +1557,7 @@ MonoBehaviour:
   storyText: '{b} Dale: {/b} They are 4 times removed. They are NOT close relatives,
     and can marry each other.'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1584,7 +1584,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: '{b} Dale: {/b} Viviana Gyoker and Alvina Gyoker though...'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1611,7 +1611,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: '{b} Dale: {/b} They are 3 times removed. They are close relatives!'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1639,7 +1639,7 @@ MonoBehaviour:
   storyText: '{b} Dale: {/b} Cornard Wurzel and Alvina Gyoker. If you count the lines
     between them...'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1666,7 +1666,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: '{b} Dale: {/b} Look at the family tree.'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 94490184}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1907,7 +1907,7 @@ MonoBehaviour:
   waitUntilFinished: 1
 --- !u!114 &407307769
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
