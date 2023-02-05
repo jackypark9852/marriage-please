@@ -9,7 +9,8 @@ public class MusicManager : Singleton<MusicManager>
     public List<AudioClip> musicClips = new List<AudioClip>();
     private AudioSource audioSource;
     private float volume = 1;
-    void Awake(){
+    protected override void Awake(){
+        base.Awake();
         audioSource = GetComponent<AudioSource>();
         EventManager.AddEvent("StartMenu", new UnityAction(()=>Instance.PlayMusic(0))); //When you first enter into the game
         EventManager.AddEvent("StartTutorial", new UnityAction(()=>Instance.PlayMusic(1))); //When you press the start button

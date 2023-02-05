@@ -14,7 +14,8 @@ public class GameManager : Singleton<GameManager>
     }
     public List<string> sceneNameList = new List<string>();
 
-    void Awake(){
+    protected override void Awake(){
+        base.Awake();
         EventManager.Instance.Init();
         EventManager.AddEvent("StartMenu", new UnityAction(()=>Debug.Log("StartMenu"))); //When you first enter into the game
         EventManager.AddEvent("ChangeState", new UnityAction(()=>Debug.Log("ChangeState")));//when you change the states'
@@ -22,7 +23,6 @@ public class GameManager : Singleton<GameManager>
         EventManager.AddEvent("RoundStart", new UnityAction(()=>Debug.Log("RoundStart"))); //When you press the start button
         EventManager.AddEvent("GameWon", new UnityAction(()=>Debug.Log("GameWon"))); //When you press the start button
         EventManager.AddEvent("GameLost", new UnityAction(()=>Debug.Log("GameLost"))); //When you press the start button
-        ChangeState(GameState.Menu);
     }
 
     void OnDisable(){
@@ -74,6 +74,7 @@ public class GameManager : Singleton<GameManager>
         }   
         Debug.Log(newState);
         Instance.state = newState;
+        Debug.Log(Instance.state);
         Instance.OnStateChanged();
         switch (newState)
         {

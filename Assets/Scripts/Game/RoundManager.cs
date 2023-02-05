@@ -96,7 +96,7 @@ public class RoundManager : Singleton<RoundManager>
         stageNum++;
         if (stageNum >= stageDatas.Count)
         {
-            EventManager.Invoke("GameWon");
+            GameManager.ChangeScene("Win");
         } else {
             Debug.Log("Stage passed");
             EventManager.Invoke("StagePassed");
