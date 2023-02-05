@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    public GameState state = GameState.NotStarted;
+    public GameState state = GameState.Menu;
     public GameState State
     {
         get { return state; }
@@ -16,13 +16,13 @@ public class GameManager : Singleton<GameManager>
 
     void Awake(){
         EventManager.Instance.Init();
-        EventManager.AddEvent("StartMenu", new UnityAction(()=>Debug.Log("UnityStart"))); //When you first enter into the game
+        EventManager.AddEvent("StartMenu", new UnityAction(()=>Debug.Log("StartMenu"))); //When you first enter into the game
         EventManager.AddEvent("ChangeState", new UnityAction(()=>Debug.Log("ChangeState")));//when you change the states'
-        EventManager.AddEvent("StartTutorial", new UnityAction(()=>SceneManager.LoadScene(sceneNameList[1]))); //When you press the start button
-        EventManager.AddEvent("RoundStart", new UnityAction(()=>SceneManager.LoadScene(sceneNameList[2]))); //When you press the start button
-        EventManager.AddEvent("GameWon", new UnityAction(()=>SceneManager.LoadScene(sceneNameList[3]))); //When you press the start button
-        EventManager.AddEvent("GameLost", new UnityAction(()=>SceneManager.LoadScene(sceneNameList[4]))); //When you press the start button
-
+        EventManager.AddEvent("StartTutorial", new UnityAction(()=>Debug.Log("StartTutorial"))); //When you press the start button
+        EventManager.AddEvent("RoundStart", new UnityAction(()=>Debug.Log("RoundStart"))); //When you press the start button
+        EventManager.AddEvent("GameWon", new UnityAction(()=>Debug.Log("GameWon"))); //When you press the start button
+        EventManager.AddEvent("GameLost", new UnityAction(()=>Debug.Log("GameLost"))); //When you press the start button
+        ChangeState(GameState.Menu);
     }
 
     void OnDisable(){
@@ -35,70 +35,44 @@ public class GameManager : Singleton<GameManager>
 
 
     }
-    void Start()
-    {
-        ChangeState(GameState.Menu);
-        EventManager.Invoke("UnityStart");
-    }
-
-    public static void ChangeStateIndex(int i){
-        SceneManager.LoadScene(Instance.sceneNameList[i]);
-    }
 
      public static void ChangeScene(string str){
         switch(str){
             case "Menu":
                 SceneManager.LoadScene(Instance.sceneNameList[0]);
+                Instance.ChangeState(GameState.Menu);
                 break;
             case "Tutorial":
                 SceneManager.LoadScene(Instance.sceneNameList[1]);
+                Instance.ChangeState(GameState.Tutorial);
                 break;
 
             case "Round":
                 SceneManager.LoadScene(Instance.sceneNameList[2]);
+                Instance.ChangeState(GameState.Round);
                 break;
             
             case "Win": 
                 SceneManager.LoadScene(Instance.sceneNameList[3]);
+                Instance.ChangeState(GameState.Win);
                 break;
             
             case "Lose":   
                 SceneManager.LoadScene(Instance.sceneNameList[4]);
-                break;
-
-        }
-    }
-    public static void ChangeStateString(string str){
-        switch(str){
-            case "Menu":
-                Instance.ChangeState(GameState.Menu);
-                break;
-            case "Tutorial":
-                Instance.ChangeState(GameState.Tutorial);
-                break;
-            case "Round":
-                Instance.ChangeState(GameState.Round);
-                break;
-            case "Win":
-                Instance.ChangeState(GameState.Win);
-                break;
-            case "Lose":
                 Instance.ChangeState(GameState.Lose);
                 break;
+
         }
     }
 
-    public void DetectStage(){
-
-    }
 
     public void ChangeState(GameState newState)
     {
         if (newState == state)
         {
             return;
-        }
-
+        }   
+        Debug.Log(newState);
         state = newState;
         OnStateChanged();
         switch (newState)
@@ -134,7 +108,6 @@ public class GameManager : Singleton<GameManager>
 
 public enum GameState
 {
-    NotStarted, //When you start the unity and but not press the start button
     Menu, //When you are in the menu
     Tutorial,
     Round, //When you are in the game

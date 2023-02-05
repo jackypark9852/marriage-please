@@ -236,7 +236,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6454175579250567867}
   - component: {fileID: 6454175579250567866}
-  - component: {fileID: 6454175579250567865}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -317,21 +316,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &6454175579250567865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6454175579250567868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f952869cab9d354da11f7c325f1a560, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 5072589952006230200}
-  slider: {fileID: 6454175579250567866}
+      m_Calls:
+      - m_Target: {fileID: 3063895965739763902}
+        m_TargetAssemblyTypeName: VolumeSlider, Assembly-CSharp
+        m_MethodName: SetVoice
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6454175579470090325
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,6 +340,7 @@ GameObject:
   - component: {fileID: 6454175579470090324}
   - component: {fileID: 6454175579470090322}
   - component: {fileID: 6454175579470090323}
+  - component: {fileID: 3063895965739763902}
   m_Layer: 5
   m_Name: SetupPanel
   m_TagString: Untagged
@@ -411,6 +409,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3063895965739763902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454175579470090325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f952869cab9d354da11f7c325f1a560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6454175579654136857
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,6 +592,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeleteButton
       objectReference: {fileID: 0}
+    - target: {fileID: 8954969189670940783, guid: b45d8917d73930946abcc44d55496207, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954969189670940783, guid: b45d8917d73930946abcc44d55496207, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954969189670940783, guid: b45d8917d73930946abcc44d55496207, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6454175579470090325}
+    - target: {fileID: 8954969189670940783, guid: b45d8917d73930946abcc44d55496207, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954969189670940783, guid: b45d8917d73930946abcc44d55496207, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954969189670940783, guid: b45d8917d73930946abcc44d55496207, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954969189670940783, guid: b45d8917d73930946abcc44d55496207, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954969189670940783, guid: b45d8917d73930946abcc44d55496207, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b45d8917d73930946abcc44d55496207, type: 3}
 --- !u!224 &6454175578376793288 stripped
@@ -596,9 +638,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6454175579470090324}
     m_Modifications:
+    - target: {fileID: 1449924103330336305, guid: 3f2c7d802260cdd4fb8317b8e4762cd6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449924103330336305, guid: 3f2c7d802260cdd4fb8317b8e4762cd6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449924103330336305, guid: 3f2c7d802260cdd4fb8317b8e4762cd6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3063895965739763902}
+    - target: {fileID: 1449924103330336305, guid: 3f2c7d802260cdd4fb8317b8e4762cd6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449924103330336305, guid: 3f2c7d802260cdd4fb8317b8e4762cd6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MuteVoice
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449924103330336305, guid: 3f2c7d802260cdd4fb8317b8e4762cd6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VolumeSlider, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449924103330336305, guid: 3f2c7d802260cdd4fb8317b8e4762cd6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7029914332908859471, guid: 3f2c7d802260cdd4fb8317b8e4762cd6, type: 3}
       propertyPath: m_Name
-      value: SoundButton
+      value: MuteButton
       objectReference: {fileID: 0}
     - target: {fileID: 7626626581180587876, guid: 3f2c7d802260cdd4fb8317b8e4762cd6, type: 3}
       propertyPath: m_Pivot.x
@@ -691,14 +761,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7626626581180587876, guid: 3f2c7d802260cdd4fb8317b8e4762cd6, type: 3}
   m_PrefabInstance: {fileID: 5943168098621464201}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5072589952006230200 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1449924103330336305, guid: 3f2c7d802260cdd4fb8317b8e4762cd6, type: 3}
-  m_PrefabInstance: {fileID: 5943168098621464201}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
