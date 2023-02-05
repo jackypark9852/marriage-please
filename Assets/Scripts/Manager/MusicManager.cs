@@ -13,7 +13,7 @@ public class MusicManager : Singleton<MusicManager>
     public MusicDictionary musicClips = new MusicDictionary();
     private AudioSource audioSource1;
     private AudioSource audioSource2;
-    private float volume = 0.0f; // TODO: Only for testing purpose
+    private float volume = 0.5f; // TODO: Only for testing purpose
     private static bool haveDone = false;
     private string playName;
     [SerializeField]
