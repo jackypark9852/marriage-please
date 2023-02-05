@@ -540,7 +540,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 407307741}
   selectedCommands:
-  - {fileID: 407307753}
+  - {fileID: 407307750}
   variables: []
   description: 
   stepPause: 0
@@ -641,7 +641,7 @@ MonoBehaviour:
 
 '
   description: 
-  character: {fileID: 0}
+  character: {fileID: 1035413618}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -668,7 +668,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: '{b} Dale: {/b} Good job! But more people are coming in.'
   description: 
-  character: {fileID: 0}
+  character: {fileID: 1035413618}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -695,7 +695,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: Good luck!
   description: 
-  character: {fileID: 0}
+  character: {fileID: 1035413618}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -768,7 +768,7 @@ MonoBehaviour:
   waitUntilFinished: 1
 --- !u!114 &407307753
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}

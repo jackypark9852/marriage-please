@@ -600,7 +600,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 407307741}
   selectedCommands:
-  - {fileID: 407307752}
+  - {fileID: 407307750}
   variables: []
   description: 
   stepPause: 0
@@ -699,7 +699,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: Seeing your great work, House Gyoker is also getting into the mix.
   description: 
-  character: {fileID: 0}
+  character: {fileID: 1691823310}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -726,7 +726,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: Nice! The Wurzels and the Racines are both satisfied.
   description: 
-  character: {fileID: 0}
+  character: {fileID: 1691823310}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -753,7 +753,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: Good luck!
   description: 
-  character: {fileID: 0}
+  character: {fileID: 1691823310}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
