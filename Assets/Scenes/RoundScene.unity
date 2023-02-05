@@ -482,6 +482,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: PlayMusic
       objectReference: {fileID: 0}
+    - target: {fileID: 4559092375407883079, guid: 65d574b9d4e6e9f4c896c2478277928a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Round1
+      objectReference: {fileID: 0}
     - target: {fileID: 5266224870076711830, guid: 65d574b9d4e6e9f4c896c2478277928a, type: 3}
       propertyPath: m_Sprite
       value: 
