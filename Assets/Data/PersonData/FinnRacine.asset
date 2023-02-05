@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c6fb74845b350e408804041ca9ef099, type: 3}
-  m_Name: GerultRacine
+  m_Name: FinnRacine
   m_EditorClassIdentifier: 
-  _name: Gerult Racine
-  _sprite: {fileID: 21300000, guid: c46a6033f9e93c543b47484dc2c72a9a, type: 3}
+  _name: Finn Racine
+  _sprite: {fileID: 21300000, guid: 8391473ae1eeda946857e9576071b6d5, type: 3}
   _children:
-  - {fileID: 11400000, guid: 4767744c266187b4b863a1c5c9912f77, type: 2}
+  - {fileID: 11400000, guid: ef938262aa0012d478cec7867b89f331, type: 2}
+  - {fileID: 11400000, guid: 315331853804ac145832c8a5ea5ce4a5, type: 2}
